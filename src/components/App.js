@@ -42,7 +42,7 @@ class App extends Component {
           title[0].style["color"]='#D38BF0'; 
           title[0].style["font-family"]='game-show2'; 
           
-          questionMarks[0].textContent='¿';
+          // questionMarks[0].textContent='¿';
           questionMarks[0].style["font-size"]='18px'; 
           questionMarks[0].style["color"]='#D38BF0'; 
           questionMarks[0].style["font-family"]='game-show'; 
@@ -57,7 +57,7 @@ class App extends Component {
           title[1].style["font-family"]='game-show2'; 
 
 
-          questionMarks[1].textContent='¿';
+          // questionMarks[1].textContent='¿';
           
           questionMarks[1].style["font-size"]='18px'; 
           questionMarks[1].style["color"]='#F30C0E'; 
@@ -74,7 +74,7 @@ class App extends Component {
         title[2].style["font-family"]='game-show2'; 
 
         
-        questionMarks[2].textContent='¿';
+        // questionMarks[2].textContent='¿';
         questionMarks[2].style["color"]='#0EF30C'; 
         questionMarks[2].style["font-family"]='game-show'; 
         questionMarks[2].style["font-size"]='18px'; 
@@ -87,13 +87,22 @@ class App extends Component {
         title[3].style["color"]='#0EF30C'; 
         title[3].style["font-family"]='game-show';
         
-        questionMarks[0].textContent='?';
-        questionMarks[1].textContent='?';
-        questionMarks[2].textContent='?';
+        // questionMarks[0].textContent='¿';
+        // questionMarks[1].textContent='¿';
+        // questionMarks[2].textContent='¿';
 
-        questionMarks[0].style["animation"]='loop-size'; 
-        questionMarks[1].style["animation"]='loop-size'; 
-        questionMarks[2].style["animation"]='loop-size'; 
+        questionMarks[0].style["animation"]='my-spin 1s'; 
+        questionMarks[0].style["moz-animation"]='my-spin 1s';
+        questionMarks[1].style["animation"]='my-spin 1s'; 
+        questionMarks[1].style["moz-animation"]='my-spin 1s'; 
+        questionMarks[2].style["animation"]='my-spin 1s'; 
+        questionMarks[2].style["moz-animation"]='my-spin 1s';  
+        // console.log(questionMarks[0].style.animation);
+
+        // questionMarks[1].style["animation"]='fadein'; 
+        // //questionMarks[2].style["animation"]='-spin'; 
+
+        // questionMarks[2].style["-webkit-animation"]='my-spin infinite 20s linear';
 
 
         

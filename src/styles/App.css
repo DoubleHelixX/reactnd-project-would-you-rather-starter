@@ -9,7 +9,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: my-spin infinite 20s linear;
   }
 }
 
@@ -28,15 +28,28 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
+@keyframes my-spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
 
+@keyframes fadein {
+  from { opacity: 0;}
+  to   { opacity: 1;}
+}
+
+@keyframes textgrowth {
+  0% {
+  font-size: 18px;
+  }
+  100% {
+  font-size: 20px;
+  }
+}
 
 .Heading-div{
   display: block;
@@ -53,7 +66,7 @@
   border-radius: 31px;
   /* margin: 0px 2px; */
 }
-
+/* 
 @keyframes fadein {
   from { opacity: 0;}
   to   { opacity: 1;}
@@ -62,7 +75,7 @@
 @-webkit-keyframes fadein {
   from { -webkit-opacity: 0;}
   to   { -webkit-opacity: 1;}
-}
+} */
 /* 
 @-webkit-keyframes flip
  {
@@ -81,15 +94,11 @@
     100%  {-moz-transform: rotate(-360deg);top:70%;}
 }
 
-
-
-@keyframes loop-size
-{
-     0%  {font-size: '42px'; opacity: 1;}
-    100%  {font-size: '18px'; opacity: 1;}
-}
  */
+/* 
 
+
+ */
 
 @font-face {
   font-family: 'game-show2';
@@ -102,7 +111,7 @@
 }
  
 .title{
-  display: inline;
+  display: inline-block;
   font-size: 10px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
@@ -112,7 +121,7 @@
   }
 
   .question-marks{
-    display: inline;
+    display: inline-block;
     font-size: 10px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
@@ -120,7 +129,8 @@
     font-weight: bolder;
     color: #359FCA;
 
-    /* animation: loop-size ; */
+
+
   }
 .signature {
   font-size: 10px;
