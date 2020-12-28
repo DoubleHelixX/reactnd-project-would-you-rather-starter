@@ -29,8 +29,9 @@ class App extends Component {
     const user = users.sarahedo;
     let title = document.getElementsByClassName('title');
     let questionMarks = document.getElementsByClassName('question-marks');
-
     let signature = document.getElementsByClassName('signature');
+
+
 
     if (title.length>0)
       {
@@ -96,7 +97,15 @@ class App extends Component {
         questionMarks[1].style["animation"]='my-spin 1s'; 
         questionMarks[1].style["moz-animation"]='my-spin 1s'; 
         questionMarks[2].style["animation"]='my-spin 1s'; 
-        questionMarks[2].style["moz-animation"]='my-spin 1s';  
+        questionMarks[2].style["moz-animation"]='my-spin 1s'; 
+        
+        signature[0].style["moz-animation"]='fadein 1s'; 
+        signature[0].style["animation"]='fadein 1s'; 
+        signature[0].textContent=' (React/Redux App)  Created By: Thomas Rivera '; 
+
+
+
+
         // console.log(questionMarks[0].style.animation);
 
         // questionMarks[1].style["animation"]='fadein'; 
@@ -125,7 +134,7 @@ class App extends Component {
 
         <div className="App">
       
-          <div className = "Heading-div"> <span className='title'>Would </span><span className='title'>you </span><span className='title'>Rat</span><span className='title'>her</span> <span className='question-marks'> ?</span> <span className='question-marks'> ?</span> <span className='question-marks'> ? </span>  <span className = 'signature'> (React/Redux App)  Created By: Thomas Rivera </span></div>
+          <div className = "Heading-div"> <span className='title'>Would </span><span className='title'>you </span><span className='title'>Rat</span><span className='title'>her</span> <span className='question-marks'> ?</span> <span className='question-marks'> ?</span> <span className='question-marks'> ? </span>  <span className = 'signature'> </span></div>
 
         <Nav />
 
