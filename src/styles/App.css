@@ -78,7 +78,7 @@
   src: url('1.ttf') format('truetype');
 }
  
-.title{
+.title-animate{
   display: inline-block;
   font-size: 10px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -86,20 +86,86 @@
   line-height: 150%;
   font-weight: bolder;
   color: #359FCA;
+}
+
+.question-marks-animate{
+  display: inline-block;
+  font-size: 10px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  line-height: 150%;
+  font-weight: bolder;
+  color: #359FCA;
+
+
+
+  }
+.signature-animate {
+  font-size: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 25px;
+  color: white;
+
+}
+
+
+
+.title{
+  display: inline-block;
+  font-size: 18px;
+  font-family:'game-show2, Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  line-height: 150%;
+  font-weight: bolder;
+}
+
+.question-marks{
+  display: inline-block;
+  font-size: 18px;
+  font-family:'game-show,  Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  line-height: 150%;
+  font-weight: bolder;
+
+
+
   }
 
-  .question-marks{
-    display: inline-block;
-    font-size: 10px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    text-align: center;
-    line-height: 150%;
-    font-weight: bolder;
-    color: #359FCA;
+#T0{
+color:#D38BF0  ;
+}
+
+#T1{
+color:#F30C0E  ;
+  
+}
+
+#T2{
+color:#0EF30C  ;
+  
+}
 
 
+#Q0{
+color:#D38BF0  ;
+  
+}
 
-  }
+
+#Q1{
+color:#F30C0E  ;
+  
+}
+
+
+#Q2{
+color:#0EF30C  ;
+  
+}
+
+
 .signature {
   font-size: 10px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -110,4 +176,19 @@
 
 }
 
+.nav{
+  display: flex;
+  justify-content: left;
+  color:white;
+}
+
+.nav-links{
+  list-style-type: none;
+  text-align: center; 
+  
+}
+
+.nav-links li{
+  margin-left: 35px;
+}
 
