@@ -2,24 +2,27 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function Nav () {
+
+
+
   return (
     <nav className='nav'>
       <ul className='nav-links'>
         <li>
   
-          <NavLink to='/dashboard' exact activeClassName='active'style={{ textDecoration: 'none' }}>
+          <NavLink to='/dashboard' exact  activeClassName='active-tab' style={{ textDecoration: 'none'}}>
             Home
           </NavLink>
         </li>
 
         <li>
-          <NavLink to='/question' activeClassName='active' style={{ textDecoration: 'none' }}>
+          <NavLink to='/question' exact  activeClassName='active-tab'  style={{ textDecoration: 'none'}} >
             New Question
           </NavLink>
         </li>
 
         <li>
-          <NavLink to='/leader-board' activeClassName='active' style={{ textDecoration: 'none' }}>
+          <NavLink to='/leader-board' exact  activeClassName='active-tab'  style={{ textDecoration: 'none'}} >
             Leader Board
           </NavLink>
         </li>
