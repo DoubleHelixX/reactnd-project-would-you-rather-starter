@@ -1,3 +1,5 @@
+
+
 const colors = [
     "#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8", "#648177" ,"#0d5ac1" ,
     "#f205e6" ,"#1c0365" ,"#14a9ad" ,"#4ca2f9" ,"#a4e43f" ,"#d298e2" ,"#6119d0",
@@ -41,5 +43,5 @@ const colors = [
     "#dba2e6", "#76fc1b", "#608fa4", "#20f6ba", "#07d7f6", "#dce77a", "#77ecca"];
 
 export function getRandomColor() {
-    return colors[Math.random(279)];
+    return colors[Math.floor(Math.random() * Math.floor(280))];
 }

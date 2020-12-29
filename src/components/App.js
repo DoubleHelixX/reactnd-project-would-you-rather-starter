@@ -1,7 +1,6 @@
 import logo from '../logo.svg';
 import '../styles/App.css';
 import * as DataAPI from '../utils/_DATA'
-import * as Constants from '../utils/Constants'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import TitleAnimate from './TitleAnimate'
@@ -33,7 +32,7 @@ class App extends Component {
   }
 
   render() {
-    const { users, animation } = this.state;
+    const { users } = this.state;
     const user = users.sarahedo;
     
 

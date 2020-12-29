@@ -7,17 +7,21 @@ export default function dashboard () {
     
     <div className='question-table'>
 
-        <button>
+        <button className='unanswered'>
 
         </button>
 
-        <button>
+        <button className='answered'>
             
         </button>
 
-        <div>
+        <div className='questions'>
+            <div className='question'>
 
-            
+                
+            </div>
+
+
         </div>
     </div>
 
