@@ -1,9 +1,6 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function Nav () {
-
-
 
   return (
     <nav className='nav'>
@@ -23,10 +20,12 @@ export default function Nav () {
 
         <li>
           <NavLink to='/leader-board' exact  activeClassName='active-tab'  style={{ textDecoration: 'none'}} >
-            Leader Board
+            LeaderBoard
           </NavLink>
         </li>
       </ul>
+      
     </nav>
+    
   )
 }

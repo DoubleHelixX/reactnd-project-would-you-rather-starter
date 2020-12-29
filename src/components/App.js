@@ -1,14 +1,16 @@
 import logo from '../logo.svg';
 import '../styles/App.css';
 import * as DataAPI from '../utils/_DATA'
-import React, { Component, Fragment } from 'react'
+import * as Constants from '../utils/Constants'
 import Nav from './Nav'
+import Dashboard from './Dashboard'
 import TitleAnimate from './TitleAnimate'
 import Title from './Title'
 
-
+import React, { Component, Fragment } from 'react'
+// import LoadingBar from 'react-redux-loading'
+// import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import * as Constants from '../utils/Constants'
 
 
 
@@ -44,7 +46,8 @@ class App extends Component {
   
     return (
       <Router>
-
+        <Fragment>
+        {/* <LoadingBar /> */}
         <div className="App">
       
         <TitleAnimate path='/' exact  />
@@ -52,15 +55,29 @@ class App extends Component {
         {/* <Title path='/ '   /> */}
 
         <Nav />
+        <div className='border'>
 
+        <hr className='style13' />
+        <Dashboard/>
 
             {console.log('USERS: ', user && Object.keys(user.id))}
             <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1>
             
+
         </div>
+        </div>
+
+      </Fragment>
       </Router>
 
       );
+  }
+}
+
+
+function mapStateToProps ({ authedUser }) {
+  return {
+    loading: authedUser === null
   }
 }
 
