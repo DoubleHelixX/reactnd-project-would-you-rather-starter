@@ -7,19 +7,46 @@ export default function Nav () {
       <ul className='nav-links'>
         <li>
   
-          <NavLink to='/dashboard' exact  activeClassName='active-tab' style={{ textDecoration: 'none'}}>
+          <NavLink to='/dashboard'
+            isActive={(match, location) => {
+              //some additional logic to verify you are in the home URI
+              if(!location) return false;
+              const {pathname} = location;
+              console.log(pathname);
+              return pathname === "/dashboard" || pathname === "/";
+              }
+            }
+             activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
             Home
           </NavLink>
         </li>
 
         <li>
-          <NavLink to='/question' exact  activeClassName='active-tab'  style={{ textDecoration: 'none'}} >
+          <NavLink to='/question' 
+            isActive={(match, location) => {
+              //some additional logic to verify you are in the home URI
+              if(!location) return false;
+              const {pathname} = location;
+              console.log(pathname);
+              return pathname === "/question";
+              }
+            }
+            activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
             New Question
           </NavLink>
         </li>
 
         <li>
-          <NavLink to='/leader-board' exact  activeClassName='active-tab'  style={{ textDecoration: 'none'}} >
+          <NavLink to='/leaderboards' 
+            isActive={(match, location) => {
+              //some additional logic to verify you are in the home URI
+              if(!location) return false;
+              const {pathname} = location;
+              console.log(pathname);
+              return pathname === "/leaderboards";
+              }
+            }
+            activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
             LeaderBoard
           </NavLink>
         </li>

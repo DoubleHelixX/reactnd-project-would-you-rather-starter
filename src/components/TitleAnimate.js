@@ -13,6 +13,11 @@ export default function TitleAnimate () {
             title[0].style["font-size"]='28px'; 
             title[0].style["color"]='rgb(91, 228, 240)'; 
             title[0].style["font-family"]='game-show2'; 
+            // title[0].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
+            // title[1].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
+            // title[2].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
+            // title[3].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
+
 
             // questionMarks[0].textContent='¿';
             questionMarks[0].style["font-size"]='28px'; 
