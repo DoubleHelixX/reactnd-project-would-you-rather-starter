@@ -3,6 +3,7 @@ import '../styles/App.css';
 import * as DataAPI from '../utils/_DATA'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
+import Footer from './Footer'
 import TitleAnimate from './TitleAnimate'
 import Title from './Title'
 
@@ -54,16 +55,18 @@ class App extends Component {
         {/* <Title path='/ '   /> */}
 
         <Nav />
-        <div className='border'>
+        <div className='border-body'>
 
-        <hr className='style13' />
-        <Dashboard/>
+          <hr className='style13' />
+          <Dashboard/>
 
-            {console.log('USERS: ', user && Object.keys(user.id))}
-            <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1>
-            
+          {console.log('USERS: ', user && Object.keys(user.id))}
+          <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1>
+              
 
         </div>
+        <Footer/>
+
         </div>
 
       </Fragment>

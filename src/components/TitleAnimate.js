@@ -64,7 +64,7 @@ export default function TitleAnimate () {
         
         signature[0].style["moz-animation"]='fadein 1s'; 
         signature[0].style["animation"]='fadein 1s'; 
-        signature[0].textContent=' (React/Redux App)  Created By: Thomas Rivera '; 
+        signature[0].textContent=' (React/Redux App)  Created By: Tommy Rivera '; 
         
         }, 950);
     }

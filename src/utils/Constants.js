@@ -1,4 +1,19 @@
 
+import React from 'react'
+import { withBaseIcon  } from 'react-icons-kit'
+import {linkedin2} from 'react-icons-kit/icomoon/linkedin2'
+import {linkedinSquare} from 'react-icons-kit/fa/linkedinSquare'
+import {linkedin} from 'react-icons-kit/entypo/linkedin'
+import {socialLinkedin} from 'react-icons-kit/metrize/socialLinkedin'
+
+
+//lets say the icons on your side navigation are all color red
+const SideIconContainer = 
+    withBaseIcon({ size: 24, style: {color: '#ffffff'}})
+
+export const LinkedInIcon1 = () => <SideIconContainer icon={socialLinkedin}/>
+export const LinkedInIcon2 = () => <SideIconContainer icon={linkedin}/>
+export const LinkedInIcon3 = () => <SideIconContainer icon={linkedinSquare}/>
 
 const colors = [
     "#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8", "#648177" ,"#0d5ac1" ,
@@ -45,3 +60,4 @@ const colors = [
 export function getRandomColor() {
     return colors[Math.floor(Math.random() * Math.floor(280))];
 }
+

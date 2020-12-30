@@ -7,13 +7,13 @@ export default function Nav () {
       <ul className='nav-links'>
         <li>
   
-          <NavLink to='/dashboard'
+          <NavLink to='/home'
             isActive={(match, location) => {
               //some additional logic to verify you are in the home URI
               if(!location) return false;
               const {pathname} = location;
               console.log(pathname);
-              return pathname === "/dashboard" || pathname === "/";
+              return pathname === "/home" || pathname === "/";
               }
             }
              activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
