@@ -269,7 +269,7 @@ hr.style13 {
   border-left: 2px solid #1C6EA4; 
   border-right: 2px solid #1C6EA4;  
   border-radius: 0px 0px 0px 0px;
-  height:60vh;
+  height:40vh;
   /* height:30vh; 30vh animate */
   display: block;
   background-color:white;
@@ -301,7 +301,6 @@ hr.style13 {
 
 
 .footer{
-
   display: block;
   background-color:#359FCA;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -323,6 +322,19 @@ hr.style13 {
   flex-direction: row;
   justify-content: center;
   text-decoration: none;
+}
+
+.footer ul li {
+  padding-right: 60px;
+  
+
+}
+
+.footer ul li a{
+ color:rgb(2, 1, 1);
+ font-family:'Arial Narrow', Arial, sans-serif;
+ font-weight: bold;
+ text-decoration:none;
 }
 
 .footer-copyright{

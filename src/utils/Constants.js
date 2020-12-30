@@ -5,15 +5,23 @@ import {linkedin2} from 'react-icons-kit/icomoon/linkedin2'
 import {linkedinSquare} from 'react-icons-kit/fa/linkedinSquare'
 import {linkedin} from 'react-icons-kit/entypo/linkedin'
 import {socialLinkedin} from 'react-icons-kit/metrize/socialLinkedin'
+import {github} from 'react-icons-kit/icomoon/github'
+import { CgWebsite } from 'react-icons/cg';
+
+
+
 
 
 //lets say the icons on your side navigation are all color red
 const SideIconContainer = 
-    withBaseIcon({ size: 24, style: {color: '#ffffff'}})
+    withBaseIcon({ size: 24, style: {color: '#ffffff' }})
 
 export const LinkedInIcon1 = () => <SideIconContainer icon={socialLinkedin}/>
 export const LinkedInIcon2 = () => <SideIconContainer icon={linkedin}/>
 export const LinkedInIcon3 = () => <SideIconContainer icon={linkedinSquare}/>
+export const GithubIcon1 = () =>   <SideIconContainer  icon={github}/>
+export const websiteIcon1 = () => <CgWebsite size = {24} style= {{ color: '#ffffff', verticalAlign: 'middle'}}/>
+
 
 const colors = [
     "#63b598", "#ce7d78", "#ea9e70", "#a48a9e", "#c6e1e8", "#648177" ,"#0d5ac1" ,
