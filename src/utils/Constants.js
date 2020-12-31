@@ -14,13 +14,13 @@ import { CgWebsite } from 'react-icons/cg';
 
 //lets say the icons on your side navigation are all color red
 const SideIconContainer = 
-    withBaseIcon({ size: 24, style: {color: '#ffffff' }})
+    withBaseIcon({ size: 24, style: { color: '#ffffff' }})
 
-export const LinkedInIcon1 = () => <SideIconContainer icon={socialLinkedin}/>
+export const LinkedInIcon1 = () => <SideIconContainer   icon={socialLinkedin}/>
 export const LinkedInIcon2 = () => <SideIconContainer icon={linkedin}/>
-export const LinkedInIcon3 = () => <SideIconContainer icon={linkedinSquare}/>
-export const GithubIcon1 = () =>   <SideIconContainer  icon={github}/>
-export const websiteIcon1 = () => <CgWebsite size = {24} style= {{ color: '#ffffff', verticalAlign: 'middle'}}/>
+export const LinkedInIcon3 = () => <SideIconContainer icon={linkedinSquare}  />
+export const GithubIcon1 = () =>   <SideIconContainer  icon={github} style= {{border: 'double 2px black' , padding: '0px', borderRadius:' 0px 31px 31px 31px',color: '#ffffff' }}/>
+export const websiteIcon1 = () => <CgWebsite size = {24} style= {{  color: '#ffffff', verticalAlign: 'middle'}}/>
 
 
 const colors = [

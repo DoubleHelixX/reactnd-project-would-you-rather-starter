@@ -13,16 +13,18 @@ export default function TitleAnimate () {
             title[0].style["font-size"]='28px'; 
             title[0].style["color"]='rgb(91, 228, 240)'; 
             title[0].style["font-family"]='game-show2'; 
-            // title[0].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
-            // title[1].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
-            // title[2].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
-            // title[3].style['text-shadow'] = '#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px'
-
+            title[0].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+            title[1].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+            title[2].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+            title[3].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+            // NEON COLORS -  #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px
 
             // questionMarks[0].textContent='¿';
             questionMarks[0].style["font-size"]='28px'; 
             questionMarks[0].style["color"]='rgb(91, 228, 240)'; 
             questionMarks[0].style["font-family"]='game-show'; 
+            questionMarks[0].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+
         }, 250);
 
         setTimeout(() => { 
@@ -34,22 +36,26 @@ export default function TitleAnimate () {
             questionMarks[1].style["font-size"]='28px'; 
             questionMarks[1].style["color"]='rgb(252, 107, 87)'; 
             questionMarks[1].style["font-family"]='game-show'; 
+            questionMarks[1].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+
         }, 500);
         
         setTimeout(() => { 
         title[2].style["font-size"]='28px'; 
-        title[2].style["color"]='rgb(126, 80, 168)'; 
+        title[2].style["color"]='#F50A8D'; 
         title[2].style["font-family"]='game-show2'; 
 
         // questionMarks[2].textContent='¿';
-        questionMarks[2].style["color"]='rgb(126, 80, 168)'; 
+        questionMarks[2].style["color"]='#F50A8D'; 
         questionMarks[2].style["font-family"]='game-show'; 
         questionMarks[2].style["font-size"]='28px'; 
+        questionMarks[2].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+
         }, 750);
         
         setTimeout(() => { 
         title[3].style["font-size"]='28px'; 
-        title[3].style["color"]='rgb(126, 80, 168)'; 
+        title[3].style["color"]='#F50A8D'; 
         title[3].style["font-family"]='game-show';
 
         // questionMarks[0].textContent='¿';
@@ -64,7 +70,9 @@ export default function TitleAnimate () {
         
         signature[0].style["moz-animation"]='fadein 1s'; 
         signature[0].style["animation"]='fadein 1s'; 
-        signature[0].textContent=' (React/Redux App)  Created By: Tommy Rivera '; 
+        signature[0].textContent=' (React/Redux App)  Created By: Tommy Rivera ';
+        signature[0].style['text-shadow'] = '2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5'
+
         
         }, 950);
     }
