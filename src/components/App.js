@@ -61,7 +61,7 @@ class App extends Component {
           <Dashboard/>
 
           {console.log('USERS: ', user && Object.keys(user.id))}
-          <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1>
+          {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
               
 
         </div>
