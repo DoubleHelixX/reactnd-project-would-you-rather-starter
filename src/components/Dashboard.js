@@ -52,7 +52,7 @@ export default function dashboard () {
           <p>  {users.name} asks:</p>
         </div>
         
-        <img />     
+        <img src={users.avatarURL } alt="Portfolio" />    
           
         <div className='question'>
         
