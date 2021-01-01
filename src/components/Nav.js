@@ -47,7 +47,7 @@ export default function Nav () {
               }
             }
             activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
-            LeaderBoard
+            LeaderBoards
           </NavLink>
         </li>
       </ul>
