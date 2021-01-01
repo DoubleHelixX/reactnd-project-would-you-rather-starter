@@ -298,19 +298,19 @@ hr.style13 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 17px;
   cursor: pointer;
-  padding: 10px 10px;
+  padding: 5px 10px;
   width:50%;
   height:30px;
   background-color:#ffffff;
-  color:rgb(255, 255, 255);
-  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+  color:rgb(0, 0, 0);
+  /* text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000; */
 
   border-bottom: 2px solid #f3f3f3; 
   border-right: 2px inset #000000; 
   /* box-shadow: 0px 40px 0px -10px rgb(255, 255, 255), 
     0px -20px 0px -10px #FFFFFF, 20px 5px 10px -10px #FFFFFF, 
     -20px 5px 10px -10px #FFFFFF, 2px 0px 2px 0px #000000, 2px 2px 4px 2px rgba(0,0,0,0); */
-  box-shadow: 0px 40px 0px -10px rgb(255, 255, 255), 
+  box-shadow: 0px 30px 0px -10px rgb(255, 255, 255), 
   0px 0px 0px -10px #FFFFFF, 0px 5px 10px -10px #ff4343, 
   -20px 5px 10px -10px #FFFFFF,  0px 2px  #020405, 2px 2px 4px 2px rgba(255, 19, 19, 0);
 }
@@ -321,19 +321,19 @@ hr.style13 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 17px;
   cursor: pointer;
-  padding: 10px 10px;
+  padding: 5px 10px;
   width:50%;
   height:30px;
   background-color:#ffffff;
-  color: black; 
+  color: #b9b9b9; 
   border-bottom: 2px solid #f3f3f3; 
   border-right: 2px inset #000000; 
   /* box-shadow: 0px 40px 0px -10px rgb(255, 255, 255), 
     0px -20px 0px -10px #FFFFFF, 20px 5px 10px -10px #FFFFFF, 
     -20px 5px 10px -10px #FFFFFF, 2px 0px 2px 0px #000000, 2px 2px 4px 2px rgba(0,0,0,0); */
-  box-shadow: 0px 40px 0px -10px rgb(255, 255, 255), 
+  box-shadow: 0px 30px 0px -10px rgb(255, 255, 255), 
   0px 0px 0px 0px #FFFFFF, 0px 5px 10px -10px #ffffff, 
-  0px 5px 10px -10px #FFFFFF,  0px 2px  #000000, 2px 2px 4px 2px rgba(255, 5, 5, 0);
+  0px 5px 10px -10px #FFFFFF,  0px 2px  #f3f3f3, 2px 2px 4px 2px rgba(255, 5, 5, 0);
 
 
 
