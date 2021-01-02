@@ -52,13 +52,28 @@ export default function dashboard () {
           <p>  {users.name} asks:</p>
         </div>
         
-        <img src={users.avatarURL } alt="Portfolio" />    
-          
-        <div className='question'>
+        {/* <div className='question-card-body'> */}
+          <img src={users.avatarURL } alt="Portfolio" />  
+
+          <div className='side-line-break'>
+            
+            </div>  
         
-        </div>
+          <div className='question'>
+            <p className='p-title'> Would You Rather </p>
+             <p className='p-question'> ...{questions.optionOne.text.substring(0,15)}...</p>
+          </div>
+        {/* </div> */}
+
       </div>
 
+      
+      
+      
+      
+      
+      
+      
       <div className='question-card'>
         <div className='who'>
           <p>  {users.name} asks:</p>
@@ -67,7 +82,6 @@ export default function dashboard () {
         <img />     
           
         <div className='question'>
-        
         </div>
       </div>
 
