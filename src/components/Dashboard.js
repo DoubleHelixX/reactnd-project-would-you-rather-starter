@@ -9,6 +9,10 @@ export default function dashboard () {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
 
+
+
+
+
  
   function QTabChange(e){
 
@@ -31,7 +35,37 @@ export default function dashboard () {
   }
   
   console.log('Questions ' , questions, '\n', 'Users: ', users);
-  
+  function viewQuestion(){
+    let hidePreview= document.getElementById('question-');
+    let showQuestion= document.getElementById('form-');
+    let hideViewBtn= document.getElementById('viewBtn-');
+    let questionHeader = document.getElementById('p-title-');
+
+
+      hidePreview.style['animation'] = 'fadeOut 1s';
+      hideViewBtn.style['animation'] = 'fadeOut 1s';
+      hidePreview.style.display='none';
+      hideViewBtn.style.display='none';
+      questionHeader.style['animation'] = 'q-textgrowth 1s';
+      questionHeader.style['font-size'] = '20px';
+      questionHeader.style['padding-bottom'] = '5px';
+      questionHeader.style['text-align'] = 'center';
+
+      showQuestion.style['animation'] = 'fadein 1s';
+      showQuestion.style.display='inline-block';
+      console.log('asdasas', hidePreview.style['animation'])
+
+
+
+    
+
+
+
+
+
+
+
+  }
 
 
   return (
@@ -60,8 +94,37 @@ export default function dashboard () {
             </div>  
         
           <div className='question'>
-            <p className='p-title'> Would You Rather </p>
-             <p className='p-question'> ...{questions.optionOne.text.substring(0,15)}...</p>
+            <p className='p-title' id ='p-title-'> Would You Rather </p>
+            <p className='p-question' id ='question-'> ...{questions.optionOne.text.substring(0,15)}...</p>
+            <button id ='viewBtn-' onClick= {(event) => viewQuestion(event)} className='p-question-btn'> View Full </button>
+             
+            <form id ='form-' class='answer-form'>
+
+{/* 
+                  <input type = "radio"
+                        id = "optionOne"
+                        checked = "checked" />
+                  <label for = "sizeSmall">{questions.optionOne.text}</label>
+                  <br/>
+                  <input type = "radio"
+                        id = "optionTwo"
+                        />
+                  <label for = "sizeMed">{questions.optionTwo.text}</label>
+                  <br/>
+                  
+                  <input className='submit-answer' type="submit" value="Submit"/>  */}
+                <fieldset>
+
+                  <label for="def"><input  id = "optionOne" type="radio" name="group" value="one" />
+                  {questions.optionOne.text}
+                    </label>
+                  <label for="maybe"><input  id = "optionTwo" type="radio" name="group" value="two"/>
+                  {questions.optionTwo.text}</label>
+                  <input className='submit-answer' type="submit" value="Submit"/>
+              </fieldset>
+                 
+            </form>
+
           </div>
         {/* </div> */}
 
