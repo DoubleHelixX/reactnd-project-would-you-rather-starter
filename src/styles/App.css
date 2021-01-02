@@ -521,14 +521,14 @@ hr.style13 {
   
   text-align: left;
   display:inline;
-  float:inline-start;
+  float:left;
   vertical-align: middle;
-  margin-left:12px;
   background-color: #359FCA;
+  overflow: hidden;
  }
 
 .answer-form label{
-  float:inline-start;
+  float:left;
   vertical-align: middle;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: lighter;
