@@ -40,8 +40,13 @@ export default function dashboard () {
     let showQuestion= document.getElementById(`form-${i}`);
     let hideViewBtn= document.getElementById(`viewBtn-${i}`);
     let questionHeader = document.getElementById(`p-title-${i}`);
+    let userImg = document.getElementById(`question-card-img-${i}`);
 
 
+      userImg.style['width'] = '120px';
+      userImg.style['height'] = '120px';
+
+    
       hidePreview.style['animation'] = 'fadeOut 1s';
       hideViewBtn.style['animation'] = 'fadeOut 1s';
       hidePreview.style.display='none';
@@ -54,6 +59,10 @@ export default function dashboard () {
       showQuestion.style['animation'] = 'fadein 1s';
       showQuestion.style.display='inline-block';
       console.log('asdasas', hidePreview.style['animation'])
+
+
+
+      
 
 
 
@@ -88,7 +97,7 @@ export default function dashboard () {
         </div>
         
         <div className='question-card-body'>
-          <img src={users.avatarURL } alt="Portfolio" />  
+          <img src={users.avatarURL } alt="Portfolio" id ={`question-card-img-${i}`} />  
 
           <div className='side-line-break'>
             
