@@ -81,12 +81,12 @@ export default function dashboard () {
 
       question.style['width']= 'calc(532px - 188px)';
 
-      questionCard.style['border'] = 'solid 2px #1C6EA4'; 
+      questionCard.style['border'] = 'inset 2px #1C6EA4'; 
 
       userImg.style['animation'] = 'img-growth 1.5s ease';
       userImg.style['width'] = '130px';
       userImg.style['height'] = '130px';
-      userImg.style['border'] = 'solid 2px #1C6EA4';
+      userImg.style['border'] = 'inset 3px #1C6EA4';
 
     
       hidePreview.style['animation'] = 'fadeOut 1s';
