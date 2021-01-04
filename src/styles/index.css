@@ -8,11 +8,23 @@ body {
   background-color: rgb(171, 224, 222);
   /* align-items: center;
   justify-content: center; */
+  height:100vh;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+    
 }
 
 
+#root{
+ 
+  height:100%;
+  padding:10px;
+  padding-bottom:0px;
+  margin-bottom: 0;
+
+  position:static;
+}

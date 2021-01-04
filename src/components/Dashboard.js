@@ -35,11 +35,11 @@ export default function dashboard () {
   }
   
   console.log('Questions ' , questions, '\n', 'Users: ', users);
-  function viewQuestion(){
-    let hidePreview= document.getElementById('question-');
-    let showQuestion= document.getElementById('form-');
-    let hideViewBtn= document.getElementById('viewBtn-');
-    let questionHeader = document.getElementById('p-title-');
+  function viewQuestion(e,i){
+    let hidePreview= document.getElementById(`question-${i}`);
+    let showQuestion= document.getElementById(`form-${i}`);
+    let hideViewBtn= document.getElementById(`viewBtn-${i}`);
+    let questionHeader = document.getElementById(`p-title-${i}`);
 
 
       hidePreview.style['animation'] = 'fadeOut 1s';
@@ -47,9 +47,9 @@ export default function dashboard () {
       hidePreview.style.display='none';
       hideViewBtn.style.display='none';
       questionHeader.style['animation'] = 'q-textgrowth 1s';
-      questionHeader.style['font-size'] = '20px';
+      questionHeader.style['font-size'] = '24px';
       questionHeader.style['padding-bottom'] = '5px';
-      questionHeader.style['text-align'] = 'center';
+      questionHeader.style['padding-left'] = '85px';
 
       showQuestion.style['animation'] = 'fadein 1s';
       showQuestion.style.display='inline-block';
@@ -80,13 +80,14 @@ export default function dashboard () {
             Answered Questions
         </div>
       </div>
-
+      {[...Array(20)].map((x, i) =>(
+      
       <div className='question-card'>
         <div className='who'>
           <p>  {users.name} asks:</p>
         </div>
         
-        {/* <div className='question-card-body'> */}
+        <div className='question-card-body'>
           <img src={users.avatarURL } alt="Portfolio" />  
 
           <div className='side-line-break'>
@@ -94,11 +95,11 @@ export default function dashboard () {
             </div>  
         
           <div className='question'>
-            <p className='p-title' id ='p-title-'> Would You Rather </p>
-            <p className='p-question' id ='question-'> ...{questions.optionOne.text.substring(0,15)}...</p>
-            <button id ='viewBtn-' onClick= {(event) => viewQuestion(event)} className='p-question-btn'> View Full </button>
+            <p className='p-title' id ={`p-title-${i}`}> Would You Rather </p>
+            <p className='p-question' id ={`question-${i}`}> ...{questions.optionOne.text.substring(0,15)}...</p>
+            <button id ={`viewBtn-${i}`} onClick= {(event) => viewQuestion(event, i)} className='p-question-btn'> View Full </button>
              
-            <form id ='form-' class='answer-form'>
+            <form id ={`form-${i}`} class='answer-form'>
 
 {/* 
                   <input type = "radio"
@@ -126,10 +127,9 @@ export default function dashboard () {
             </form>
 
           </div>
-        {/* </div> */}
-
+        </div>
       </div>
-
+        ))}
       
       
       
@@ -137,7 +137,7 @@ export default function dashboard () {
       
       
       
-      <div className='question-card'>
+      {/* <div className='question-card'>
         <div className='who'>
           <p>  {users.name} asks:</p>
         </div>
@@ -158,7 +158,7 @@ export default function dashboard () {
         <div className='question'>
         
         </div>
-      </div>
+      </div> */}
     </div>
 
 
