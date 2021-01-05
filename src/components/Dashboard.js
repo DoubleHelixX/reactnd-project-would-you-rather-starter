@@ -5,9 +5,8 @@ import * as DataAPI from '../utils/_DATA'
 export default function dashboard () {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
-
-
-
+  let max =0;
+  let min =0;
 
 
   console.log('Questions ' , questions, '\n', 'Users: ', users);
@@ -177,14 +176,20 @@ function viewAnswer(e,i){
 
 }
  
-function findPercentage(question){
+function findPercentage(question, who){
   let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
   let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
 
-  let max = Math.max(optOneLen , optTwoLen); 
-  let min = Math.min(optOneLen , optTwoLen); 
+  max = Math.max(optOneLen , optTwoLen); 
+  min = Math.min(optOneLen , optTwoLen); 
+  // max=2;
+  // min=1;
 
-  let result = min ===0 ? '100%' : ((max/(max+min))*100).toFixed(1) + '%';  
+  let result = who ==='self' 
+  ? 
+  (min ===0 ? '100%' : ((max/(max+min))*100).toFixed(1) + '%') 
+  : 
+ (min ===0 ? '0%' : ((min/(max+min))*100).toFixed(1) + '%');  
    
   return result;
 }
@@ -258,11 +263,25 @@ function findPercentage(question){
                 </p>
                 <div className='percentage-bar'>
                   <p>
-                    {findPercentage(questions)}
+                    {findPercentage(questions, 'self')}
                   </p>
                 </div>
                 <p>
+                  {`${max} out of ${max+min} votes`}
+                </p>
+              </div>
 
+              <div className='others-vote'>
+                <p>
+                  {questions.optionTwo.text}
+                </p>
+                <div className='percentage-bar'>
+                  <p>
+                    {findPercentage(questions, 'other')}
+                  </p>
+                </div>
+                <p>
+                  {`${min} out of ${max+min} votes`}
                 </p>
               </div>
          
