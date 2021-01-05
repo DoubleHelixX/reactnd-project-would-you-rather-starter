@@ -5,8 +5,7 @@ import * as DataAPI from '../utils/_DATA'
 export default function dashboard () {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
-  let max =0;
-  let min =0;
+
 
 
   console.log('Questions ' , questions, '\n', 'Users: ', users);
@@ -175,15 +174,29 @@ function viewAnswer(e,i){
   questionHeader.style['padding-left'] = '100px';
 
 }
- 
-function findPercentage(question, who){
+
+function getMax(question){
   let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
   let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
 
-  max = Math.max(optOneLen , optTwoLen); 
-  min = Math.min(optOneLen , optTwoLen); 
-  // max=2;
-  // min=1;
+  return Math.max(optOneLen , optTwoLen); 
+}
+
+function getMin(question){
+  let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
+  let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+
+  return Math.min(optOneLen , optTwoLen); 
+}
+
+function getTotal(question){
+ return getMin(question) + getMax(question)
+}
+
+function findPercentage(question, who){
+
+ let max=getMax(question);
+ let min=getMin(question);
 
   let result = who ==='self' 
   ? 
@@ -267,7 +280,7 @@ function findPercentage(question, who){
                   </p>
                 </div>
                 <p>
-                  {`${max} out of ${max+min} votes`}
+                  {`${getMax(questions)} out of ${getTotal(questions)} votes`}
                 </p>
               </div>
 
@@ -281,7 +294,7 @@ function findPercentage(question, who){
                   </p>
                 </div>
                 <p>
-                  {`${min} out of ${max+min} votes`}
+                  {`${getMin(questions)} out of ${getTotal(questions)} votes`}
                 </p>
               </div>
          
