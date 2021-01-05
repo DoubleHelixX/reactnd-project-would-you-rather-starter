@@ -184,10 +184,9 @@ function findPercentage(question){
   let max = Math.max(optOneLen , optTwoLen); 
   let min = Math.min(optOneLen , optTwoLen); 
 
-  let result = min===0 ? (max/100).toFixed(2) : ((max/min) / 100).toFixed(2);  
-   result = ((3/2) / 100).toFixed(2);  
-
-  return result + '%';
+  let result = min ===0 ? '100%' : ((max/(max+min))*100).toFixed(1) + '%';  
+   
+  return result;
 }
 
   return (
