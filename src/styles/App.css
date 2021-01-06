@@ -735,6 +735,7 @@ hr.style13 {
    position: absolute;
    top: -30px;
    right: -28px;
+   display: inline;
  
 
  }
@@ -774,7 +775,7 @@ hr.style13 {
   width: 70%;
   height: 25px;
   margin:auto;
-  overflow: auto;
+  overflow: hidden;
  }
 
 .percentage-bar .p-percentage{
