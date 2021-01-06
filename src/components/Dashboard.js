@@ -61,19 +61,32 @@ export default function dashboard () {
 
       questionCards[i].style['border'] = 'solid 2px #f3f3f3'; 
 
-      hidePreviews[i].style['animation'] = 'fadeout 1s'; 
+      hidePreviews[i].style['animation'] = hidePreviews[i].style['animation'].includes('fadein') 
+      ? 'fadeout 1s ease' 
+      : ''; 
+
       hidePreviews[i].style['display'] = 'none';
       
-      questionHeaders[i].style['animation'] = 'q-text-shrink 1s';
+      questionHeaders[i].style['animation'] = questionHeaders[i].style['animation'].includes('q-text-growth') 
+      ? 'q-text-shrink 1s' 
+      : ''; 
+
       questionHeaders[i].style['font-size'] = '16px';
       questionHeaders[i].style['padding-bottom'] = '1%';
       questionHeaders[i].style['padding-left'] = '0px';
       
-      showQuestions[i].style['animation'] = 'fadein 1s'; 
-      showViewBtns[i].style['animation'] = 'fadein 2s'; 
+      showQuestions[i].style['animation'] = showQuestions[i].style['animation'].includes('fadeOut') 
+      ? 'fadein 1s' 
+      : ''; 
+
+      showViewBtns[i].style['animation'] = showQuestions[i].style['animation'].includes('fadeOut') 
+      ? 'fadein 2s' 
+      : ''; 
+
       showViewBtns[i].style['display'] = 'block'; 
       showQuestions[i].style['display'] = 'block'; 
 
+      
       
     });
 
@@ -118,6 +131,11 @@ function viewAnswer(e,i){
   let questionCards = document.getElementById('show-answers-container').querySelectorAll(`.question-card`);
   let showQuestions = document.getElementById('show-answers-container').querySelectorAll(`.p-question`);
   let showViewBtns= document.getElementById('show-answers-container').querySelectorAll(`.p-question-btn`);
+  let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.your-vote`);
+  let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.others-vote`);
+  let sideLineBreaks= document.getElementById('show-answers-container').querySelectorAll(`.side-line-break`);
+
+
 
 
   Object.keys(questionCards).map((i) => {
@@ -125,6 +143,20 @@ function viewAnswer(e,i){
     userImgs[i].style['width'] = '115px';
     userImgs[i].style['height'] = '115px';
     userImgs[i].style['border'] = 'solid 2px #b9b9b9'; 
+    userImgs[i].style['margin-top'] = '20px'; 
+
+    yourVotes[i].style['display'] ='none';
+    othersVotes[i].style['display'] ='none';
+
+    sideLineBreaks[i].style['height']= '115px';
+    
+    console.log(sideLineBreaks[i].style['animation'].includes('side-line-break-growth') );
+
+    sideLineBreaks[i].style['animation'] = sideLineBreaks[i].style['animation'].includes('side-line-break-growth') 
+    ? 'side-line-break-shrink 1.5s ease' 
+    : ''; 
+
+
     questions[i].style['width']= 'calc(532px - 168px)';
 
     questionCards[i].style['border'] = 'solid 2px #f3f3f3'; 
@@ -151,6 +183,14 @@ function viewAnswer(e,i){
   let questionHeader = document.getElementById('show-answers-container').querySelector(`#p-title-answer-${i}`);
   let userImg = document.getElementById('show-answers-container').querySelector(`#answer-card-img-${i}`);
   let questionCard = document.getElementById('show-answers-container').querySelector(`#answer-card-${i}`);
+  let yourVote = document.getElementById('show-answers-container').querySelector(`#your-vote-${i}`);
+  let othersVote = document.getElementById('show-answers-container').querySelector(`#others-vote-${i}`);
+  let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
+
+
+  sideLineBreak.style['height']= '310px';
+  sideLineBreak.style['animation']= 'side-line-break-growth 1s ease'; 
+
 
   question.style['width']= 'calc(532px - 188px)';
 
@@ -159,6 +199,7 @@ function viewAnswer(e,i){
   userImg.style['animation'] = 'img-growth 1.5s ease';
   userImg.style['width'] = '130px';
   userImg.style['height'] = '130px';
+  userImg.style['margin-top'] = '110px';
   userImg.style['border'] = 'inset 3px #1C6EA4';
 
 
@@ -171,7 +212,12 @@ function viewAnswer(e,i){
   questionHeader.textContent = 'Results: ';
   questionHeader.style['font-size'] = '24px';
   questionHeader.style['padding-bottom'] = '5px';
-  questionHeader.style['padding-left'] = '100px';
+  questionHeader.style['padding-left'] = '110px';
+
+  yourVote.style['animation'] = 'fadein 1s';
+  othersVote.style['animation'] = 'fadein 1s';
+  yourVote.style['display'] = 'block';
+  othersVote.style['display'] = 'block';
 
 }
 
@@ -265,35 +311,35 @@ function findPercentage(question, who){
           
           <div className='question-card-body'>
             <img className ='question-card-img' src={users.avatarURL } alt="Portfolio" id ={`answer-card-img-${i}`} />  
-            <div className='side-line-break'/>
+            <div className='side-line-break' id={`side-line-break-${i}`}/>
             <div className='question' id ={`answer-${i}`}>
               <p className='p-title' id ={`p-title-answer-${i}`}> Would You Rather </p>
               <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,15)}...</p>
               <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i)} className='p-question-btn'> View Full </button>
-              <div className='your-vote'>
-                <p>
-                  {questions.optionOne.text}
+              <div className='your-vote' id={`your-vote-${i}`}>
+                <p className='p-wyr'>
+                  {`Would you rather ${questions.optionOne.text} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p>
+                  <p className={`p-percentage`}>
                     {findPercentage(questions, 'self')}
                   </p>
                 </div>
-                <p>
+                <p className={`p-min-max`}>
                   {`${getMax(questions)} out of ${getTotal(questions)} votes`}
                 </p>
               </div>
 
-              <div className='others-vote'>
-                <p>
-                  {questions.optionTwo.text}
+              <div className='others-vote' id={`others-vote-${i}`}>
+                <p className='p-wyr'>
+                {`Would you rather ${questions.optionTwo.text} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p>
+                  <p className={`p-percentage`}>
                     {findPercentage(questions, 'other')}
                   </p>
                 </div>
-                <p>
+                <p className={`p-min-max`}>
                   {`${getMin(questions)} out of ${getTotal(questions)} votes`}
                 </p>
               </div>

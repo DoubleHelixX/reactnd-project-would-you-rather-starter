@@ -91,7 +91,7 @@
   }
   100% {
   font-size: 24px;
-  padding-left: 100px;
+  padding-left: 110px;
 
   }
 }
@@ -138,6 +138,7 @@
   50%{
     width: 110px;
     height: 110px;
+    border: solid 2px #b9b9b9;
   }
   100% {
     width: 115px;
@@ -146,6 +147,30 @@
 
   }
 }
+
+@keyframes side-line-break-growth {
+  0% {
+    height: 115px;
+  }
+
+  100% {
+    height: 310px;
+
+  }
+}
+
+
+@keyframes side-line-break-shrink {
+  0% {
+    height:310px;
+  }
+
+  100% {
+    height:  115px;
+
+  }
+}
+
 
 
 
@@ -663,12 +688,86 @@ hr.style13 {
   color: white;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 16px;
-
-   
  }
 
+#show-answers-container .question{
+   /* width: 100%;
+   margin-left: auto;
+   margin-right: auto; */
 
 
+ }
+
+.your-vote{
+  display: none;
+  background-color:#35a0ca42;
+  border: groove 2px #1C6EA4;
+  border-top-right-radius:5px;
+  border-top-left-radius:5px;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px; 
+  width: 100%;
+  height: auto;
+  margin:auto 10px;
+  padding:auto;
+ }
+
+.p-wyr{
+  color: #0D3550;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+ }
+
+.p-min-max{
+  color: #000000;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top:2px;
+ }
+
+.others-vote{
+  display: none;
+  background-color:#35a0ca42;
+  border: groove 2px #1C6EA4;
+  border-top-right-radius:5px;
+  border-top-left-radius:5px;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px; 
+  width: 100%;
+  height: auto;
+  margin:10px 10px 15px 10px;
+  padding:auto;
+ }
+
+.percentage-bar{
+  background-color: #f3ebeb;
+  border: solid 1px #b9b9b9;
+  border-top-right-radius:5px;
+  border-top-left-radius:5px;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px; 
+  width: 70%;
+  height: 25px;
+  margin:auto;
+
+ }
+
+.percentage-bar .p-percentage{
+  background-color: #359FCA;
+  border-top-right-radius:4px;
+  border-top-left-radius:4px;
+  border-bottom-right-radius:4px;
+  border-bottom-left-radius:4px;
+  border: groove 2px transparent;
+  text-align: right;
+  display: inline-block;
+  float:left;
+
+  margin:0px;
+  padding:0px;
+  width: 50%;
+  height: 82%;
+  color:white;
+ }
 
 
 /*-----------------------------------------------------------------------------------
