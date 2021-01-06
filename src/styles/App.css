@@ -12,7 +12,7 @@
   /* margin-top: 10%; 
   margin-bottom: 10%;  */
   align-items: center;
- 
+  min-width: 644px;
  /* move whole app up and down */
 
 }
@@ -170,6 +170,20 @@
 
   }
 }
+
+@keyframes display {
+  0% {
+    display:'none';
+    opacity: 0;
+  }
+
+  100% {
+    display:'block';
+    opacity: 1;
+
+  }
+}
+
 
 
 
@@ -710,8 +724,20 @@ hr.style13 {
   height: auto;
   margin:auto 10px;
   padding:auto;
+  position: relative;
  }
 
+ .your-vote img{
+   height: 50px;
+   width:55px;
+   padding:0;
+   margin:0;
+   position: absolute;
+   top: -30px;
+   right: -28px;
+ 
+
+ }
 .p-wyr{
   color: #0D3550;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -748,7 +774,7 @@ hr.style13 {
   width: 70%;
   height: 25px;
   margin:auto;
-
+  overflow: auto;
  }
 
 .percentage-bar .p-percentage{
@@ -764,8 +790,11 @@ hr.style13 {
 
   margin:0px;
   padding:0px;
-  width: 50%;
-  height: 82%;
+  margin-left:-4px;
+
+
+  width: 0%;
+  height: 25px;
   color:white;
  }
 

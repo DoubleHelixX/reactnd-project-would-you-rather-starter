@@ -1,4 +1,6 @@
 import * as DataAPI from '../utils/_DATA'
+import vote from "../images/vote.png"
+
 
 
 
@@ -122,8 +124,7 @@ export default function dashboard () {
     showQuestion.style.display='inline-block';
 }
 
-
-function viewAnswer(e,i){
+function viewAnswer(e, i, q){
 
   let questionHeaders = document.getElementById('show-answers-container').querySelectorAll(`.p-title`);
   let userImgs = document.getElementById('show-answers-container').querySelectorAll(`.question-card-img`);
@@ -134,6 +135,8 @@ function viewAnswer(e,i){
   let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.your-vote`);
   let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.others-vote`);
   let sideLineBreaks= document.getElementById('show-answers-container').querySelectorAll(`.side-line-break`);
+  // let percentageBars= document.getElementById('show-answers-container').querySelectorAll(`.p-percentage`);
+
 
 
 
@@ -145,6 +148,7 @@ function viewAnswer(e,i){
     userImgs[i].style['border'] = 'solid 2px #b9b9b9'; 
     userImgs[i].style['margin-top'] = '20px'; 
 
+    // percentageBars[i].style['width']='0%'
     yourVotes[i].style['display'] ='none';
     othersVotes[i].style['display'] ='none';
 
@@ -186,10 +190,14 @@ function viewAnswer(e,i){
   let yourVote = document.getElementById('show-answers-container').querySelector(`#your-vote-${i}`);
   let othersVote = document.getElementById('show-answers-container').querySelector(`#others-vote-${i}`);
   let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
+  let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
+  let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
+
+
 
 
   sideLineBreak.style['height']= '310px';
-  sideLineBreak.style['animation']= 'side-line-break-growth 1s ease'; 
+  sideLineBreak.style['animation']= 'side-line-break-growth 1.5s ease'; 
 
 
   question.style['width']= 'calc(532px - 188px)';
@@ -214,8 +222,12 @@ function viewAnswer(e,i){
   questionHeader.style['padding-bottom'] = '5px';
   questionHeader.style['padding-left'] = '110px';
 
-  yourVote.style['animation'] = 'fadein 1s';
-  othersVote.style['animation'] = 'fadein 1s';
+  percentageBarSelf.style['width']=`${findPercentage(q,'self')}%`
+  percentageBarOther.style['width']=`${findPercentage(q,'other') ==='0' ? '10' : findPercentage(q,'other') }%`
+
+
+  yourVote.style['animation'] = 'display 1s';
+  othersVote.style['animation'] = 'display 1s';
   yourVote.style['display'] = 'block';
   othersVote.style['display'] = 'block';
 
@@ -246,9 +258,9 @@ function findPercentage(question, who){
 
   let result = who ==='self' 
   ? 
-  (min ===0 ? '100%' : ((max/(max+min))*100).toFixed(1) + '%') 
+  (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
   : 
- (min ===0 ? '0%' : ((min/(max+min))*100).toFixed(1) + '%');  
+ (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1));  
    
   return result;
 }
@@ -315,14 +327,15 @@ function findPercentage(question, who){
             <div className='question' id ={`answer-${i}`}>
               <p className='p-title' id ={`p-title-answer-${i}`}> Would You Rather </p>
               <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,15)}...</p>
-              <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i)} className='p-question-btn'> View Full </button>
+              <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, questions)} className='p-question-btn'> View Full </button>
               <div className='your-vote' id={`your-vote-${i}`}>
+                <img src={vote} alt="vote" />
                 <p className='p-wyr'>
                   {`Would you rather ${questions.optionOne.text} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`}>
-                    {findPercentage(questions, 'self')}
+                  <p className={`p-percentage`} id={`p-percentage-self-${i}`}>
+                    {`${findPercentage(questions, 'self')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
@@ -335,8 +348,8 @@ function findPercentage(question, who){
                 {`Would you rather ${questions.optionTwo.text} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`}>
-                    {findPercentage(questions, 'other')}
+                  <p className={`p-percentage`} id={`p-percentage-other-${i}`}>
+                    {`${findPercentage(questions, 'other')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
