@@ -291,7 +291,7 @@ function findPercentage(question, who){
           
             <div className='question' id ={`question-${i}`}>
               <p className='p-title' id ={`p-title-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-question-${i}`}> ...{questions.optionOne.text.substring(0,15)}...</p>
+              <p className='p-question' id ={`p-question-${i}`}> ...{questions.optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${i}`} onClick= {(event) => viewQuestion(event, i)} className='p-question-btn'> View Full </button>
               
               <form id ={`form-${i}`} class='answer-form'>
@@ -326,7 +326,7 @@ function findPercentage(question, who){
             <div className='side-line-break' id={`side-line-break-${i}`}/>
             <div className='question' id ={`answer-${i}`}>
               <p className='p-title' id ={`p-title-answer-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,15)}...</p>
+              <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, questions)} className='p-question-btn'> View Full </button>
               <div className='your-vote' id={`your-vote-${i}`}>
                 <img src={vote} alt="vote" />
