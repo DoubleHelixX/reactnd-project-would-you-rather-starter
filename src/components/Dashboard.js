@@ -192,7 +192,7 @@ function viewAnswer(e, i, q){
   let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
   let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
   let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
-
+  let voteImg = document.getElementById('show-answers-container').querySelector(`#vote-img-${i}`);
 
 
 
@@ -221,6 +221,8 @@ function viewAnswer(e, i, q){
   questionHeader.style['font-size'] = '24px';
   questionHeader.style['padding-bottom'] = '5px';
   questionHeader.style['padding-left'] = '110px';
+
+  voteImg.style['animation']='vote-img-growth 2s'
 
   percentageBarSelf.style['width']=`${findPercentage(q,'self')}%`
   percentageBarOther.style['width']=`${findPercentage(q,'other') ==='0' ? '10' : findPercentage(q,'other') }%`
@@ -329,7 +331,7 @@ function findPercentage(question, who){
               <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, questions)} className='p-question-btn'> View Full </button>
               <div className='your-vote' id={`your-vote-${i}`}>
-                <img src={vote} alt="vote" />
+                <img className='vote-img' id={`vote-img-${i}`} src={vote} alt="vote" />
                 <p className='p-wyr'>
                   {`Would you rather ${questions.optionOne.text} ?`}
                 </p>

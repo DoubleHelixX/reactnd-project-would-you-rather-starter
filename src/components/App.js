@@ -6,6 +6,7 @@ import Dashboard from './Dashboard'
 import Footer from './Footer'
 import TitleAnimate from './TitleAnimate'
 import Title from './Title'
+import NewQuestion from './NewQuestion'
 
 import React, { Component, Fragment } from 'react'
 // import LoadingBar from 'react-redux-loading'
@@ -49,20 +50,22 @@ class App extends Component {
         <Fragment>
         {/* <LoadingBar /> */}
         <div className="App">
-      
-        <TitleAnimate path='/' exact  />
+          
+          <TitleAnimate />
+          <Nav />
+          <div className='border-body'>
+            <hr className='style13' />
+            <Route exact path='/home' render={() => (
+              <Dashboard />
+            )}/>
 
-        {/* <Title path='/ '   /> */}
-
-        <Nav />
-        <div className='border-body'>
-
-          <hr className='style13' />
-          <Dashboard/>
-
-          {console.log('USERS: ', user && Object.keys(user.id))}
-          {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
+            {console.log('USERS: ', user && Object.keys(user.id))}
+            {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
+            <Route exact path='/question' render={() => (  
+              <NewQuestion/>
               
+            )}/>
+
 
         </div>
         <Footer/>
