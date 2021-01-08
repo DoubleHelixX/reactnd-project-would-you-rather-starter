@@ -28,7 +28,9 @@ export default function dashboard () {
       unanswered[0].style['box-shadow']='0px 12px 0px -10px rgb(255, 255, 255), 0px 0px 0px 0px #FFFFFF, 0px 5px 10px -10px #ffffff, 0px 5px 10px -10px #FFFFFF,  0px 2px  #020405, 2px 2px 4px 2px rgba(255, 5, 5, 0)';
       answered[0].style.color='#b9b9b9';
       answered[0].style['box-shadow']='0px 12px 0px -10px rgb(255, 255, 255), 0px 0px 0px 0px #FFFFFF, 0px 5px 10px -10px #ffffff, 0px 5px 10px -10px #FFFFFF,  0px 2px  #f3f3f3, 2px 2px 4px 2px rgba(255, 5, 5, 0)';
+      showQuestions.style['animation']= 'fadein 3s';
       showQuestions.style['display']= 'block';
+      showAnswers.style['animation']= 'fadeout 3s';
       showAnswers.style['display']= 'none';
 
     }
@@ -37,7 +39,9 @@ export default function dashboard () {
       answered[0].style['box-shadow']='0px 12px 0px -10px rgb(255, 255, 255), 0px 0px 0px 0px #FFFFFF, 0px 5px 10px -10px #ffffff, 0px 5px 10px -10px #FFFFFF,  0px 2px  #020405, 2px 2px 4px 2px rgba(255, 5, 5, 0)';
       unanswered[0].style.color='#b9b9b9';
       unanswered[0].style['box-shadow']='0px 12px 0px -10px rgb(255, 255, 255), 0px 0px 0px 0px #FFFFFF, 0px 5px 10px -10px #ffffff, 0px 5px 10px -10px #FFFFFF,  0px 2px  #f3f3f3, 2px 2px 4px 2px rgba(255, 5, 5, 0)';
+      showAnswers.style['animation']= 'fadein 3s';
       showAnswers.style['display']= 'block';
+      showQuestions.style['animation']= 'fadeOut 3s';
       showQuestions.style['display']= 'none';
     }
 
