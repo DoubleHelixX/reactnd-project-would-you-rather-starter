@@ -283,8 +283,9 @@ function findPercentage(question, who){
             Answered Questions
         </div>
       </div>
+
       <span id='show-questions-container'>
-        {[...Array(20)].map((x, i) =>(
+        {[...Array(2)].map((x, i) =>(
         <div className='question-card' id = {`question-card-${i}`} >
           <div className='who'>
             <p>  {users.name} asks:</p>

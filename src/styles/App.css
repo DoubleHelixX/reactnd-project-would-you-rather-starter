@@ -537,13 +537,14 @@ hr.style13 {
     border-bottom-left-radius:5px; 
   }
 
-  .show-answers-container{
+  #show-answers-container{
     
     display:none;
   }
 
-  .show-questions-container{
-    display: inline;
+  #show-questions-container{
+    animation: fadein 3s;
+    display: block;
   }
 
   .question-card {
