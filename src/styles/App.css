@@ -198,6 +198,33 @@
   }
 }
 
+@keyframes rotate-header {
+  0% {
+    border-bottom: double 0px #ffffff;
+    transform: rotate(0deg);
+
+  }
+
+  33% {
+    border-bottom: double 0px #ffffff;
+    transform: rotate(45deg);
+
+  }
+
+ 66% {
+    border-bottom: double 0px #ffffff;
+    transform: rotate(-45deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+    border-bottom: double 2px #f3f3f3;
+
+
+
+  }
+}
 
 
 
@@ -794,6 +821,7 @@ hr.style13 {
   /*-----------------------------------------------------------------------------------
                                     NEW QUESTION TAB CSS 
   -----------------------------------------------------------------------------------*/
+
   .new-question-container{
     display: inline-block;
     width: auto;
@@ -811,6 +839,7 @@ hr.style13 {
     border-bottom: double 2px #f3f3f3;
     padding-bottom: 15px;
     margin: 15px 0;
+    animation:rotate-header 1s ease;
   }
 
   .n-q-c-hint{
@@ -848,7 +877,6 @@ hr.style13 {
     text-align: center;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
     font-size: 17px;
-
 
   }
 
