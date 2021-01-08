@@ -928,8 +928,82 @@ hr.style13 {
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
 
   }
+  /*-----------------------------------------------------------------------------------
+                              LEADERBOARDS TAB CSS 
+  -----------------------------------------------------------------------------------*/
 
 
+  .leaderboards-container{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    min-width: 45%;
+    min-height: 55em;
+    max-height: 70%;
+    margin: 5% auto;
+    border: groove 2px #b9b9b9;
+
+
+  }
+
+  .l-card{
+    display:block;
+    border: solid 2px #f3f3f3;
+    width: 90%;
+    min-width: 550px;
+
+    margin: 10px auto 10px auto;
+    
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+
+  }
+  
+  .l-img{
+    border-radius: 50%;
+    height: 115px;
+    width: 115px;
+    border: solid 2px #b9b9b9;
+    text-align: left;
+    margin: 20px 20px 20px 20px;
+    display: inline;
+    /* border: solid yellow 2px; */
+    float:left;
+    overflow: hidden;
+    background-color: white;
+
+  }
+  
+  .l-body{
+
+  }
+  
+  .l-user{
+
+  }
+  
+  .l-answered{
+
+  }
+  
+  .l-created{
+
+  }
+  
+  .l-score-card{
+
+  }
+  
+  .l-header{
+
+  }
+  
+  .l-tally{
+
+  }
+  
 /*-----------------------------------------------------------------------------------
                                     FOOTER CSS 
 -----------------------------------------------------------------------------------*/

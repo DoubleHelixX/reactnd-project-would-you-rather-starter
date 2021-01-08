@@ -7,6 +7,8 @@ import Footer from './Footer'
 import TitleAnimate from './TitleAnimate'
 import Title from './Title'
 import NewQuestion from './NewQuestion'
+import Leaderboards from './Leaderboards'
+
 
 import React, { Component, Fragment } from 'react'
 // import LoadingBar from 'react-redux-loading'
@@ -63,6 +65,10 @@ class App extends Component {
             {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
             <Route exact path='/question' render={() => (  
               <NewQuestion/>
+              
+            )}/>
+            <Route exact path='/leaderboards' render={() => (  
+              <Leaderboards/>
               
             )}/>
 
