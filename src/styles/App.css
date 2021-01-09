@@ -697,11 +697,13 @@ hr.style13 {
   .answer-form label{
     float:left;
     vertical-align: middle;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
     font-size: 16px;
     padding-right: 10px;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+
 
   
   }

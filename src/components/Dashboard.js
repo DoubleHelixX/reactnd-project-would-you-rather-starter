@@ -56,7 +56,7 @@ export default function dashboard () {
     let showQuestions = document.getElementById('show-questions-container').querySelectorAll(`.p-question`);
     let hidePreviews = document.getElementById('show-questions-container').querySelectorAll(`.answer-form`);
     let showViewBtns= document.getElementById('show-questions-container').querySelectorAll(`.p-question-btn`);
-
+    let sideLineBreakQs = document.getElementById('show-questions-container').querySelectorAll(`.side-line-break`);
 
     Object.keys(questionCards).map((i) => {
       userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
@@ -66,6 +66,9 @@ export default function dashboard () {
       questions[i].style['width']= 'calc(532px - 168px)';
 
       questionCards[i].style['border'] = 'solid 2px #f3f3f3'; 
+      sideLineBreakQs[i].style['border'] = '1.5px solid #f3f3f3';
+      sideLineBreakQs[i].style['background-color'] = '#f3f3f3';
+
 
       hidePreviews[i].style['animation'] = hidePreviews[i].style['animation'].includes('fadein') 
       ? 'fadeout 1s ease' 
@@ -103,6 +106,7 @@ export default function dashboard () {
     let questionHeader = document.getElementById('show-questions-container').querySelector(`#p-title-${i}`);
     let userImg = document.getElementById('show-questions-container').querySelector(`#question-card-img-${i}`);
     let questionCard = document.getElementById('show-questions-container').querySelector(`#question-card-${i}`);
+    let sideLineBreakQ = document.getElementById('show-questions-container').querySelector(`#side-line-break-q-${i}`);
 
     question.style['width']= 'calc(532px - 188px)';
 
@@ -112,6 +116,9 @@ export default function dashboard () {
     userImg.style['width'] = '130px';
     userImg.style['height'] = '130px';
     userImg.style['border'] = 'inset 3px #1C6EA4';
+
+    sideLineBreakQ.style['border'] = '1.2px inset #000000';
+    sideLineBreakQ.style['background-color'] = '#0D3550';
 
   
     hidePreview.style['animation'] = 'fadeOut 1s';
@@ -158,6 +165,7 @@ function viewAnswer(e, i, q){
 
     sideLineBreaks[i].style['height']= '115px';
     
+    
     console.log(sideLineBreaks[i].style['animation'].includes('side-line-break-growth') );
 
     sideLineBreaks[i].style['animation'] = sideLineBreaks[i].style['animation'].includes('side-line-break-growth') 
@@ -197,11 +205,13 @@ function viewAnswer(e, i, q){
   let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
   let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
   let voteImg = document.getElementById('show-answers-container').querySelector(`#vote-img-${i}`);
+  
 
 
 
   sideLineBreak.style['height']= '310px';
   sideLineBreak.style['animation']= 'side-line-break-growth 1.5s ease'; 
+  
 
 
   question.style['width']= 'calc(532px - 188px)';
@@ -294,7 +304,7 @@ function findPercentage(question, who){
           <div className='question-card-body'>
             <img className ='question-card-img' src={users.avatarURL } alt="Portfolio" id ={`question-card-img-${i}`} />  
 
-            <div className='side-line-break'/>
+            <div className='side-line-break' id={`side-line-break-q-${i}`}/>
           
             <div className='question' id ={`question-${i}`}>
               <p className='p-title' id ={`p-title-${i}`}> Would You Rather </p>
