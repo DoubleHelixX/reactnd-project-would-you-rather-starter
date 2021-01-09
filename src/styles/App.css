@@ -601,7 +601,8 @@ hr.style13 {
 
 
   .side-line-break{
-    border: solid #b9b9b9 1px;
+    border: 1.5px solid #f3f3f3;
+    background-color: #f3f3f3 ;
     margin-top: 5%;
     /* margin-left: 3%; */
     height:115px;
@@ -935,29 +936,52 @@ hr.style13 {
 
   .leaderboards-container{
     display: inline-block;
-    width: auto;
+    width: 605px;
     height: auto;
     min-width: 45%;
     min-height: 55em;
     max-height: 70%;
     margin: 5% auto;
-    border: groove 2px #b9b9b9;
+    /* border: groove 2px #000000; */
+    overflow-y: scroll;
 
 
   }
 
   .l-card{
-    display:block;
-    border: solid 2px #f3f3f3;
-    width: 90%;
+    display:inline-block;
+    border: solid 2px #b9b9b9;
+    width: 97%;
+    height:auto;
     min-width: 550px;
-
-    margin: 10px auto 10px auto;
+    min-height: 150px;
+    margin: 10px auto 0px auto;
     
     border-top-right-radius:5px;
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+
+  }
+
+  .l-card:nth-child(-n+3){
+    display:inline-block;
+    border: groove 2px #57C91C;
+    width: 97%;
+    height:auto;
+    min-width: 550px;
+    min-height: 150px;
+    margin: 10px auto 0px auto;
+    
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow-x: hidden;
+    overflow-y: auto;
 
   }
   
@@ -969,38 +993,267 @@ hr.style13 {
     text-align: left;
     margin: 20px 20px 20px 20px;
     display: inline;
-    /* border: solid yellow 2px; */
-    float:left;
-    overflow: hidden;
     background-color: white;
+    display: inline;
+    float: left;
 
   }
-  
+
+
+  .l-card:nth-child(-n+3) .l-img{
+    border-radius: 50%;
+    height: 115px;
+    width: 115px;
+    border: inset 3px #fc9957;
+    text-align: left;
+    margin: 20px 20px 20px 20px;
+    display: inline;
+    background-color: white;
+    display: inline;
+    float: left;
+
+  }
+
+
+
+  .l-img-prize{
+    width: 50px;
+    height:auto;
+    padding: 0;
+    margin:0;
+    display: none;
+    position: absolute;
+    top: 68%;
+    right: 35%;
+
+  }
+  .l-card:nth-child(1) .l-img-prize{
+    width: 50px;
+    height:auto;
+    padding: 0;
+    margin:0;
+    display: inline-block;
+    position: absolute;
+    top: 68%;
+    right: 35%;
+    content:url("../images/first-place.png");
+ 
+
+  }
+
+  .l-card:nth-child(2) .l-img-prize{
+    width: 50px;
+    height:auto;
+    padding: 0;
+    margin:0;
+    display: inline-block;
+    position: absolute;
+    top: 68%;
+    right: 35%;
+    content:url("../images/second-place.png");
+
+  }
+
+  .l-card:nth-child(3) .l-img-prize{
+    width: 50px;
+    height:auto;
+    padding: 0;
+    margin:0;
+    display: inline-block;
+    position: absolute;
+    top: 68%;
+    right: 35%;
+    content:url("../images/third-place.png");
+
+  }
   .l-body{
+    display: inline-block;
+    height: auto;
+    width: auto;
+    float: left;
+    margin: 8px 15px;
+    margin-top: 15px;
+
 
   }
   
   .l-user{
-
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin:0;
+    font-size: 27px
   }
   
   .l-answered{
+    /* border: 4px solid red; */
+    display:block;
+    overflow: hidden;
+    min-width: 270px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 15px;
+
+
+    /* border: 4px solid red; */
+
+  }
+
+  .l-answered-left{
+    /* border: 4px solid red; */
+    display:inline-block;
+    padding: 0px;
+    float: left;
+    margin: 0px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+
+
 
   }
   
+  .l-answered-right{
+    /* border: 4px solid red; */
+    display:inline-block;
+    padding: 0px;
+    float: right;
+    margin: 0px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 10px;
+
+  }
+
+  .l-body hr{
+    border: 1.5px solid #f3f3f3;
+    background-color: #f3f3f3 ;
+    margin: 5px 0px;
+
+  }
+
+  .l-card:nth-child(-n+3) .l-body hr{
+    border: 1.5px groove #000000;
+    background-color: #000000 ;
+    margin: 5px 0px;
+
+  }
+  .l-card .side-line-break {
+    border: 1.2px solid #f3f3f3;
+    background-color: #f3f3f3 ;
+
+  }
+
+  .l-card:nth-child(-n+3) .side-line-break {
+    border: 1.2px groove #000000;
+    background-color: #000000 ;
+
+  }
+
   .l-created{
+    display:block;
+    overflow: hidden;
+    min-width: 270px;
+    /* border: 4px solid red; */
+    margin-top: 0px;
 
   }
   
-  .l-score-card{
+  .l-created-left{
+    /* border: 4px solid red; */
+    display:inline-block;
+    padding: 0px;
+    float: left;
+    margin: 0px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
 
+
+
+  }
+  
+  .l-created-right{
+    /* border: 4px solid red; */
+    display:inline-block;
+    padding: 0px;
+    float: right;
+    margin: 0px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    padding-right: 10px;
+
+  }
+
+  .l-score-card{
+    border: 2px #f1f1f1 solid;
+    float:left;
+    width: 90px;
+    height: auto;
+    margin: 27px 10px 0 10px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow: hidden;
+  }
+
+  .l-card:nth-child(-n+3) .l-score-card{
+    border: 2px #f1f1f1 solid;
+    float:left;
+    width: 90px;
+    height: auto;
+    margin: 27px 10px 0 10px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow: hidden;
+    color: #000000;
+    
+  }
+
+  .l-card:nth-child(-n+3) .l-score-card{
+    border: 2px #000000 groove;
+    float:left;
+    width: 90px;
+    height: auto;
+    margin: 27px 10px 0 10px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow: hidden;
   }
   
   .l-header{
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #f1f1f1;
+    margin:0px;
+    padding: 16px 0px;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+
+
+  }
+
+  .l-card:nth-child(-n+3) .l-header{
+    background-color: #f4f4f4;
+    border-bottom: 2px groove #000000;
+    margin:0px;
+    padding: 16px 0px;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+
 
   }
   
   .l-tally{
+    border: 2px #1C6EA4 outset;
+    background-color: #359FCA;
+    border-radius: 50%;
+    width:16px;
+    height:13px;
+    padding: 12px 15px 18px 15px;
+    margin: 2px 10px 2px 20px;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color:white;
+    font-size: 18px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1C6EA4;
 
   }
   
