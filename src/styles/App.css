@@ -450,8 +450,8 @@ hr.style13 {
     max-height: 93%;
     height: auto;
     box-shadow: 0px 14px 0px -10px rgb(255, 255, 255), 
-      0px -14px 0px -10px #FFFFFF, 18px 5px 10px -10px #FFFFFF, 
-      -18px 5px 10px -10px #FFFFFF, 0px 0px 2px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
+      0px -14px 0px -10px #FFFFFF, 18px 5px 10px -50px #FFFFFF, 
+      -18px 5px 10px -50px #FFFFFF, 0px 0px 2px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
     overflow-y: auto;
     overflow-x:hidden;
   }
@@ -459,7 +459,7 @@ hr.style13 {
   .question-table::-webkit-scrollbar-track {
     border: 1px double rgb(255, 255, 255);
     padding: 2px 0;
-    background-color:rgb(255, 255, 255);
+    background-color:#f3f3f3;
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
@@ -475,10 +475,10 @@ hr.style13 {
     box-shadow: inset 0 0 6px rgb(0, 0, 0);
     background-color: #f4f4f4;
     border: 1px solid rgb(255, 255, 255);
-    border-top-left-radius:5px;
-    border-bottom-right-radius:5px;
-    border-bottom-left-radius:5px; 
-    border-top-right-radius:5px; 
+    border-top-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px; 
+    border-top-right-radius:3px; 
   }
 
 
@@ -938,9 +938,9 @@ hr.style13 {
 
   .leaderboards-container{
     display: inline-block;
-    width: 605px;
+    width: 625px;
     height: auto;
-    min-width: 45%;
+    min-width: 625px;
     min-height: 55em;
     max-height: 70%;
     margin: 5% auto;
@@ -950,6 +950,31 @@ hr.style13 {
 
   }
 
+
+   .leaderboards-container::-webkit-scrollbar-track {
+    border: 1px double rgb(255, 255, 255);
+    padding: 2px 0;
+    background-color:#f3f3f3;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    border-top-right-radius:5px; 
+
+  }
+
+   .leaderboards-container::-webkit-scrollbar {
+    width: 10px;
+  }
+
+   .leaderboards-container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    background-color: #f4f4f4;
+    border: 1px solid rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px; 
+    border-top-right-radius:3px; 
+  }
   .l-card{
     display:inline-block;
     border: solid 2px #b9b9b9;
@@ -1037,7 +1062,7 @@ hr.style13 {
     display: inline-block;
     position: absolute;
     top: 68%;
-    right: 35%;
+    right: 34%;
     content:url("../images/first-place.png");
  
 
@@ -1051,7 +1076,7 @@ hr.style13 {
     display: inline-block;
     position: absolute;
     top: 68%;
-    right: 35%;
+    right: 34%;
     content:url("../images/second-place.png");
 
   }
@@ -1064,7 +1089,7 @@ hr.style13 {
     display: inline-block;
     position: absolute;
     top: 68%;
-    right: 35%;
+    right: 34%;
     content:url("../images/third-place.png");
 
   }
@@ -1121,6 +1146,8 @@ hr.style13 {
     padding-right: 10px;
 
   }
+
+
 
   .l-body hr{
     border: 1.5px solid #f3f3f3;
