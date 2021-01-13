@@ -11,6 +11,8 @@ class Dashboard extends Component {
   render() {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
+  let {unanswered, answered, sortedQ} = this.props;
+
 
   function QTabChange(e){
     let unanswered= document.getElementsByClassName('unanswered');
@@ -288,26 +290,25 @@ class Dashboard extends Component {
 
         <div onClick={(event) => QTabChange(event)} className='answered'>
             Answered Questions
-        { console.log('HERE WE GO ! : ')}
             
         </div>
       </div>
 
       <span id='show-questions-container'>
-        {[...Array(2)].map((x, i) =>(
+        {unanswered.map((x, i) =>(
         <div className='question-card' id = {`question-card-${i}`} >
           <div className='who'>
-            <p>  {users.name} asks:</p>
+            <p>  {unanswered[i].user.name} asks:</p>
           </div>
           
           <div className='question-card-body'>
-            <img className ='question-card-img' src={users.avatarURL } alt="Portfolio" id ={`question-card-img-${i}`} />  
+            <img className ='question-card-img' src={unanswered[i].user.avatarURL } alt="Portfolio" id ={`question-card-img-${i}`} />  
 
             <div className='side-line-break' id={`side-line-break-q-${i}`}/>
           
             <div className='question' id ={`question-${i}`}>
               <p className='p-title' id ={`p-title-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-question-${i}`}> ...{questions.optionOne.text.substring(0,20)}...</p>
+              <p className='p-question' id ={`p-question-${i}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${i}`} onClick= {(event) => viewQuestion(event, i)} className='p-question-btn'> View Full </button>
               
               <form id ={`form-${i}`} class='answer-form'>
@@ -315,10 +316,10 @@ class Dashboard extends Component {
                   <fieldset>
 
                     <label for="def"><input  id = "optionOne" type="radio" name="group" value="one" />
-                    {questions.optionOne.text}
+                    {unanswered[i].optionOne.text}
                       </label>
                     <label for="maybe"><input  id = "optionTwo" type="radio" name="group" value="two"/>
-                    {questions.optionTwo.text}</label>
+                    {unanswered[i].optionTwo.text}</label>
                     <input className='submit-answer' type="submit" value="Submit"/>
                 </fieldset>
                   
@@ -331,45 +332,45 @@ class Dashboard extends Component {
       </span>
 
       <span id='show-answers-container'>
-        {[...Array(25)].map((x, i) =>(
+        {answered.map((x, i) =>(
         <div className='question-card' id = {`answer-card-${i}`} >
           <div className='who'>
-            <p>  {users.name} asks:</p>
+            <p>  {answered[i].user.name} asks:</p>
           </div>
           
           <div className='question-card-body'>
-            <img className ='question-card-img' src={users.avatarURL } alt="Portfolio" id ={`answer-card-img-${i}`} />  
+            <img className ='question-card-img' src={answered[i].user.avatarURL } alt="Portfolio" id ={`answer-card-img-${i}`} />  
             <div className='side-line-break' id={`side-line-break-${i}`}/>
             <div className='question' id ={`answer-${i}`}>
               <p className='p-title' id ={`p-title-answer-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-answer-${i}`}> ...{questions.optionOne.text.substring(0,20)}...</p>
-              <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, questions)} className='p-question-btn'> View Full </button>
+              <p className='p-question' id ={`p-answer-${i}`}> ...{answered[i].optionOne.text.substring(0,20)}...</p>
+              <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, answered[i])} className='p-question-btn'> View Full </button>
               <div className='your-vote' id={`your-vote-${i}`}>
                 <img className='vote-img' id={`vote-img-${i}`} src={vote} alt="vote" />
                 <p className='p-wyr'>
-                  {`Would you rather ${questions.optionOne.text} ?`}
+                  {`Would you rather ${answered[i].optionOne.text} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-self-${i}`}>
-                    {`${findPercentage(questions, 'self')}%`}
+                    {`${findPercentage(answered[i], 'self')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
-                  {`${getMax(questions)} out of ${getTotal(questions)} votes`}
+                  {`${getMax(answered[i])} out of ${getTotal(answered[i])} votes`}
                 </p>
               </div>
 
               <div className='others-vote' id={`others-vote-${i}`}>
                 <p className='p-wyr'>
-                {`Would you rather ${questions.optionTwo.text} ?`}
+                {`Would you rather ${answered[i].optionTwo.text} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-other-${i}`}>
-                    {`${findPercentage(questions, 'other')}%`}
+                    {`${findPercentage(answered[i], 'other')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
-                  {`${getMin(questions)} out of ${getTotal(questions)} votes`}
+                  {`${getMin(answered[i])} out of ${getTotal(answered[i])} votes`}
                 </p>
               </div>
          
@@ -390,32 +391,59 @@ class Dashboard extends Component {
 
 
 function mapStateToProps ({ questions, users, authedUser }) {
-  // let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp - questions[b].timestamp);
-  // console.log('sq', sortedQ)
-  // Object.keys(sortedQ).forEach((x,i) => {
-  //   Object.keys(users).forEach((value, index) => {
-  //     if (sortedQ[i].author === users[index].id){
-  //         sortedQ[i] =
-  //         {
-  //           ...sortedQ[i],
-  //           user: users[index]
-  //         }
-  //     }
-
-  //   });
-
-  // });
-  // return {
-  //   sortedQ: sortedQ,
-  //   unanswered: Object.keys(sortedQ).filter((x,i) => {
-  //     return sortedQ[i].user.name === authedUser;
-  //   })
-
-  // }
   console.log('PROPS:\n', 'Q: ' , questions, '\nU:', users, '\n auth: ', authedUser)
   let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp - questions[b].timestamp);
   console.log('\n sorted', sortedQ);
+  sortedQ = sortedQ.map((x,i) => {return questions[sortedQ[i]]});
+  console.log('\n sorted again', sortedQ);
 
+  sortedQ.forEach((x,i) => {
+    console.log('\n author: ', sortedQ[i].author)
+    Object.keys(users).forEach((value, index) => {
+      console.log('\n users: ', users[value])
+
+      if (sortedQ[i].author === users[value].id){
+          sortedQ[i] =
+          {
+            ...sortedQ[i],
+            user: users[value]
+          }
+      }
+      console.log('\n sortedQ sorted a third time: ', sortedQ)
+    });
+  });
+
+  let unanswered = Object.keys(sortedQ).map((x,i) => {
+    console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+
+    if (sortedQ[i].user.id !== authedUser)
+      return sortedQ[i];
+      
+  });
+  unanswered = unanswered.filter((value, index) => {
+    console.log('filer: ', unanswered[index], unanswered[index] !== undefined)
+    return unanswered[index] !== undefined;
+
+  });
+  console.log('\n unanswered ', unanswered)
+
+  let answered = Object.keys(sortedQ).map((x,i) => {
+    console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+
+    if (sortedQ[i].user.id === authedUser)
+      return sortedQ[i];
+  });
+  answered= answered.filter((value, index) => {
+    return answered[index] !== undefined;
+
+  });
+  console.log('\n answered ', answered)
+
+
+  return {
+    sortedQ: sortedQ,
+    unanswered: unanswered,
+    answered: answered
 }
-
+}
 export default connect(mapStateToProps)(Dashboard)
