@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import * as DataAPI from '../utils/_DATA'
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
@@ -11,9 +11,8 @@ function selectUser(e){
 
 
 export default function Login () {
-  let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users;
-console.log(users);
+// console.log(users);
   return (
    <div  className='login-container'>
        
@@ -24,8 +23,8 @@ console.log(users);
         Please Sign in to continue
        </p>
        <form  className='login-form'>
-           <img  className='login-header-img'>
-           </img>
+           <img  className='login-header-img' alt='login-header-img' />
+           
            <br/>
 
            <label  className='login-label' for="users">Sign in</label>

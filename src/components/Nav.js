@@ -3,7 +3,6 @@ import * as DataAPI from '../utils/_DATA'
 
 
 export default function Nav () {
-  let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
 
   return (

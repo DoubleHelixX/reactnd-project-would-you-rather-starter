@@ -1,18 +1,17 @@
 import * as DataAPI from '../utils/_DATA'
 import vote from "../images/vote.png"
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 
 
 
-export default function dashboard () {
+class Dashboard extends Component {
+  
+  render() {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
 
-
-
-  console.log('Questions ' , questions, '\n', 'Users: ', users);
-
- 
   function QTabChange(e){
     let unanswered= document.getElementsByClassName('unanswered');
     let answered= document.getElementsByClassName('answered');
@@ -58,7 +57,7 @@ export default function dashboard () {
     let showViewBtns= document.getElementById('show-questions-container').querySelectorAll(`.p-question-btn`);
     let sideLineBreakQs = document.getElementById('show-questions-container').querySelectorAll(`.side-line-break`);
 
-    Object.keys(questionCards).map((i) => {
+    Object.keys(questionCards).forEach((i) => {
       userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
       userImgs[i].style['width'] = '115px';
       userImgs[i].style['height'] = '115px';
@@ -133,31 +132,31 @@ export default function dashboard () {
 
     showQuestion.style['animation'] = 'fadein 1s';
     showQuestion.style.display='inline-block';
-}
+  }
 
-function viewAnswer(e, i, q){
+  function viewAnswer(e, i, q){
 
-  let questionHeaders = document.getElementById('show-answers-container').querySelectorAll(`.p-title`);
-  let userImgs = document.getElementById('show-answers-container').querySelectorAll(`.question-card-img`);
-  let questions = document.getElementById('show-answers-container').querySelectorAll(`.question`);
-  let questionCards = document.getElementById('show-answers-container').querySelectorAll(`.question-card`);
-  let showQuestions = document.getElementById('show-answers-container').querySelectorAll(`.p-question`);
-  let showViewBtns= document.getElementById('show-answers-container').querySelectorAll(`.p-question-btn`);
-  let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.your-vote`);
-  let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.others-vote`);
-  let sideLineBreaks= document.getElementById('show-answers-container').querySelectorAll(`.side-line-break`);
-  // let percentageBars= document.getElementById('show-answers-container').querySelectorAll(`.p-percentage`);
-
-
+    let questionHeaders = document.getElementById('show-answers-container').querySelectorAll(`.p-title`);
+    let userImgs = document.getElementById('show-answers-container').querySelectorAll(`.question-card-img`);
+    let questions = document.getElementById('show-answers-container').querySelectorAll(`.question`);
+    let questionCards = document.getElementById('show-answers-container').querySelectorAll(`.question-card`);
+    let showQuestions = document.getElementById('show-answers-container').querySelectorAll(`.p-question`);
+    let showViewBtns= document.getElementById('show-answers-container').querySelectorAll(`.p-question-btn`);
+    let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.your-vote`);
+    let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.others-vote`);
+    let sideLineBreaks= document.getElementById('show-answers-container').querySelectorAll(`.side-line-break`);
+    // let percentageBars= document.getElementById('show-answers-container').querySelectorAll(`.p-percentage`);
 
 
 
-  Object.keys(questionCards).map((i) => {
-    userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
-    userImgs[i].style['width'] = '115px';
-    userImgs[i].style['height'] = '115px';
-    userImgs[i].style['border'] = 'groove 2px #b9b9b9'; 
-    userImgs[i].style['margin-top'] = '20px'; 
+
+
+    Object.keys(questionCards).forEach((i) => {
+      userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
+      userImgs[i].style['width'] = '115px';
+      userImgs[i].style['height'] = '115px';
+      userImgs[i].style['border'] = 'groove 2px #b9b9b9'; 
+      userImgs[i].style['margin-top'] = '20px'; 
 
     // percentageBars[i].style['width']='0%'
     yourVotes[i].style['display'] ='none';
@@ -193,96 +192,94 @@ function viewAnswer(e, i, q){
 
   });
 
-  let hidePreview= document.getElementById('show-answers-container').querySelector(`#p-answer-${i}`);
-  let hideViewBtn= document.getElementById('show-answers-container').querySelector(`#viewBtn-answer-${i}`);
-  let question = document.getElementById('show-answers-container').querySelector(`#answer-${i}`);
-  let questionHeader = document.getElementById('show-answers-container').querySelector(`#p-title-answer-${i}`);
-  let userImg = document.getElementById('show-answers-container').querySelector(`#answer-card-img-${i}`);
-  let questionCard = document.getElementById('show-answers-container').querySelector(`#answer-card-${i}`);
-  let yourVote = document.getElementById('show-answers-container').querySelector(`#your-vote-${i}`);
-  let othersVote = document.getElementById('show-answers-container').querySelector(`#others-vote-${i}`);
-  let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
-  let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
-  let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
-  let voteImg = document.getElementById('show-answers-container').querySelector(`#vote-img-${i}`);
-  
-
-
-
-  sideLineBreak.style['height']= '310px';
-  sideLineBreak.style['animation']= 'side-line-break-growth 1.5s ease'; 
-  
-
-
-  question.style['width']= 'calc(532px - 188px)';
-
-  questionCard.style['border'] = 'inset 2px #1C6EA4'; 
-
-  userImg.style['animation'] = 'img-growth 1.5s ease';
-  userImg.style['width'] = '130px';
-  userImg.style['height'] = '130px';
-  userImg.style['margin-top'] = '110px';
-  userImg.style['border'] = 'inset 3px #1C6EA4';
-
-
-  hidePreview.style['animation'] = 'fadeOut 1s';
-  hideViewBtn.style['animation'] = 'fadeOut 1s';
-  hidePreview.style.display='none';
-  hideViewBtn.style.display='none';
-
-  questionHeader.style['animation'] = 'a-textgrowth 1s';
-  questionHeader.textContent = 'Results: ';
-  questionHeader.style['font-size'] = '24px';
-  questionHeader.style['padding-bottom'] = '5px';
-  questionHeader.style['padding-left'] = '110px';
-
-  voteImg.style['animation']='vote-img-growth 2s'
-
-  percentageBarSelf.style['width']=`${findPercentage(q,'self')}%`
-  percentageBarOther.style['width']=`${findPercentage(q,'other') ==='0' ? '10' : findPercentage(q,'other') }%`
-
-
-  yourVote.style['animation'] = 'display 1s';
-  othersVote.style['animation'] = 'display 1s';
-  yourVote.style['display'] = 'block';
-  othersVote.style['display'] = 'block';
-
-}
-
-function getMax(question){
-  let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
-  let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
-
-  return Math.max(optOneLen , optTwoLen); 
-}
-
-function getMin(question){
-  let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
-  let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
-
-  return Math.min(optOneLen , optTwoLen); 
-}
-
-function getTotal(question){
- return getMin(question) + getMax(question)
-}
-
-function findPercentage(question, who){
-
- let max=getMax(question);
- let min=getMin(question);
-
-  let result = who ==='self' 
-  ? 
-  (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
-  : 
- (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1));  
-   
-  return result;
-}
-
-  return (
+    let hidePreview= document.getElementById('show-answers-container').querySelector(`#p-answer-${i}`);
+    let hideViewBtn= document.getElementById('show-answers-container').querySelector(`#viewBtn-answer-${i}`);
+    let question = document.getElementById('show-answers-container').querySelector(`#answer-${i}`);
+    let questionHeader = document.getElementById('show-answers-container').querySelector(`#p-title-answer-${i}`);
+    let userImg = document.getElementById('show-answers-container').querySelector(`#answer-card-img-${i}`);
+    let questionCard = document.getElementById('show-answers-container').querySelector(`#answer-card-${i}`);
+    let yourVote = document.getElementById('show-answers-container').querySelector(`#your-vote-${i}`);
+    let othersVote = document.getElementById('show-answers-container').querySelector(`#others-vote-${i}`);
+    let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
+    let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
+    let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
+    let voteImg = document.getElementById('show-answers-container').querySelector(`#vote-img-${i}`);
     
+
+
+
+    sideLineBreak.style['height']= '310px';
+    sideLineBreak.style['animation']= 'side-line-break-growth 1.5s ease'; 
+    
+
+
+    question.style['width']= 'calc(532px - 188px)';
+
+    questionCard.style['border'] = 'inset 2px #1C6EA4'; 
+
+    userImg.style['animation'] = 'img-growth 1.5s ease';
+    userImg.style['width'] = '130px';
+    userImg.style['height'] = '130px';
+    userImg.style['margin-top'] = '110px';
+    userImg.style['border'] = 'inset 3px #1C6EA4';
+
+
+    hidePreview.style['animation'] = 'fadeOut 1s';
+    hideViewBtn.style['animation'] = 'fadeOut 1s';
+    hidePreview.style.display='none';
+    hideViewBtn.style.display='none';
+
+    questionHeader.style['animation'] = 'a-textgrowth 1s';
+    questionHeader.textContent = 'Results: ';
+    questionHeader.style['font-size'] = '24px';
+    questionHeader.style['padding-bottom'] = '5px';
+    questionHeader.style['padding-left'] = '110px';
+
+    voteImg.style['animation']='vote-img-growth 2s'
+
+    percentageBarSelf.style['width']=`${findPercentage(q,'self')}%`
+    percentageBarOther.style['width']=`${findPercentage(q,'other') ==='0' ? '10' : findPercentage(q,'other') }%`
+
+
+    yourVote.style['animation'] = 'display 1s';
+    othersVote.style['animation'] = 'display 1s';
+    yourVote.style['display'] = 'block';
+    othersVote.style['display'] = 'block';
+
+  }
+
+  function getMax(question){
+    let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
+    let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+
+    return Math.max(optOneLen , optTwoLen); 
+  }
+
+  function getMin(question){
+    let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
+    let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+
+    return Math.min(optOneLen , optTwoLen); 
+  }
+
+  function getTotal(question){
+    return getMin(question) + getMax(question)
+  }
+
+  function findPercentage(question, who){
+
+    let max=getMax(question);
+    let min=getMin(question);
+
+      let result = who ==='self' 
+      ? 
+      (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
+      : 
+    (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1));  
+      
+      return result;
+  }
+  return (
     <div className='question-table'>
       <div className='button-container'>
         <div onClick={(event) => QTabChange(event)} className='unanswered'>
@@ -291,6 +288,8 @@ function findPercentage(question, who){
 
         <div onClick={(event) => QTabChange(event)} className='answered'>
             Answered Questions
+        { console.log('HERE WE GO ! : ')}
+            
         </div>
       </div>
 
@@ -386,4 +385,37 @@ function findPercentage(question, who){
 
 
   )
+  }
 }
+
+
+function mapStateToProps ({ questions, users, authedUser }) {
+  // let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp - questions[b].timestamp);
+  // console.log('sq', sortedQ)
+  // Object.keys(sortedQ).forEach((x,i) => {
+  //   Object.keys(users).forEach((value, index) => {
+  //     if (sortedQ[i].author === users[index].id){
+  //         sortedQ[i] =
+  //         {
+  //           ...sortedQ[i],
+  //           user: users[index]
+  //         }
+  //     }
+
+  //   });
+
+  // });
+  // return {
+  //   sortedQ: sortedQ,
+  //   unanswered: Object.keys(sortedQ).filter((x,i) => {
+  //     return sortedQ[i].user.name === authedUser;
+  //   })
+
+  // }
+  console.log('PROPS:\n', 'Q: ' , questions, '\nU:', users, '\n auth: ', authedUser)
+  let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp - questions[b].timestamp);
+  console.log('\n sorted', sortedQ);
+
+}
+
+export default connect(mapStateToProps)(Dashboard)

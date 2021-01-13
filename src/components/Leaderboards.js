@@ -1,42 +1,12 @@
 import * as DataAPI from '../utils/_DATA';
-import first from "../images/first-place.png";
-import second from "../images/second-place.png";
-import third from "../images/third-place.png";
+
 
 
 
 export default function Leaderboards () {
-    let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
+
     let users = DataAPI.users['sarahedo'];
-    let lImgs = document.querySelectorAll(`.l-img-prize`);
 
-    // Object.keys(lImgs).map((i) => {
-    // // console.log('asdas', lCards[i].style['border']);
-
-    //  switch(i){
-
-    //   case '0':  
-    //     lImgs[i].src=first;
-    //     lImgs[i].style['display']='inline-block';
-    //     break;
-
-    //   case '1':
-    //     lImgs[i].src=second;
-    //     lImgs[i].style['display']='inline-block';
-    //     break;
-
-    //   case '2':
-    //     lImgs[i].src=third;
-    //     lImgs[i].style['display']='inline-block';
-    //     break;
-
-    //   default:
-    //     lImgs[i].src='';
-    //     lImgs[i].style['display']='none';
-    //     break;
-
-    //  }
-    // });
       
 
     return (

@@ -1,14 +1,16 @@
-import logo from '../logo.svg';
 import '../styles/App.css';
-import * as DataAPI from '../utils/_DATA'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
 import Footer from './Footer'
 import TitleAnimate from './TitleAnimate'
-import Title from './Title'
+// import Title from './Title'
 import NewQuestion from './NewQuestion'
 import Leaderboards from './Leaderboards'
 import Login from './Login'
+
+import { connect } from 'react-redux'
+import { handleInitialData } from '../actions/shared'
+import LoadingBar from 'react-redux-loading'
 
 
 
@@ -22,37 +24,21 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 class App extends Component {
-  state = {
-    users:{},
-    animation: false
-  }
+  // state = {
+  //   users:{},
+  //   animation: false
+  // }
   
   componentDidMount() {
-    DataAPI._getUsers()
-    .then((users) => {
-      this.setState(() => ({
-        users,
-        animation:true
-      }))
-    })
+    this.props.dispatch(handleInitialData())
   }
 
   render() {
-    const { users } = this.state;
-    const user = users.sarahedo;
-    
 
-
-
-    
-      
-    
-
-  
     return (
       <Router>
         <Fragment>
-        {/* <LoadingBar /> */}
+        <LoadingBar />
         <div className="App">
           
           <TitleAnimate />
@@ -63,7 +49,6 @@ class App extends Component {
               <Dashboard />
             )}/>
 
-            {console.log('USERS: ', user && Object.keys(user.id))}
             {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
             <Route exact path='/question' render={() => (  
               <NewQuestion/>
@@ -92,11 +77,10 @@ class App extends Component {
   }
 }
 
-
 function mapStateToProps ({ authedUser }) {
   return {
     loading: authedUser === null
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App)

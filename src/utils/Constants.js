@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { withBaseIcon  } from 'react-icons-kit'
-import {linkedin2} from 'react-icons-kit/icomoon/linkedin2'
+// import {linkedin2} from 'react-icons-kit/icomoon/linkedin2'
 import {linkedinSquare} from 'react-icons-kit/fa/linkedinSquare'
 import {linkedin} from 'react-icons-kit/entypo/linkedin'
 import {socialLinkedin} from 'react-icons-kit/metrize/socialLinkedin'

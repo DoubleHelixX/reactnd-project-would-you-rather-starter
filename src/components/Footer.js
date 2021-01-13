@@ -13,9 +13,9 @@ export default function Footer () {
         {/* <li><a href="https://www.linkedin.com/in/tommy-rivera/" target="_blank"><LinkedInIcon3/> My LinkedIn </a></li>
         <li><a href="https://github.com/DoubleHelixX/reactnd-project-would-you-rather-starter" target="_blank"> <GithubIcon1/>  Github Code </a></li>
         <li style={{width:'110.9px' }}><a href="" target="_blank">{websiteIcon1()}  My Porfolio </a> </li>  */}
-        <li><a href="https://www.linkedin.com/in/tommy-rivera/" target="_blank"><img src={linkedIn } alt="linkedIn" /> linkedIn</a></li>
-        <li><a href="https://github.com/DoubleHelixX/reactnd-project-would-you-rather-starter" target="_blank"><img src={github } alt="Github Code" /> Github Code</a></li>
-        <li><a href="" target="_blank" style={{pointerEvents: 'none', cursor: 'default'}}><img src={resume } alt="Portfolio" /> Portfolio</a></li>
+        <li><a href="https://www.linkedin.com/in/tommy-rivera/" rel="noreferrer" target="_blank"><img src={linkedIn } alt="linkedIn" /> linkedIn</a></li>
+        <li><a href="https://github.com/DoubleHelixX/reactnd-project-would-you-rather-starter" rel="noreferrer" target="_blank"><img src={github } alt="Github Code" /> Github Code</a></li>
+        <li><a href="Tommy-Rivera.com" target="_blank"  rel="noreferrer" style={{pointerEvents: 'none', cursor: 'default'}}><img src={resume } alt="Portfolio" /> Portfolio</a></li>
 
 
        </ul>
@@ -23,7 +23,7 @@ export default function Footer () {
       <span className='footer-copyright'>
             <hr className='footer-hr'/>
 
-           &copy; 2020 Copyright: <a href="" target="_blank">  Tommy-Rivera.com</a> 
+           &copy; 2020 Copyright: <a href="Tommy-Rivera.com" rel="noreferrer" target="_blank">  Tommy-Rivera.com</a> 
             
           
      </span>
