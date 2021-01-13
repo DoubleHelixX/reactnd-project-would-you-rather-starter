@@ -35,14 +35,17 @@ console.log(users);
             </select> */}
 
         <DropdownButton id="dropdown-basic-button" title="Select User">
-        <Dropdown.Item className="dropdown-item" href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item className="dropdown-item" href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item className="dropdown-item" href="#/action-3">Something else</Dropdown.Item>
+        {Object.keys(users).map((x, i) =>(
+        <Dropdown.Item className="dropdown-item"  id={(users[Object.keys(users)[i]].name).toString()}>
+            <img src={(users[Object.keys(users)[i]].avatarURL).toString()} alt={(users[Object.keys(users)[i]].name).toString()} />
+            {(users[Object.keys(users)[i]].name).toString()}</Dropdown.Item>
+        
+        ))}
         </DropdownButton>
            
 
             <br/>
-            <input className='login-submit' type="submit" value="Submit"/>
+            <input className='login-submit' type="submit" value="Sign-In"/>
        </form>
    </div>
     

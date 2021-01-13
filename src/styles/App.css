@@ -1033,7 +1033,7 @@ hr.style13 {
     border-top-left-radius:4px;
     border-bottom-right-radius:4px;
     border-bottom-left-radius:4px;
-    border: inset 2px #1C6EA4;
+    border: outset 2px #1C6EA4;
     color: white;
     font-size: 15px;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
@@ -1404,7 +1404,6 @@ hr.style13 {
     height: auto;
     min-width: 45%;
     min-height: 25em;
-    max-height: 25em;
     margin: 5% auto;
     border: groove 2px #b9b9b9;
     background-color: #f3f3f3;
@@ -1463,6 +1462,7 @@ hr.style13 {
       -webkit-text-stroke-width: 1.2px;
       -webkit-text-stroke-color: #1C6EA4;
       -webkit-text-fill-color: #3397E8;
+      text-shadow: 0px 0px 5px #F7B030;
     }
 
     .login-img{
@@ -1501,7 +1501,7 @@ hr.style13 {
     }
 
     .dropdown-toggle:hover{
-      border-bottom: 0;
+      border-color: black;
 
     }
 
@@ -1534,7 +1534,7 @@ hr.style13 {
   .dropdown-menu .dropdown-item{
     display: inline-block;
     width: 100%;
-    padding: .15rem auto;
+    padding: 15rem auto;
     clear: both;
     font-weight: 400;
     color: #212529;
@@ -1544,6 +1544,9 @@ hr.style13 {
     border: 0;
     border: 0 2px solid #b9b9b9;
     text-decoration: none;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+
 
 
   }
@@ -1552,14 +1555,33 @@ hr.style13 {
 
     background-color: #f3f3f3;
 
+  }
 
-
-
+  .dropdown-item img{
+    width: 50px;
+    height: 50px;
+    border: groove 2px #b9b9b9;
+    border-radius: 50%;
+    background-color:white;
+    vertical-align: middle;
+    margin:5px 8px 5px 5px;
   }
 
 
     .login-submit{
-      margin-bottom:20px;      
+      margin-bottom:15px;      
+      width: 80%;
+      height: 40px;
+      background-color: #359FCA;
+      border-top-right-radius:4px;
+      border-top-left-radius:4px;
+      border-bottom-right-radius:4px;
+      border-bottom-left-radius:4px;
+      border: outset 2px #1C6EA4;
+      color: white;
+      font-size: 15px;
+      font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+      
     }
 
 
