@@ -13,6 +13,7 @@
   margin-bottom: 10%;  */
   align-items: center;
   min-width: 644px;
+  position:relative;
  /* move whole app up and down */
 
 }
@@ -41,6 +42,15 @@
 
 .App-link {
   color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes my-spin {
@@ -128,7 +138,7 @@
   0% {
   width: 115px;
   height: 115px;
-  border: solid 2px #b9b9b9;
+  border: groove 2px #b9b9b9;
   }
   50%{
     width: 135px;
@@ -157,7 +167,7 @@
   100% {
     width: 115px;
     height: 115px;
-    border: solid 2px #b9b9b9;
+    border: groove 2px #b9b9b9;
 
   }
 }
@@ -345,6 +355,10 @@
   border-radius: 0px 0px 0px 0px;
   background-color:white;
   box-shadow: 0px 0px 0px 1px #000000; 
+  position:relative;
+  
+  overflow: hidden;
+  height: 64px;
 
 }
 
@@ -355,16 +369,37 @@
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  width:50%;
+
 }
 
-.nav-links li{
+.nav-links li:first-child {
+  padding-left: 15%;
+}
+
+.nav-links li:nth-child(-n+3){
   margin-left: 35px;
+  margin-top:7px;
 
 }
 
 
+.li-logout{
+  margin-left: 105px;
+  text-decoration: 'none';
+  color:rgb(0, 0, 0);
+  font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+  font-size: 17px;
+  width:auto;
+  height:100%;
+  padding: 16px 0;
+  width: auto;
 
-.non-active-tab{
+}
+
+.li-logout span{
+  margin-right:5px;
+  cursor: pointer;
   text-decoration: 'none';
   color:rgb(255, 255, 255);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -373,6 +408,74 @@
   border-bottom: 1px double #359FCA;
   border-radius: 0px 0px 8px 8px ;
   text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+}
+
+.li-logout span:hover{
+  text-decoration: 'none';
+  color:#000000;
+  /* background-color:#1C6EA4; */
+  padding:5px 5px 5px;
+  width: 40%;
+  height: 200px;
+  /* box-shadow: inset 0 10px #ffffff, inset 4px 0 #ffffff, inset -4px 0 #ffffff, inset 0 -4px  #ffffff; */
+  box-shadow: 0px 40px 0px -10px #FFFFFF, 
+  0px 0px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 
+  0px 0px 0px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
+  /* padding:10px;*/
+  border: 1px double #359FCA;
+  border-radius: 0px 0px 8px 8px ; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  transition: 0.3s;
+}
+
+.nav-user-img{
+
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    border: groove 2px #b9b9b9;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+
+}
+
+
+.non-active-tab{
+  width: 100%;
+  text-decoration: 'none';
+  color:rgb(255, 255, 255);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 17px;
+  border-top: 1px double #359FCA;
+  border-bottom: 1px double #359FCA;
+  border-radius: 0px 0px 8px 8px ;
+  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+}
+
+.non-active-tab:hover{
+  text-decoration: 'none';
+  color:#000000;
+  /* background-color:#1C6EA4; */
+  padding:5px 5px 5px;
+  width: 40%;
+  height: 200px;
+  /* box-shadow: inset 0 10px #ffffff, inset 4px 0 #ffffff, inset -4px 0 #ffffff, inset 0 -4px  #ffffff; */
+  box-shadow: 0px 40px 0px -10px #FFFFFF, 
+  0px 0px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 
+  0px 0px 0px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
+  /* padding:10px;*/
+  border: 1px double #359FCA;
+  border-radius: 0px 0px 8px 8px ; 
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  text-shadow: none;
+  transition: 0.3s;
 }
 
 .active-tab{
@@ -396,10 +499,6 @@
 }
 
 
-
-.nav li:first-child {
-  padding-left: 0;
-}
 
 hr.style13 {
   border: 0;
@@ -429,6 +528,7 @@ hr.style13 {
   background-color:white;
   box-shadow: 0px 1px 0px 1px #000000; 
   padding-bottom: 5%;
+  overflow: auto;
 
 }
 
@@ -450,10 +550,14 @@ hr.style13 {
     max-height: 93%;
     height: auto;
     box-shadow: 0px 14px 0px -10px rgb(255, 255, 255), 
-      0px -14px 0px -10px #FFFFFF, 18px 5px 10px -50px #FFFFFF, 
-      -18px 5px 10px -50px #FFFFFF, 0px 0px 2px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
+      0px -14px 0px -10px #FFFFFF, 18px 0px 10px 0px #FFFFFF, 
+      -18px 0px 10px 0px #FFFFFF, 0px 0px 2px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
     overflow-y: auto;
     overflow-x:hidden;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
   }
 
   .question-table::-webkit-scrollbar-track {
@@ -589,7 +693,7 @@ hr.style13 {
     border-radius: 50%;
     height: 115px;
     width: 115px;
-    border: solid 2px #b9b9b9;
+    border: groove 2px #b9b9b9;
     text-align: left;
     margin: 20px 20px 20px 20px;
     display: inline;
@@ -836,6 +940,10 @@ hr.style13 {
     max-height: 70%;
     margin: 5% auto;
     border: groove 2px #b9b9b9;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
   }
 
   .n-q-c-header{
@@ -1016,7 +1124,7 @@ hr.style13 {
     border-radius: 50%;
     height: 115px;
     width: 115px;
-    border: solid 2px #b9b9b9;
+    border: groove 2px #b9b9b9;
     text-align: left;
     margin: 20px 20px 20px 20px;
     display: inline;
@@ -1062,7 +1170,7 @@ hr.style13 {
     display: inline-block;
     position: absolute;
     top: 68%;
-    right: 34%;
+    right: 32.5%;
     content:url("../images/first-place.png");
  
 
@@ -1285,6 +1393,178 @@ hr.style13 {
     -webkit-text-stroke-color: #1C6EA4;
 
   }
+
+  /*-----------------------------------------------------------------------------------
+                            LOGIN/INDEX TAB CSS 
+  -----------------------------------------------------------------------------------*/
+
+  .login-container{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    min-width: 45%;
+    min-height: 25em;
+    max-height: 25em;
+    margin: 5% auto;
+    border: groove 2px #b9b9b9;
+    background-color: #f3f3f3;
+    position: relative;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+
+
+
+    
+  }
+
+  .login-header{
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+  }
+
+  .login-p{
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    color: #313030;
+    padding:0px;
+    margin-top: 0;
+  }
+
+  .login-form{
+    background-color:white;
+    width: 100%;
+    margin:auto;
+    border-top:  groove 2px #b9b9b9;
+    overflow: hidden;
+    
+  }
+
+    .login-header-img{
+      content:url("../images/atom.png");
+      height:150px;
+      width:150px;
+      margin:auto;
+      display:inline-block;
+      animation: App-logo-spin infinite 20s linear;
+
+      
+    }
+
+    .login-label{
+      font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+      color: #313030;
+      padding:0px;
+      margin-top: 0;
+      font-size: 28px;
+      /* color:white; */
+      -webkit-text-stroke-width: 1.2px;
+      -webkit-text-stroke-color: #1C6EA4;
+      -webkit-text-fill-color: #3397E8;
+    }
+
+    .login-img{
+      height:50px;
+      width:50px;
+    }
+
+    .dropdown-toggle{
+      margin-top:15px;
+      border: 2px solid #b9b9b9;
+      border-top-right-radius:5px;
+      border-top-left-radius:5px;
+      border-bottom-right-radius:5px;
+      border-bottom-left-radius:5px; 
+      width:80%;
+      text-align: left;
+      color:#b9b9b9;
+      background-color:white;
+      padding: 10px;
+      font-size: 14px;
+
+    }
+    .dropdown-toggle:after{
+      display: inline-block;
+      float:right;
+      margin-top: .255em;
+      margin-left: .255em;
+      vertical-align: .255em;
+      content: "";
+      border-top: .3em solid;
+      border-right: .3em solid transparent;
+      border-bottom: 0;
+      border-left: .3em solid transparent;
+      color: black;
+
+    }
+
+    .dropdown-toggle:hover{
+      border-bottom: 0;
+
+    }
+
+  .dropdown-menu {
+    position: relative;
+    width:79.4%;
+
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: 0 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-left: 2px solid #f3f3f3;
+    border-right: 2px solid #f3f3f3;
+    border-bottom: 2px solid #f3f3f3;
+
+
+    background-color: #ffffff;
+
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+
+
+  }
+
+  .dropdown-menu .dropdown-item{
+    display: inline-block;
+    width: 100%;
+    padding: .15rem auto;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: left;
+    white-space: nowrap;
+    background-color: #ffffff;
+    border: 0;
+    border: 0 2px solid #b9b9b9;
+    text-decoration: none;
+
+
+  }
+
+  .dropdown-menu .dropdown-item:hover{
+
+    background-color: #f3f3f3;
+
+
+
+
+  }
+
+
+    .login-submit{
+      margin-bottom:20px;      
+    }
+
+
+
+    
   
 /*-----------------------------------------------------------------------------------
                                     FOOTER CSS 
@@ -1306,7 +1586,6 @@ hr.style13 {
   box-shadow: 0px 1px 0px 1px #000000; 
   position: relative;
   bottom:10px;
-
 
 }
 

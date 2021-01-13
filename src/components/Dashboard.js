@@ -62,7 +62,7 @@ export default function dashboard () {
       userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
       userImgs[i].style['width'] = '115px';
       userImgs[i].style['height'] = '115px';
-      userImgs[i].style['border'] = 'solid 2px #b9b9b9'; 
+      userImgs[i].style['border'] = 'groove 2px #b9b9b9'; 
       questions[i].style['width']= 'calc(532px - 168px)';
 
       questionCards[i].style['border'] = 'solid 2px #f3f3f3'; 
@@ -156,7 +156,7 @@ function viewAnswer(e, i, q){
     userImgs[i].style['animation'] = 'img-shrink 1.5s ease';
     userImgs[i].style['width'] = '115px';
     userImgs[i].style['height'] = '115px';
-    userImgs[i].style['border'] = 'solid 2px #b9b9b9'; 
+    userImgs[i].style['border'] = 'groove 2px #b9b9b9'; 
     userImgs[i].style['margin-top'] = '20px'; 
 
     // percentageBars[i].style['width']='0%'

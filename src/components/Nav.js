@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router-dom'
+import * as DataAPI from '../utils/_DATA'
+
 
 export default function Nav () {
+  let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
+  let users = DataAPI.users['sarahedo'];
 
   return (
     <nav className='nav'>
@@ -50,7 +54,17 @@ export default function Nav () {
             LeaderBoards
           </NavLink>
         </li>
+
+        
       </ul>
+      <span className='li-logout'>
+         {` Welcome back, ${'Tommy'}`} 
+         <img className ='nav-user-img' src={users.avatarURL } alt="account-img" />  
+
+          <span>
+            Logout
+          </span>
+        </span>
       
     </nav>
     

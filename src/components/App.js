@@ -8,6 +8,8 @@ import TitleAnimate from './TitleAnimate'
 import Title from './Title'
 import NewQuestion from './NewQuestion'
 import Leaderboards from './Leaderboards'
+import Login from './Login'
+
 
 
 import React, { Component, Fragment } from 'react'
@@ -69,6 +71,11 @@ class App extends Component {
             )}/>
             <Route exact path='/leaderboards' render={() => (  
               <Leaderboards/>
+              
+            )}/>
+
+          <Route exact path='/' render={() => (  
+              <Login/>
               
             )}/>
 
