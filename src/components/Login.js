@@ -2,6 +2,12 @@ import { NavLink } from 'react-router-dom'
 import * as DataAPI from '../utils/_DATA'
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 
+function selectUser(e){
+    console.log(e.target.id);
+    let dropdownBtn = document.getElementById('dropdown-basic-button');
+    dropdownBtn.textContent = e.target.id;
+    dropdownBtn.style.color='black';
+}
 
 
 export default function Login () {
@@ -36,7 +42,7 @@ console.log(users);
 
         <DropdownButton id="dropdown-basic-button" title="Select User">
         {Object.keys(users).map((x, i) =>(
-        <Dropdown.Item className="dropdown-item"  id={(users[Object.keys(users)[i]].name).toString()}>
+        <Dropdown.Item className="dropdown-item" onClick={(event) => selectUser(event) } id={(users[Object.keys(users)[i]].name).toString()}>
             <img src={(users[Object.keys(users)[i]].avatarURL).toString()} alt={(users[Object.keys(users)[i]].name).toString()} />
             {(users[Object.keys(users)[i]].name).toString()}</Dropdown.Item>
         

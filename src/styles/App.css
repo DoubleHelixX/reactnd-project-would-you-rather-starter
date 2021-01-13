@@ -1413,9 +1413,6 @@ hr.style13 {
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
 
-
-
-    
   }
 
   .login-header{
@@ -1448,6 +1445,7 @@ hr.style13 {
       margin:auto;
       display:inline-block;
       animation: App-logo-spin infinite 20s linear;
+      margin-top:5px;
 
       
     }
@@ -1482,7 +1480,9 @@ hr.style13 {
       color:#b9b9b9;
       background-color:white;
       padding: 10px;
-      font-size: 14px;
+      font-size: 15px;
+      font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+      
 
     }
     .dropdown-toggle:after{
