@@ -282,10 +282,14 @@ class Dashboard extends Component {
       return result;
   }
 
-  function submitQuestion (e){
+  function handleAnswer(e){
     e.preventDefault();
-    console.log('e: ' ,e, 'e.target: ',e.target, 'e.t.v : ', e.target.value);
+    // console.log('e: ' ,e, '\ne.target: ',e.target, '\ne.t.v : ', e.target.value, '\ne.elements: ', e.target.elements, '\ncheck: ', e.target.elements.group.value|| 0 < e.target.elements.group.value.length , '\ne.value ', e.target.elements.group.value);
+    if (e.target.elements.group.value|| 0 < e.target.elements.group.value.length){
+      let option = e.target.elements.group.value;
 
+    }
+   
   }
 
   return (
@@ -318,7 +322,7 @@ class Dashboard extends Component {
               <p className='p-question' id ={`p-question-${unanswered[i].uId}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${unanswered[i].uId}`} onClick= {(event) => viewQuestion(event, unanswered[i].uId)} className='p-question-btn'> View Full </button>
               
-              <form onSubmit={(event) => submitQuestion(event)} id ={`form-${unanswered[i].uId}`} class='answer-form'>
+              <form onSubmit={(event) => handleAnswer(event)} id ={`form-${unanswered[i].uId}`} class='answer-form'>
 
                   <fieldset>
 
