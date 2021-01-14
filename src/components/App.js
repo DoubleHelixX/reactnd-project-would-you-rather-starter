@@ -14,6 +14,8 @@ import LoadingBar from 'react-redux-loading'
 
 
 
+
+
 import React, { Component, Fragment } from 'react'
 // import LoadingBar from 'react-redux-loading'
 // import { connect } from 'react-redux'
@@ -38,12 +40,12 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-        <LoadingBar />
         <div className="App">
           
           <TitleAnimate />
           <Nav />
           <div className='border-body'>
+              <LoadingBar className="loading"/>
             <hr className='style13' />
             <Route exact path='/home' render={() => (
               <Dashboard />

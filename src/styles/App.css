@@ -534,6 +534,12 @@ hr.style13 {
 
 }
 
+.loading{
+  background-color: #1C6EA4; 
+  height: 1px; 
+  position: relative;
+}
+
 
   /*-----------------------------------------------------------------------------------
                                     HOME TAB CSS 
@@ -722,7 +728,7 @@ hr.style13 {
   .question{
     height: 100%;
     width: calc(532px - 168px);
-    margin-top: 5%;
+    margin-top: 11px;
     float: left;
     display: inline-block;
     /* border: solid #ff0000 2px; */
@@ -732,7 +738,7 @@ hr.style13 {
   .question .p-title {
     margin-left: 10px;
     margin-top: 0px; 
-    margin-bottom: 0;
+    margin-bottom: 5px;
     padding-left: 1%;
     display:block;
     text-align: left;
@@ -791,14 +797,7 @@ hr.style13 {
     padding:0;
   }
 
-  .answer-form input{
-    text-align: left;
-    display:inline;
-    float:left;
-    vertical-align: middle;
-    background-color: #359FCA;
-    overflow: hidden;
-  }
+
 
   .answer-form label{
     float:left;
@@ -807,25 +806,36 @@ hr.style13 {
     font-weight: lighter;
     font-size: 16px;
     padding-right: 10px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-
-
-  
+    padding-bottom: 6px;
+    padding-top: 6px;
   }
+
+  .answer-form label input.radioBtn{
+    margin-right:10px;
+    text-align: left;
+    display:inline;
+    float:left;
+    vertical-align: middle;
+    background-color: #359FCA;
+    overflow: hidden;
+  }
+
+  .answer-form label span{
+    float:left;
+    
+  }
+
 
   .submit-answer{
     width: 98%;
     height:auto;
-
     margin:auto 2% auto 2%;
     margin-top: 5px;
     float:none;
-    padding:0;
     display: block;
     text-align: center;
-    padding:10px;
-    padding-left: 32%;
+    padding:8px 0;
+    /* padding-left: 35%; */
     border: groove 2px #1C6EA4;
     border-top-right-radius:5px;
     border-top-left-radius:5px;
@@ -833,7 +843,12 @@ hr.style13 {
     border-bottom-left-radius:5px; 
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 16px;
+    font-size: 16.5px;
+    vertical-align: middle;
+    background-color: #359FCA;
+    overflow: hidden;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1C6EA4; */
   }
 
   #show-answers-container .question{

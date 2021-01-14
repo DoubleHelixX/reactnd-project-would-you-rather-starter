@@ -31,8 +31,14 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
       optionTwoText,
       author: authedUser
     })
+    .catch((e) => {
+      console.warn('Error in saving question: ', e)
+      // dispatch(toggleTweet(info))
+      // alert('The was an error liking the tweet. Try again.')
+    })
       .then((formattedQuestion) => dispatch(addQuestion(formattedQuestion)))
       .then(() => dispatch(hideLoading()))
+     
   }
 }
 
@@ -48,6 +54,11 @@ export function handleAddQuestionAnswer ( qid, answer) {
         answer
       })
         .then(() => dispatch(addQuestionAnswer({authedUser, qid, answer})))
+        .catch((e) => {
+          console.warn('Error in saving question: ', e)
+          // dispatch(toggleTweet(info))
+          // alert('The was an error liking the tweet. Try again.')
+        })
         .then(() => dispatch(hideLoading()))
     }
   }

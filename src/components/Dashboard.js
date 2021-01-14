@@ -281,6 +281,13 @@ class Dashboard extends Component {
       
       return result;
   }
+
+  function submitQuestion (e){
+    e.preventDefault();
+    console.log('e: ' ,e, 'e.target: ',e.target, 'e.t.v : ', e.target.value);
+
+  }
+
   return (
     <div className='question-table'>
       <div className='button-container'>
@@ -296,30 +303,30 @@ class Dashboard extends Component {
 
       <span id='show-questions-container'>
         {unanswered.map((x, i) =>(
-        <div className='question-card' id = {`question-card-${i}`} >
+        <div className='question-card' id = {`question-card-${unanswered[i].uId}`} >
           <div className='who'>
             <p>  {unanswered[i].user.name} asks:</p>
           </div>
           
           <div className='question-card-body'>
-            <img className ='question-card-img' src={unanswered[i].user.avatarURL } alt="Portfolio" id ={`question-card-img-${i}`} />  
+            <img className ='question-card-img' src={unanswered[i].user.avatarURL } alt="Portfolio" id ={`question-card-img-${unanswered[i].uId}`} />  
 
-            <div className='side-line-break' id={`side-line-break-q-${i}`}/>
+            <div className='side-line-break' id={`side-line-break-q-${unanswered[i].uId}`}/>
           
-            <div className='question' id ={`question-${i}`}>
-              <p className='p-title' id ={`p-title-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-question-${i}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
-              <button id ={`viewBtn-${i}`} onClick= {(event) => viewQuestion(event, i)} className='p-question-btn'> View Full </button>
+            <div className='question' id ={`question-${unanswered[i].uId}`}>
+              <p className='p-title' id ={`p-title-${unanswered[i].uId}`}> Would You Rather </p>
+              <p className='p-question' id ={`p-question-${unanswered[i].uId}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
+              <button id ={`viewBtn-${unanswered[i].uId}`} onClick= {(event) => viewQuestion(event, unanswered[i].uId)} className='p-question-btn'> View Full </button>
               
-              <form id ={`form-${i}`} class='answer-form'>
+              <form onSubmit={(event) => submitQuestion(event)} id ={`form-${unanswered[i].uId}`} class='answer-form'>
 
                   <fieldset>
 
-                    <label for="def">
+                    <label for="one">
                       <input className='radioBtn' id = "optionOne" type="radio" name="group" value="one" />
                       <span>{unanswered[i].optionOne.text.trim()}</span>
                     </label>
-                    <label for="maybe">
+                    <label for="two">
                       <input className='radioBtn' id = "optionTwo" type="radio" name="group" value="two"/>
                       <span> {unanswered[i].optionTwo.text.trim()}</span>
                     </label>
@@ -336,25 +343,25 @@ class Dashboard extends Component {
 
       <span id='show-answers-container'>
         {answered.map((x, i) =>(
-        <div className='question-card' id = {`answer-card-${i}`} >
+        <div className='question-card' id = {`answer-card-${answered[i].uId}`} >
           <div className='who'>
             <p>  {answered[i].user.name} asks:</p>
           </div>
           
           <div className='question-card-body'>
-            <img className ='question-card-img' src={answered[i].user.avatarURL } alt="Portfolio" id ={`answer-card-img-${i}`} />  
-            <div className='side-line-break' id={`side-line-break-${i}`}/>
-            <div className='question' id ={`answer-${i}`}>
-              <p className='p-title' id ={`p-title-answer-${i}`}> Would You Rather </p>
-              <p className='p-question' id ={`p-answer-${i}`}> ...{answered[i].optionOne.text.substring(0,20)}...</p>
-              <button id ={`viewBtn-answer-${i}`} onClick= {(event) => viewAnswer(event, i, answered[i])} className='p-question-btn'> View Full </button>
-              <div className='your-vote' id={`your-vote-${i}`}>
-                <img className='vote-img' id={`vote-img-${i}`} src={vote} alt="vote" />
+            <img className ='question-card-img' src={answered[i].user.avatarURL } alt="Portfolio" id ={`answer-card-img-${answered[i].uId}`} />  
+            <div className='side-line-break' id={`side-line-break-${answered[i].uId}`}/>
+            <div className='question' id ={`answer-${answered[i].uId}`}>
+              <p className='p-title' id ={`p-title-answer-${answered[i].uId}`}> Would You Rather </p>
+              <p className='p-question' id ={`p-answer-${answered[i].uId}`}> ...{answered[i].optionOne.text.substring(0,20)}...</p>
+              <button id ={`viewBtn-answer-${answered[i].uId}`} onClick= {(event) => viewAnswer(event, answered[i].uId, answered[i])} className='p-question-btn'> View Full </button>
+              <div className='your-vote' id={`your-vote-${answered[i].uId}`}>
+                <img className='vote-img' id={`vote-img-${answered[i].uId}`} src={vote} alt="vote" />
                 <p className='p-wyr'>
                   {`Would you rather ${answered[i].optionOne.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`} id={`p-percentage-self-${i}`}>
+                  <p className={`p-percentage`} id={`p-percentage-self-${answered[i].uId}`}>
                     {`${findPercentage(answered[i], 'self')}%`}
                   </p>
                 </div>
@@ -363,12 +370,12 @@ class Dashboard extends Component {
                 </p>
               </div>
 
-              <div className='others-vote' id={`others-vote-${i}`}>
+              <div className='others-vote' id={`others-vote-${answered[i].uId}`}>
                 <p className='p-wyr'>
                 {`Would you rather ${answered[i].optionTwo.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`} id={`p-percentage-other-${i}`}>
+                  <p className={`p-percentage`} id={`p-percentage-other-${answered[i].uId}`}>
                     {`${findPercentage(answered[i], 'other')}%`}
                   </p>
                 </div>
@@ -409,10 +416,11 @@ function mapStateToProps ({ questions, users, authedUser }) {
           sortedQ[i] =
           {
             ...sortedQ[i],
-            user: users[value]
+            user: users[value],
+            uId: (sortedQ[i].timestamp.toString() + sortedQ[i].id)
           }
       }
-      // console.log('\n sortedQ sorted a third time: ', sortedQ)
+      console.log('\n sortedQ sorted a third time: ', sortedQ)
     });
   });
 
