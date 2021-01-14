@@ -352,9 +352,11 @@
   color:white;
   border-left: 2px groove #1C6EA4; 
   border-right: 2px groove #1C6EA4;  
+  border-bottom: 0px groove #1C6EA4;  
+
   border-radius: 0px 0px 0px 0px;
   background-color:white;
-  box-shadow: 0px 0px 0px 1px #000000; 
+  box-shadow: 0px -1px 0px 1px #000000; 
   position:relative;
   
   overflow: hidden;
@@ -503,11 +505,11 @@
 hr.style13 {
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .75), rgba(0, 0, 0, 0));
   background-color:white;
-  border-left: 2px inset #1C6EA4; 
+  /* border-left: 2px inset #1C6EA4; 
   border-right: 2px inset #1C6EA4;  
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px; */
   width:99.2%;
   margin-top: 0px;
 }
@@ -818,10 +820,12 @@ hr.style13 {
 
     margin:auto 2% auto 2%;
     margin-top: 5px;
-
+    float:none;
+    padding:0;
+    display: block;
     text-align: center;
     padding:10px;
-    padding-left: 38%;
+    padding-left: 32%;
     border: groove 2px #1C6EA4;
     border-top-right-radius:5px;
     border-top-left-radius:5px;
@@ -1035,7 +1039,7 @@ hr.style13 {
     border-bottom-left-radius:4px;
     border: outset 2px #1C6EA4;
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
 
   }
@@ -1102,9 +1106,43 @@ hr.style13 {
 
   }
 
-  .l-card:nth-child(-n+3){
+  .l-card:nth-child(1){
     display:inline-block;
-    border: groove 2px #57C91C;
+    border: groove 2px #FFDA8F;
+    width: 97%;
+    height:auto;
+    min-width: 550px;
+    min-height: 150px;
+    margin: 10px auto 0px auto;
+    
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+
+  }
+  .l-card:nth-child(2){
+    display:inline-block;
+    border: groove 2px #C7D9DA;
+    width: 97%;
+    height:auto;
+    min-width: 550px;
+    min-height: 150px;
+    margin: 10px auto 0px auto;
+    
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+
+  }
+  .l-card:nth-child(3){
+    display:inline-block;
+    border: groove 2px #FFAD95;
     width: 97%;
     height:auto;
     min-width: 550px;
@@ -1135,7 +1173,35 @@ hr.style13 {
   }
 
 
-  .l-card:nth-child(-n+3) .l-img{
+  .l-card:nth-child(1) .l-img{
+    border-radius: 50%;
+    height: 115px;
+    width: 115px;
+    border: inset 3px #FFDA8F;
+    text-align: left;
+    margin: 20px 20px 20px 20px;
+    display: inline;
+    background-color: white;
+    display: inline;
+    float: left;
+
+  }
+
+  .l-card:nth-child(2) .l-img{
+    border-radius: 50%;
+    height: 115px;
+    width: 115px;
+    border: inset 3px #C7D9DA;
+    text-align: left;
+    margin: 20px 20px 20px 20px;
+    display: inline;
+    background-color: white;
+    display: inline;
+    float: left;
+
+  }
+
+  .l-card:nth-child(3) .l-img{
     border-radius: 50%;
     height: 115px;
     width: 115px;

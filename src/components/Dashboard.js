@@ -315,11 +315,14 @@ class Dashboard extends Component {
 
                   <fieldset>
 
-                    <label for="def"><input  id = "optionOne" type="radio" name="group" value="one" />
-                    {unanswered[i].optionOne.text}
-                      </label>
-                    <label for="maybe"><input  id = "optionTwo" type="radio" name="group" value="two"/>
-                    {unanswered[i].optionTwo.text}</label>
+                    <label for="def">
+                      <input className='radioBtn' id = "optionOne" type="radio" name="group" value="one" />
+                      <span>{unanswered[i].optionOne.text.trim()}</span>
+                    </label>
+                    <label for="maybe">
+                      <input className='radioBtn' id = "optionTwo" type="radio" name="group" value="two"/>
+                      <span> {unanswered[i].optionTwo.text.trim()}</span>
+                    </label>
                     <input className='submit-answer' type="submit" value="Submit"/>
                 </fieldset>
                   
@@ -348,7 +351,7 @@ class Dashboard extends Component {
               <div className='your-vote' id={`your-vote-${i}`}>
                 <img className='vote-img' id={`vote-img-${i}`} src={vote} alt="vote" />
                 <p className='p-wyr'>
-                  {`Would you rather ${answered[i].optionOne.text} ?`}
+                  {`Would you rather ${answered[i].optionOne.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-self-${i}`}>
@@ -362,7 +365,7 @@ class Dashboard extends Component {
 
               <div className='others-vote' id={`others-vote-${i}`}>
                 <p className='p-wyr'>
-                {`Would you rather ${answered[i].optionTwo.text} ?`}
+                {`Would you rather ${answered[i].optionTwo.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-other-${i}`}>
@@ -392,15 +395,15 @@ class Dashboard extends Component {
 
 function mapStateToProps ({ questions, users, authedUser }) {
   console.log('PROPS:\n', 'Q: ' , questions, '\nU:', users, '\n auth: ', authedUser)
-  let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp - questions[b].timestamp);
+  let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp < questions[b].timestamp ? 1: -1);
   console.log('\n sorted', sortedQ);
   sortedQ = sortedQ.map((x,i) => {return questions[sortedQ[i]]});
-  console.log('\n sorted again', sortedQ);
+  // console.log('\n sorted again', sortedQ);
 
   sortedQ.forEach((x,i) => {
-    console.log('\n author: ', sortedQ[i].author)
+    // console.log('\n author: ', sortedQ[i].author)
     Object.keys(users).forEach((value, index) => {
-      console.log('\n users: ', users[value])
+      // console.log('\n users: ', users[value])
 
       if (sortedQ[i].author === users[value].id){
           sortedQ[i] =
@@ -409,26 +412,26 @@ function mapStateToProps ({ questions, users, authedUser }) {
             user: users[value]
           }
       }
-      console.log('\n sortedQ sorted a third time: ', sortedQ)
+      // console.log('\n sortedQ sorted a third time: ', sortedQ)
     });
   });
 
   let unanswered = Object.keys(sortedQ).map((x,i) => {
-    console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+    // console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
 
     if (sortedQ[i].user.id !== authedUser)
       return sortedQ[i];
       
   });
   unanswered = unanswered.filter((value, index) => {
-    console.log('filer: ', unanswered[index], unanswered[index] !== undefined)
+    // console.log('filer: ', unanswered[index], unanswered[index] !== undefined)
     return unanswered[index] !== undefined;
 
   });
-  console.log('\n unanswered ', unanswered)
+  // console.log('\n unanswered ', unanswered)
 
   let answered = Object.keys(sortedQ).map((x,i) => {
-    console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+    // console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
 
     if (sortedQ[i].user.id === authedUser)
       return sortedQ[i];
@@ -437,7 +440,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
     return answered[index] !== undefined;
 
   });
-  console.log('\n answered ', answered)
+  // console.log('\n answered ', answered)
 
 
   return {

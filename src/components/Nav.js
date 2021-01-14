@@ -1,9 +1,16 @@
 import { NavLink } from 'react-router-dom'
 import * as DataAPI from '../utils/_DATA'
+import { connect } from 'react-redux'
+import React, { Component } from 'react'
 
 
-export default function Nav () {
+
+
+class Nav extends Component {
+  
+  render() {
   let users = DataAPI.users['sarahedo'];
+  let {authedUser_data} = this.props;
 
   return (
     <nav className='nav'>
@@ -56,16 +63,32 @@ export default function Nav () {
 
         
       </ul>
-      <span className='li-logout'>
-         {` Welcome back, ${'Tommy'}`} 
-         <img className ='nav-user-img' src={users.avatarURL } alt="account-img" />  
+     {authedUser_data !== undefined && (
+       <span className='li-logout'>
+         {` Welcome back, ${authedUser_data.name}`} 
+         <img className ='nav-user-img' src={authedUser_data.avatarURL } alt="account-img" />  
 
           <span>
             Logout
           </span>
         </span>
+        )}
       
     </nav>
     
-  )
+  )}
 }
+
+function mapStateToProps ({ users, authedUser }) {
+  let authedUser_data=undefined;
+  if (authedUser in users){
+    authedUser_data = users[authedUser];
+    console.log('THIS IS THE NAV', authedUser in users, authedUser_data)
+  }
+     return {
+     authedUser,
+     authedUser_data: authedUser_data
+ }
+ }
+
+export default connect(mapStateToProps)(Nav)
