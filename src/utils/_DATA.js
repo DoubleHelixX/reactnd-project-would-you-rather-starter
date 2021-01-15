@@ -171,7 +171,7 @@ export function _saveQuestion (question) {
   })
 }
 
-export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
+export function _saveQuestionAnswer ({ authedUser, qid, option }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
@@ -180,7 +180,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
           ...users[authedUser],
           answers: {
             ...users[authedUser].answers,
-            [qid]: answer
+            [qid]: option
           }
         }
       }
@@ -189,14 +189,43 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
         ...questions,
         [qid]: {
           ...questions[qid],
-          [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser])
+          [option]: {
+            ...questions[qid][option],
+            votes: questions[qid][option].votes.concat([authedUser])
           }
         }
       }
-
-      res(users, questions)
+      console.log('\n in api func: ', questions);
+      res(users)
     }, 500)
   })
 }
+
+
+// 8xf0y6ziyjabvozdd253nd": {
+//   id: '8xf0y6ziyjabvozdd253nd',
+//   author: 'sarahedo',
+//   timestamp: 1467166872634,
+//   optionOne: {
+//     votes: ['sarahedo'],
+//     text: 'have horrible short term memory',
+//   },
+//   optionTwo: {
+//     votes: [],
+//     text: 'have horrible long term memory'
+//   }
+// }
+
+
+// sarahedo: {
+//   id: 'sarahedo',
+//   name: 'Sarah Edo',
+//   avatarURL: "https://cdn.pixabay.com/photo/2020/11/28/03/19/batman-5783520_1280.png",
+//   answers: {
+//     "8xf0y6ziyjabvozdd253nd": 'optionOne',
+//     "6ni6ok3ym7mf1p33lnez": 'optionTwo',
+//     "am8ehyc8byjqgar0jgpub9": 'optionTwo',
+//     "loxhs1bqm25b708cmbf3g": 'optionTwo'
+//   },
+//   questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
+// },

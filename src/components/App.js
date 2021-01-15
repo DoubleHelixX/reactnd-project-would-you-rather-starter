@@ -17,8 +17,6 @@ import LoadingBar from 'react-redux-loading'
 
 
 import React, { Component, Fragment } from 'react'
-// import LoadingBar from 'react-redux-loading'
-// import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
@@ -26,56 +24,51 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 class App extends Component {
-  // state = {
-  //   users:{},
-  //   animation: false
-  // }
-  
+ 
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
 
   render() {
-
+ const {loading} =this.props;
+ 
     return (
       <Router>
         <Fragment>
-        <div className="App">
-          
-          <TitleAnimate />
-          <Nav />
-          <div className='border-body'>
+          <div className="App">
+            
+            <TitleAnimate />
+            <Nav />
+            <div className='border-body'>
               <LoadingBar className="loading"/>
-            <hr className='style13' />
-            <Route exact path='/home' render={() => (
-              <Dashboard />
-            )}/>
-
-            {/* <h1> {`These are the users: ${user && Object.keys(user.id)} `} </h1> */}
-            <Route exact path='/question' render={() => (  
-              <NewQuestion/>
+              <hr className='style13' />
               
-            )}/>
-            <Route exact path='/leaderboards' render={() => (  
-              <Leaderboards/>
-              
-            )}/>
+         
+                <Route exact path='/home' render={() => (
+                  <Dashboard />
+                )}/>
 
-          <Route exact path='/' render={() => (  
-              <Login/>
-              
-            )}/>
+                <Route exact path='/question' render={() => (  
+                  <NewQuestion/>
+                )}/>
 
+                <Route exact path='/leaderboards' render={() => (  
+                  <Leaderboards/>
+                )}/>
+     
+           
+                <Route exact path='/' render={() => (  
+                  <Login/>
+                )}/>
 
-        </div>
-        <Footer/>
-
-        </div>
-
-      </Fragment>
+           
+            </div>
+            <Footer/>
+          </div>
+        </Fragment>
       </Router>
 
-      );
+    );
   }
 }
 

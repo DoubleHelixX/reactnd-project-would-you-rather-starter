@@ -2,16 +2,48 @@ import * as DataAPI from '../utils/_DATA'
 import vote from "../images/vote.png"
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import {handleAddQuestionAnswer} from '../actions/questions'
+import { Link, withRouter } from 'react-router-dom'
+
 
 
 
 
 class Dashboard extends Component {
+  state = {
+    unanswered:'',
+    answered:''
+  }
+
+  
+  handleAnswer = (e, q) => {
+    e.preventDefault();
+    // console.log('e: ' ,e, '\ne.target: ',e.target, '\ne.t.v : ', e.target.value, '\ne.elements: ', e.target.elements, '\ncheck: ', e.target.elements.group.value|| 0 < e.target.elements.group.value.length , '\ne.value ', e.target.elements.group.value);
+    if (e.target.elements.group.value|| 0 < e.target.elements.group.value.length){
+      const{dispatch, authedUser, questions} = this.props;
+      let option = e.target.elements.group.value;
+      // console.log('props:', '\ndispatch = ', dispatch, '\nauth = ', authedUser, '\nquestions: ', questions);
+      let question='';
+       for(let i =0; i<= Object.keys(questions).length-1; i++) {
+        // console.log('check', typeof(q.id), typeof((Object.keys(questions)[i])), '\n objy: ', Object.keys(questions)[i], '\n q.id: ', q.id, '\n loop: ',i );
+
+         if (q.id === Object.keys(questions)[i]){
+          question = questions[Object.keys(questions)[i]];
+          break;
+         }
+      }
+      console.log('omgquestions', questions, '\nqid' , question.id, '\noption ',  option );
+      dispatch(handleAddQuestionAnswer(question.id, option));
+
+
+    }
+   
+  }
   
   render() {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
-  let {unanswered, answered, sortedQ} = this.props;
+  let {unanswered, answered} = this.props;
 
 
   function QTabChange(e){
@@ -282,16 +314,6 @@ class Dashboard extends Component {
       return result;
   }
 
-  function handleAnswer(e){
-    e.preventDefault();
-    // console.log('e: ' ,e, '\ne.target: ',e.target, '\ne.t.v : ', e.target.value, '\ne.elements: ', e.target.elements, '\ncheck: ', e.target.elements.group.value|| 0 < e.target.elements.group.value.length , '\ne.value ', e.target.elements.group.value);
-    if (e.target.elements.group.value|| 0 < e.target.elements.group.value.length){
-      let option = e.target.elements.group.value;
-
-    }
-   
-  }
-
   return (
     <div className='question-table'>
       <div className='button-container'>
@@ -322,16 +344,16 @@ class Dashboard extends Component {
               <p className='p-question' id ={`p-question-${unanswered[i].uId}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${unanswered[i].uId}`} onClick= {(event) => viewQuestion(event, unanswered[i].uId)} className='p-question-btn'> View Full </button>
               
-              <form onSubmit={(event) => handleAnswer(event)} id ={`form-${unanswered[i].uId}`} class='answer-form'>
+              <form onSubmit={(event) => this.handleAnswer(event, unanswered[i])} id ={`form-${unanswered[i].uId}`} class='answer-form'>
 
                   <fieldset>
 
-                    <label for="one">
-                      <input className='radioBtn' id = "optionOne" type="radio" name="group" value="one" />
+                    <label for="optionOne">
+                      <input className='radioBtn' id = "optionOne" type="radio" name="group" value="optionOne" />
                       <span>{unanswered[i].optionOne.text.trim()}</span>
                     </label>
-                    <label for="two">
-                      <input className='radioBtn' id = "optionTwo" type="radio" name="group" value="two"/>
+                    <label for="optionTwo">
+                      <input className='radioBtn' id = "optionTwo" type="radio" name="group" value="optionTwo"/>
                       <span> {unanswered[i].optionTwo.text.trim()}</span>
                     </label>
                     <input className='submit-answer' type="submit" value="Submit"/>
@@ -406,9 +428,18 @@ class Dashboard extends Component {
 
 function mapStateToProps ({ questions, users, authedUser }) {
   console.log('PROPS:\n', 'Q: ' , questions, '\nU:', users, '\n auth: ', authedUser)
-  let sortedQ = Object.keys(questions).sort((a,b) => questions[a].timestamp < questions[b].timestamp ? 1: -1);
-  console.log('\n sorted', sortedQ);
-  sortedQ = sortedQ.map((x,i) => {return questions[sortedQ[i]]});
+  let formattedQuestions= [];
+  for( let i =0; i<= Object.keys(questions).length-1; i++){
+    if (questions[Object.keys(questions)[i]]!== undefined ){
+      formattedQuestions.push({...questions[Object.keys(questions)[i]]});
+    }
+  }
+  
+  console.log('www', formattedQuestions );
+
+  let sortedQ = formattedQuestions.sort((a,b) => a.timestamp < b.timestamp ? 1: -1);
+  // console.log('\n sorted', sortedQ);
+  // sortedQ = sortedQ.map((x,i) => {return formattedQuestions[sortedQ[i]]});
   // console.log('\n sorted again', sortedQ);
 
   sortedQ.forEach((x,i) => {
@@ -424,14 +455,15 @@ function mapStateToProps ({ questions, users, authedUser }) {
             uId: (sortedQ[i].timestamp.toString() + sortedQ[i].id)
           }
       }
-      console.log('\n sortedQ sorted a third time: ', sortedQ)
     });
   });
+  console.log('\n sortedQ sorted a third time: ', sortedQ)
+
 
   let unanswered = Object.keys(sortedQ).map((x,i) => {
-    // console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+    // console.log('\n sortedQ ', sortedQ[i].user.id, '\nua: ' ,users[authedUser].answers, '\ncheck: ', (sortedQ[i].id in users[authedUser].answers));
 
-    if (sortedQ[i].user.id !== authedUser)
+    if (!(sortedQ[i].id in users[authedUser].answers))
       return sortedQ[i];
       
   });
@@ -440,25 +472,28 @@ function mapStateToProps ({ questions, users, authedUser }) {
     return unanswered[index] !== undefined;
 
   });
-  // console.log('\n unanswered ', unanswered)
+  console.log('\n unanswered ', unanswered)
 
   let answered = Object.keys(sortedQ).map((x,i) => {
     // console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
 
-    if (sortedQ[i].user.id === authedUser)
+    if (sortedQ[i].id in users[authedUser].answers)
       return sortedQ[i];
   });
   answered= answered.filter((value, index) => {
     return answered[index] !== undefined;
 
   });
-  // console.log('\n answered ', answered)
+  console.log('\n answered ', answered)
 
 
   return {
+    questions,
+    users,
     sortedQ: sortedQ,
+    authedUser,
     unanswered: unanswered,
     answered: answered
 }
 }
-export default connect(mapStateToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps)(Dashboard))

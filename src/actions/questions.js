@@ -4,7 +4,7 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS_ANSWER = 'RECEIVE_QUESTIONS_ANSWER'
-export const ADD_QUESTION_ANSWER = 'ADD_QUESTION_ANSWER'
+export const USER_ADD_ANSWER = 'USER_ADD_ANSWER'
 
 function addQuestion(question) {
   return {
@@ -13,12 +13,13 @@ function addQuestion(question) {
   }
 }
 
-function addQuestionAnswer(answer) {
+function userAddAnswer(users) {
     return {
-      type: ADD_QUESTION_ANSWER,
-      answer,
+      type: USER_ADD_ANSWER,
+      users
     }
   }
+
 
 export function handleAddQuestion (optionOneText, optionTwoText) {
   return (dispatch, getState) => {
@@ -42,7 +43,7 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
   }
 }
 
-export function handleAddQuestionAnswer ( qid, answer) {
+export function handleAddQuestionAnswer ( qid, option) {
     return (dispatch, getState) => {
       const { authedUser } = getState()
   
@@ -51,9 +52,13 @@ export function handleAddQuestionAnswer ( qid, answer) {
       return _saveQuestionAnswer({
         authedUser, 
         qid, 
-        answer
+        option
       })
-        .then(() => dispatch(addQuestionAnswer({authedUser, qid, answer})))
+        .then((users) => {
+          dispatch(userAddAnswer({users}));
+          // dispatch(questionAddAnswer({users}));
+        
+        })
         .catch((e) => {
           console.warn('Error in saving question: ', e)
           // dispatch(toggleTweet(info))

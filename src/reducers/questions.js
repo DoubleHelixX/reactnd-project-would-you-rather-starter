@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS, ADD_QUESTION, RECEIVE_QUESTIONS_ANSWER, ADD_QUESTION_ANSWER} from '../actions/questions'
+import { RECEIVE_QUESTIONS, ADD_QUESTION, RECEIVE_QUESTIONS_ANSWER, USER_ADD_ANSWER} from '../actions/questions'
 
 export default function Questions (state = {}, action) {
   switch(action.type) {
@@ -17,14 +17,23 @@ export default function Questions (state = {}, action) {
     case ADD_QUESTION :
       return {
         ...state,
-        [action.questions.id]: action.questions
+        // [action.users] : action.users,
+        // [action.questions]: action.questions
+        // ['users'][action.authedUser]['answers']={
+        //   ...['users'][action.authedUser]['answers'],
+        //   action.qid : action.option 
+        // },
+        // ['questions'][action.qid][action.option]['votes'].concat([action.authedUser])
       }
 
-    case ADD_QUESTION_ANSWER :
+    case USER_ADD_ANSWER :{
+        console.log('geejuz: ', {...state});
         return {
           ...state,
-          [action.qid]: action.answers
-        } 
+          // [action.users] : action.users
+          // [action.questions]: action.questions,
+          
+        } }
 
     default :
       return state
@@ -32,16 +41,27 @@ export default function Questions (state = {}, action) {
 }
 
 
-// id: generateUID(),
-//     timestamp: Date.now(),
-//     author,
-//     optionOne: {
-//       votes: [],
-//       text: optionOneText,
-//     },
-//     optionTwo: {
-//       votes: [],
-//       text: optionTwoText,
+// users = {
+//   ...users,
+//   [authedUser]: {
+//     ...users[authedUser],
+//     answers: {
+//       ...users[authedUser].answers,
+//       [qid]: option
 //     }
+//   }
+// }
 
-// {authedUser, qid, answer}
+// questions = {
+//   ...questions,
+//   [qid]: {
+//     ...questions[qid],
+//     [option]: {
+//       ...questions[qid][option],
+//       votes: questions[qid][option].votes.concat([authedUser])
+//     }
+//   }
+// }
+
+
+//QUESTIONS ARE GETTING SAVED AS STATE SOMEHOW 'GEEJUS' AND MAYBE STATE IS MORE THAN ONE THING LIKE IT SHOULD?
