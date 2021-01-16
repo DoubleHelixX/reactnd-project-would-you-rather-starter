@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {handleAddQuestionAnswer} from '../actions/questions'
 import { Link, withRouter } from 'react-router-dom'
+import equal from 'fast-deep-equal'
+
 
 
 
@@ -11,8 +13,8 @@ import { Link, withRouter } from 'react-router-dom'
 
 class Dashboard extends Component {
   state = {
-    unanswered:'',
-    answered:''
+    unanswered : this.props.unanswered,
+    answered : this.props.answered
   }
 
   
@@ -40,10 +42,23 @@ class Dashboard extends Component {
    
   }
   
+  componentDidUpdate(prevProps){
+    // console.log(prevProps.questions , '\n ', this.props.questions, '\n ', equal(prevProps.questions ,this.props.questions), '\n ', prevProps.questions!==this.props.questions )
+    if(equal(prevProps.questions ,this.props.questions) === false){
+      console.log('in here: this. This.UA: ', this.props.unanswered, '\nthis.A: ', this.props.answered,'\n prevQuestions: ', prevProps.questions, '\n currentQuestions: ', this.props.questions)
+        this.setState({          
+           unanswered: this.props.unanswered,
+           answered: this.props.answered
+        });
+      console.log('after state: UA: ', this.props.unanswered, '\n A: ', this.props.answered)
+
+    }
+}
+
   render() {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
-  let {unanswered, answered} = this.props;
+  let {unanswered, answered} = this.state;
 
 
   function QTabChange(e){
@@ -463,7 +478,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
   let unanswered = Object.keys(sortedQ).map((x,i) => {
     // console.log('\n sortedQ ', sortedQ[i].user.id, '\nua: ' ,users[authedUser].answers, '\ncheck: ', (sortedQ[i].id in users[authedUser].answers));
 
-    if (!(sortedQ[i].id in users[authedUser].answers))
+    if ((sortedQ[i].optionOne.votes.includes(authedUser)) === false && (sortedQ[i].optionTwo.votes.includes(authedUser))===false)
       return sortedQ[i];
       
   });
@@ -475,9 +490,9 @@ function mapStateToProps ({ questions, users, authedUser }) {
   console.log('\n unanswered ', unanswered)
 
   let answered = Object.keys(sortedQ).map((x,i) => {
-    // console.log('\n sortedQ i username: ', sortedQ[i].user.name , 'authuser: ' , authedUser);
+    console.log('\n one ', sortedQ[i].optionOne.votes , '\nauthuser: ' , authedUser,'\ntwo: ', sortedQ[i].optionTwo.votes, '\ncheck: ',  sortedQ[i].optionTwo.votes.includes(authedUser) );
 
-    if (sortedQ[i].id in users[authedUser].answers)
+    if ( (sortedQ[i].optionOne.votes.includes(authedUser) ) || (sortedQ[i].optionTwo.votes.includes(authedUser)) )
       return sortedQ[i];
   });
   answered= answered.filter((value, index) => {

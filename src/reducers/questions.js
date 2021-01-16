@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS, ADD_QUESTION, RECEIVE_QUESTIONS_ANSWER, USER_ADD_ANSWER} from '../actions/questions'
+import { RECEIVE_QUESTIONS, ADD_QUESTION, RECEIVE_QUESTIONS_ANSWER, USER_ADD_QUESTION} from '../actions/questions'
 
 export default function Questions (state = {}, action) {
   switch(action.type) {
@@ -17,6 +17,7 @@ export default function Questions (state = {}, action) {
     case ADD_QUESTION :
       return {
         ...state,
+        // questions: action.questions
         // [action.users] : action.users,
         // [action.questions]: action.questions
         // ['users'][action.authedUser]['answers']={
@@ -26,14 +27,15 @@ export default function Questions (state = {}, action) {
         // ['questions'][action.qid][action.option]['votes'].concat([action.authedUser])
       }
 
-    case USER_ADD_ANSWER :{
-        console.log('geejuz: ', {...state});
-        return {
-          ...state,
-          // [action.users] : action.users
-          // [action.questions]: action.questions,
-          
-        } }
+    case USER_ADD_QUESTION :{
+      console.log('geejuz: ', state, '\n' ,action);
+      return {
+        ...state,
+        ...action.questions,
+        // [action.users] : action.users
+        // [action.questions]: action.questions,
+        
+      } }
 
     default :
       return state

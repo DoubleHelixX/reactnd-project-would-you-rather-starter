@@ -195,8 +195,8 @@ export function _saveQuestionAnswer ({ authedUser, qid, option }) {
           }
         }
       }
-      console.log('\n in api func: ', questions);
-      res(users)
+      // console.log('\n in api func: ', questions);
+      res({users,questions})
     }, 500)
   })
 }
