@@ -1,4 +1,4 @@
-import { RECEIVE_USERS, USER_ADD_ANSWER } from '../actions/users'
+import { RECEIVE_USERS, USER_ADD_VOTE } from '../actions/users'
 
 export default function users (state = {}, action) {
   switch(action.type) {
@@ -8,7 +8,7 @@ export default function users (state = {}, action) {
         ...action.users
       }
 
-    case USER_ADD_ANSWER :{
+    case USER_ADD_VOTE :{
       console.log('geejuz: state\n', state, '\ns.quest: ', state.questions, '\n s.users ',state.users, action.users);
       return {
         ...state,

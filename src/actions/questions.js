@@ -1,11 +1,11 @@
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { userAddAnswer} from './users'
+import { userAddVote} from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
 export const RECEIVE_QUESTIONS_ANSWER = 'RECEIVE_QUESTIONS_ANSWER'
-export const USER_ADD_QUESTION = 'USER_ADD_QUESTION'
+export const QUESTION_ADD_ANSWER = 'QUESTION_ADD_ANSWER'
 
 
 function addQuestion(question) {
@@ -17,7 +17,7 @@ function addQuestion(question) {
 
   function questionAddAnswer(questions) {
     return {
-      type: USER_ADD_QUESTION,
+      type: QUESTION_ADD_ANSWER,
       questions,
     }
   }
@@ -59,7 +59,7 @@ export function handleAddQuestionAnswer ( qid, option) {
         .then(({users,questions}) => {
           console.log('wtf ', users, '\n quest: ', questions)
           dispatch(questionAddAnswer(questions));
-          // dispatch(userAddAnswer(users));
+          dispatch(userAddVote(users));
         
         })
         .catch((e) => {

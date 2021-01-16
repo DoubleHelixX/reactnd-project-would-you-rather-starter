@@ -1,15 +1,19 @@
 import * as DataAPI from '../utils/_DATA';
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom'
 
 
 
 
 class Leaderboards extends Component {
-  
+  state = {
+    rankings: this.props.rankings
+  }
+
   render() {
 
-    let {rankings} =this.props;
+    let {rankings} =this.state;
     console.log('this is the prop: ', rankings)
 
       
@@ -100,5 +104,5 @@ function mapStateToProps ({ users }) {
  }
  }
 
-export default connect(mapStateToProps)(Leaderboards)
+export default withRouter(connect(mapStateToProps)(Leaderboards))
 
