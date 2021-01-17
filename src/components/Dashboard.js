@@ -44,7 +44,11 @@ class Dashboard extends Component {
   
   componentDidUpdate(prevProps){
     // console.log(prevProps.questions , '\n ', this.props.questions, '\n ', equal(prevProps.questions ,this.props.questions), '\n ', prevProps.questions!==this.props.questions )
-    if(equal(prevProps.questions ,this.props.questions) === false){
+    if(
+      equal(prevProps.questions ,this.props.questions) === false || 
+      equal(prevProps.users ,this.props.users) === false  ||
+      equal(prevProps.authedUser ,this.props.authedUser) === false
+      ){
       console.log('in here: this. This.UA: ', this.props.unanswered, '\nthis.A: ', this.props.answered,'\n prevQuestions: ', prevProps.questions, '\n currentQuestions: ', this.props.questions)
         this.setState({          
            unanswered: this.props.unanswered,

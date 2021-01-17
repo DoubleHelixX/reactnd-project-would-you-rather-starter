@@ -17,23 +17,14 @@ export default function Questions (state = {}, action) {
     case ADD_QUESTION :
       return {
         ...state,
-        // questions: action.questions
-        // [action.users] : action.users,
-        // [action.questions]: action.questions
-        // ['users'][action.authedUser]['answers']={
-        //   ...['users'][action.authedUser]['answers'],
-        //   action.qid : action.option 
-        // },
-        // ['questions'][action.qid][action.option]['votes'].concat([action.authedUser])
+        ...action.questions
       }
 
     case QUESTION_ADD_ANSWER :{
-      console.log('geejuz: ', state, '\n' ,action);
       return {
         ...state,
         ...action.questions,
-        // [action.users] : action.users
-        // [action.questions]: action.questions,
+
         
       } }
 
@@ -67,3 +58,5 @@ export default function Questions (state = {}, action) {
 
 
 //QUESTIONS ARE GETTING SAVED AS STATE SOMEHOW 'GEEJUS' AND MAYBE STATE IS MORE THAN ONE THING LIKE IT SHOULD?
+
+

@@ -2,12 +2,19 @@ import { NavLink } from 'react-router-dom'
 import * as DataAPI from '../utils/_DATA'
 import { connect } from 'react-redux'
 import React, { Component } from 'react'
+import { setAuthedUser } from '../actions/authedUser'
 
 
 
 
 class Nav extends Component {
-  
+
+  handleLogOut = (e) => {
+    e.preventDefault();
+    let {dispatch} = this.props;
+    dispatch(setAuthedUser(null));
+
+}
   render() {
   let users = DataAPI.users['sarahedo'];
   let {authedUser_data} = this.props;
@@ -68,9 +75,19 @@ class Nav extends Component {
          {` Welcome back, ${authedUser_data.name}`} 
          <img className ='nav-user-img' src={authedUser_data.avatarURL } alt="account-img" />  
 
-          <span>
-            Logout
-          </span>
+         
+          <NavLink to='/' onClick={(event) => this.handleLogOut(event)}
+            isActive={(match, location) => {
+              //some additional logic to verify you are in the home URI
+              if(!location) return false;
+              const {pathname} = location;
+              console.log(pathname);
+              return pathname === "/";
+              }
+            }
+            activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
+                Logout
+          </NavLink>
         </span>
         )}
       
@@ -81,6 +98,8 @@ class Nav extends Component {
 
 function mapStateToProps ({ users, authedUser }) {
   let authedUser_data=undefined;
+  console.log('THIS IS THE NAV',authedUser)
+
   if (authedUser in users){
     authedUser_data = users[authedUser];
     console.log('THIS IS THE NAV', authedUser in users, authedUser_data)

@@ -1,5 +1,7 @@
 export const RECEIVE_USERS = 'RECEIVE_USERS'
-export const USER_ADD_VOTE = 'USER_ADD_VOTE'
+export const UPDATE_USER_VOTES = 'UPDATE_USER_VOTES'
+export const UPDATE_USER_QUESTIONS = 'UPDATE_USER_QUESTIONS'
+
 
 
 export function receiveUsers (users) {
@@ -9,9 +11,16 @@ export function receiveUsers (users) {
   }
 }
 
-export function userAddVote(users) {
+export function updateUserVotes(users) {
   return {
-    type: USER_ADD_VOTE,
+    type: UPDATE_USER_VOTES,
+    users,
+  }
+}
+
+export function updateUserQuestions(users) {
+  return {
+    type: UPDATE_USER_QUESTIONS,
     users,
   }
 }

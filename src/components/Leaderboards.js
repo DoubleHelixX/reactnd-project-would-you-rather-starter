@@ -46,8 +46,10 @@ class Leaderboards extends Component {
                   Score
                 </p>
                 <p className='l-tally' >
-                {(Object.keys(rankings[i].questions).length === undefined ? 0 : Object.keys(rankings[i].questions).length) +
-                 (Object.keys(rankings[i].answers).length === undefined ? 0 : Object.keys(rankings[i].answers).length)}
+                  <span>
+                    {(Object.keys(rankings[i].questions).length === undefined ? 0 : Object.keys(rankings[i].questions).length) +
+                  (Object.keys(rankings[i].answers).length === undefined ? 0 : Object.keys(rankings[i].answers).length)}
+                  </span>
                 </p>
             </div>
 

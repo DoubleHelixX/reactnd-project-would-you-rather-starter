@@ -17,7 +17,7 @@ import LoadingBar from 'react-redux-loading'
 
 
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 
 
@@ -28,6 +28,15 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('lsda', this.props.loading != nextProps.loading, this.props.loading, nextProps.loading)
+    return this.props.loading != nextProps.loading;
+}
+
+// componentDidUpdate(prevProps){
+
+// }
 
   render() {
  const {loading} =this.props;
@@ -43,25 +52,23 @@ class App extends Component {
               <LoadingBar className="loading"/>
               <hr className='style13' />
               
-         
-                <Route exact path='/home' render={() => (
-                  <Dashboard />
-                )}/>
+               {loading === true ?
+               <span>
+                 <Route path='/' component={Login} />
+               </span>
+                 :
+                 <span>
+                  <Route exact path='/' render={({history}) => (
+                    <Redirect to="/home" />
+                    )}/>
+                    <Route exact path='/home' component={Dashboard} />
+                    <Route exact path='/question' component = {NewQuestion}/>
+                    <Route exact path='/leaderboards' component = {Leaderboards}/>
+                </span>
 
-                <Route exact path='/question' render={() => (  
-                  <NewQuestion/>
-                )}/>
 
-                <Route exact path='/leaderboards' render={() => (  
-                  <Leaderboards/>
-                )}/>
-     
-           
-                <Route exact path='/' render={() => (  
-                  <Login/>
-                )}/>
-
-           
+                
+              }
             </div>
             <Footer/>
           </div>
@@ -73,6 +80,7 @@ class App extends Component {
 }
 
 function mapStateToProps ({ authedUser }) {
+  console.log('l', authedUser)
   return {
     loading: authedUser === null
   }

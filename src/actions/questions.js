@@ -1,6 +1,6 @@
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { userAddVote} from './users'
+import { updateUserVotes, updateUserQuestions} from './users'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -8,10 +8,10 @@ export const RECEIVE_QUESTIONS_ANSWER = 'RECEIVE_QUESTIONS_ANSWER'
 export const QUESTION_ADD_ANSWER = 'QUESTION_ADD_ANSWER'
 
 
-function addQuestion(question) {
+function addQuestion(questions) {
   return {
     type: ADD_QUESTION,
-    question,
+    questions,
   }
 }
 
@@ -39,13 +39,17 @@ export function handleAddQuestion (optionOneText, optionTwoText) {
       // dispatch(toggleTweet(info))
       // alert('The was an error liking the tweet. Try again.')
     })
-      .then((formattedQuestion) => dispatch(addQuestion(formattedQuestion)))
+      .then(({questions, users}) => {
+        dispatch(addQuestion(questions));
+        dispatch(updateUserQuestions(users));
+
+      })
       .then(() => dispatch(hideLoading()))
      
   }
 }
 
-export function handleAddQuestionAnswer ( qid, option) {
+export function handleAddQuestionAnswer (qid, option) {
     return (dispatch, getState) => {
       const { authedUser } = getState()
   
@@ -59,7 +63,7 @@ export function handleAddQuestionAnswer ( qid, option) {
         .then(({users,questions}) => {
           console.log('wtf ', users, '\n quest: ', questions)
           dispatch(questionAddAnswer(questions));
-          dispatch(userAddVote(users));
+          dispatch(updateUserVotes(users));
         
         })
         .catch((e) => {
