@@ -21,55 +21,55 @@ class Nav extends Component {
 
   return (
     <nav className='nav'>
-      <ul className='nav-links'>
-        <li>
-  
-          <NavLink to='/home'
-            isActive={(match, location) => {
-              //some additional logic to verify you are in the home URI
-              if(!location) return false;
-              const {pathname} = location;
-              console.log(pathname);
-              return pathname === "/home" || pathname === "/";
+     {authedUser_data !== undefined && (
+        <ul className='nav-links'>
+          <li>
+    
+            <NavLink to='/home'
+              isActive={(match, location) => {
+                //some additional logic to verify you are in the home URI
+                if(!location) return false;
+                const {pathname} = location;
+                console.log(pathname);
+                return pathname === "/home" || pathname === "/";
+                }
               }
-            }
-             activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
-            Home
-          </NavLink>
-        </li>
+              activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
+              Home
+            </NavLink>
+          </li>
 
-        <li>
-          <NavLink to='/question' 
-            isActive={(match, location) => {
-              //some additional logic to verify you are in the home URI
-              if(!location) return false;
-              const {pathname} = location;
-              console.log(pathname);
-              return pathname === "/question";
+          <li>
+            <NavLink to='/question' 
+              isActive={(match, location) => {
+                //some additional logic to verify you are in the home URI
+                if(!location) return false;
+                const {pathname} = location;
+                console.log(pathname);
+                return pathname === "/question";
+                }
               }
-            }
-            activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
-            New Question
-          </NavLink>
-        </li>
+              activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
+              New Question
+            </NavLink>
+          </li>
 
-        <li>
-          <NavLink to='/leaderboards' 
-            isActive={(match, location) => {
-              //some additional logic to verify you are in the home URI
-              if(!location) return false;
-              const {pathname} = location;
-              console.log(pathname);
-              return pathname === "/leaderboards";
+          <li>
+            <NavLink to='/leaderboards' 
+              isActive={(match, location) => {
+                //some additional logic to verify you are in the home URI
+                if(!location) return false;
+                const {pathname} = location;
+                console.log(pathname);
+                return pathname === "/leaderboards";
+                }
               }
-            }
-            activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
-            LeaderBoards
-          </NavLink>
-        </li>
-
-        
-      </ul>
+              activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
+              LeaderBoards
+            </NavLink>
+          </li>
+        </ul>
+         )}
      {authedUser_data !== undefined && (
        <span className='li-logout'>
          {` Welcome back, ${authedUser_data.name}`} 
