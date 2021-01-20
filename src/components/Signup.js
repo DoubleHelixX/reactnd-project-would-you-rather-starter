@@ -1,10 +1,10 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import {handleAddQuestion} from '../actions/questions'
+// import {handleAddQuestion} from '../actions/questions'
 
 
-class NewQuestion extends Component {
+class Signup extends Component {
 
     
     handleQuestion = (e) => {
@@ -30,14 +30,14 @@ class NewQuestion extends Component {
         else
             optionTwoText.style.border='solid 2px #b9b9b9';
 
-        if( !optionOneCheck && !optionTwoCheck){
-            console.log('option one and option two are validated',);
-            dispatch(handleAddQuestion(optionOneText.value.trim(), optionTwoText.value.trim()));
-            optionOneText.value='';
-            optionTwoText.value='';
-            // optionOneText.placeholder='Enter Option One Here';
-            // optionTwoText.placeholder='Enter Option One Here';
-        }
+        // if( !optionOneCheck && !optionTwoCheck){
+        //     console.log('option one and option two are validated',);
+        //     dispatch(handleAddQuestion(optionOneText.value.trim(), optionTwoText.value.trim()));
+        //     optionOneText.value='';
+        //     optionTwoText.value='';
+        //     // optionOneText.placeholder='Enter Option One Here';
+        //     // optionTwoText.placeholder='Enter Option One Here';
+        // }
        
       }
 
@@ -50,20 +50,23 @@ class NewQuestion extends Component {
         return (
             <div className='new-question-container'>
                 <h1 className='n-q-c-header'>
-                    Create New Question
+                    Create Your Own User !
                 </h1>
                 
                 <p className='n-q-c-hint'>
-                    Complete the question below:
+                    Complete the form below:
                 </p>
 
                 <h2 className='n-q-c-phrase'>
-                    Would you Rather ..
+                    Username
                 </h2>
                 <form onSubmit={(event) => this.handleQuestion(event)} className='n-q-c-form'>
-                    <input className='n-q-c-Q1' placeholder='Enter Option One Here'/>
-                    <h4 className='n-q-c-hr'>OR</h4> 
-                    <input className='n-q-c-Q2' placeholder='Enter Option Two Here'/> 
+                    <input className='n-q-c-Q1' placeholder='Enter a Username'/>
+                    <h4 className='n-q-c-hr'>AND</h4> 
+                    <h2 className='n-q-c-phrase'>
+                    Username
+                    </h2>
+                    <input className='n-q-c-Q2' placeholder='Enter Full Image Link (https) included'/> 
                     <input className='n-q-c-submit' type='submit' value='Submit'/>
                 </form>
 
@@ -81,4 +84,4 @@ function mapStateToProps ({ authedUser }) {
   }
   }
 
-export default withRouter(connect(mapStateToProps)(NewQuestion))
+export default withRouter(connect(mapStateToProps)(Signup))

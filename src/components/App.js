@@ -7,6 +7,7 @@ import TitleAnimate from './TitleAnimate'
 import NewQuestion from './NewQuestion'
 import Leaderboards from './Leaderboards'
 import Login from './Login'
+import Signup from './Signup'
 
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -54,7 +55,9 @@ class App extends Component {
               
                {loading === true ?
                <span>
-                 <Route path='/' component={Login} />
+                 <Route exact path='/' component={Login} />
+                 <Route exact path='/signup' component = {Signup}/>
+
                </span>
                  :
                  <span>

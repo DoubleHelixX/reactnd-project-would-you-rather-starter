@@ -7,6 +7,8 @@ import { withRouter } from 'react-router-dom'
 import equal from 'fast-deep-equal'
 import { setAuthedUser } from '../actions/authedUser'
 import { useHistory } from "react-router-dom";
+import { NavLink } from 'react-router-dom'
+
 
 
 
@@ -63,6 +65,20 @@ class Login extends Component {
                     <br/>
                     <input className='login-submit' type="submit" value="Sign-In"/>
                 </form>
+                <span className='login-signup'>
+                <NavLink to='/signup'
+                    isActive={(match, location) => {
+                        //some additional logic to verify you are in the home URI
+                        if(!location) return false;
+                        const {pathname} = location;
+                        console.log(pathname);
+                        return pathname === "/home" || pathname === "/";
+                        }
+                    }
+                     className='non-active-tab' style={{ textDecoration: 'none'}}>
+                    Create a New User
+            </NavLink>
+                </span>
             </div>
         )
     }

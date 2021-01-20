@@ -1012,7 +1012,7 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
-    overflow-y: auto;
+    overflow-y: none;
     overflow-x: none;
   }
 
@@ -1761,7 +1761,12 @@ hr.style13 {
       
     }
 
-
+  .login-signup{
+    background-color: white;
+    width:100%;
+    display: block;
+    padding-bottom: 12px;
+  }
 
     
   
