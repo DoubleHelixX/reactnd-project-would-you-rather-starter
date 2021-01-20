@@ -21,32 +21,6 @@ function selectUser(e,id){
 
 class Login extends Component {
 
-    state = {
-        users: ''
-    }
-
-    componentDidUpdate(prevProps){
-        if(
-            equal(prevProps.questions ,this.props.questions) === false 
-            || 
-            equal(prevProps.users ,this.props.users) === false
-        ){
-            console.log('TRUEEEE');
-
-            let users=this.props.users;
-            this.setState({          
-                users
-            });
-        }
-       
-    }
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return equal(nextProps.questions ,this.props.questions) === false 
-    //     || 
-    //     equal(nextProps.users ,this.props.users) === false;
-    // }
-
     handleLogIn = (e) => {
         e.preventDefault();
         let signin = document.getElementById('dropdown-basic-button').getAttribute('data-user');
@@ -62,8 +36,8 @@ class Login extends Component {
 
     render() {
 
-        let {users} =this.state;
-        console.log('das', users, '\n', this.state);
+        let {users} =this.props;
+        console.log('das', users, '\n', this.props);
         return (
             <div  className='login-container'>
                 

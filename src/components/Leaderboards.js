@@ -7,13 +7,11 @@ import { Link, withRouter } from 'react-router-dom'
 
 
 class Leaderboards extends Component {
-  state = {
-    rankings: this.props.rankings
-  }
+
 
   render() {
 
-    let {rankings} =this.state;
+    let {rankings} =this.props;
     console.log('this is the prop: ', rankings)
 
       
@@ -69,17 +67,6 @@ function mapStateToProps ({ users }) {
     );
 
   let rankings = Object.keys(users).sort((a,b) => 
-   
-  // console.log('bx' , 
-  // 'a ', Object.keys(users[a].answers).length,
-  // '\nb ', Object.keys(users[a].questions).length, 
-  // '\nc', (Object.keys(users[a].answers).length + Object.keys(users[a].questions).length) ,
-  // '\nD ' , (Object.keys(users[a].answers).length + Object.keys(users[a].questions).length) 
-  // >
-  // (Object.keys(users[b].answers).length + Object.keys(users[b].questions).length), 
-  // '\nE ',Object.keys(users[b].answers).length, 
-  // '\nF ', Object.keys(users[b].questions).length, 
-  // '\nG ', (Object.keys(users[b].answers).length) + Object.keys(users[b].questions).length))
 
   (Object.keys(users[a].answers).length + Object.keys(users[a].questions).length) 
   < 
@@ -90,7 +77,6 @@ function mapStateToProps ({ users }) {
   console.log(' this is the leaderboards rankings' , rankings);
 
    rankings= Object.keys(rankings).map((value,index) => {
-
       if (rankings[value] in users)
         return users[rankings[value]];
   });

@@ -859,7 +859,7 @@ hr.style13 {
 
   }
 
-  .your-vote{
+  .vote-one{
     display: none;
     background-color:#35a0ca42;
     border: groove 2px #1C6EA4;
@@ -874,7 +874,7 @@ hr.style13 {
     position: relative;
   }
 
-  .your-vote .vote-img{
+  .vote-one .vote-img{
     height: 50px;
     width:55px;
     padding:0;
@@ -883,8 +883,6 @@ hr.style13 {
     top: -30px;
     right: -28px;
     display: inline;
-  
-
   }
   .p-wyr{
     color: #0D3550;
@@ -898,7 +896,7 @@ hr.style13 {
     margin-top:2px;
   }
 
-  .others-vote{
+  .vote-two{
     display: none;
     background-color:#35a0ca42;
     border: groove 2px #1C6EA4;
@@ -910,6 +908,18 @@ hr.style13 {
     height: auto;
     margin:10px 10px 15px 10px;
     padding:auto;
+    position: relative;
+  }
+
+  .vote-two .vote-img{
+    height: 50px;
+    width:55px;
+    padding:0;
+    margin:0;
+    position: absolute;
+    top: -30px;
+    right: -28px;
+    display: inline;
   }
 
   .percentage-bar{
@@ -955,7 +965,6 @@ hr.style13 {
     width: auto;
     height: auto;
     min-width: 45%;
-    min-height: 25em;
     max-height: 70%;
     margin: 5% auto;
     border: groove 2px #b9b9b9;
@@ -963,8 +972,34 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
+    overflow-y: auto;
+    overflow-x: none;
   }
 
+  .new-question-container::-webkit-scrollbar-track {
+    border: 1px double rgb(255, 255, 255);
+    padding: 2px 0;
+    background-color:#f3f3f3;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    border-top-right-radius:5px; 
+
+  }
+
+  .new-question-container::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .new-question-container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    background-color: #f4f4f4;
+    border: 1px solid rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px; 
+    border-top-right-radius:3px; 
+  }
   .n-q-c-header{
     color:rgb(0, 0, 0);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -1056,6 +1091,7 @@ hr.style13 {
     color: white;
     font-size: 18px;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
 
   }
   /*-----------------------------------------------------------------------------------
@@ -1068,17 +1104,24 @@ hr.style13 {
     width: 625px;
     height: auto;
     min-width: 625px;
-    min-height: 55em;
-    max-height: 70%;
+    max-height: 93%;
     margin: 5% auto;
     /* border: groove 2px #000000; */
-    overflow-y: none;
+  
+  overflow-y: auto;
+  overflow-x:hidden;
+  /* box-shadow: 0px 14px 0px -10px rgb(255, 255, 255), 
+  0px -14px 0px -10px #FFFFFF, 18px 0px 10px 0px #FFFFFF, 
+  -18px 0px 10px 0px #FFFFFF, 0px 0px 2px 2px #000000, 2px 2px 4px 2px rgba(0,0,0,0);
+  border-top-right-radius:5px;
+  border-top-left-radius:5px;
+  border-bottom-right-radius:5px;
+  border-bottom-left-radius:5px;  */
 
-
+  
   }
 
-
-   .leaderboards-container::-webkit-scrollbar-track {
+  .leaderboards-container::-webkit-scrollbar-track {
     border: 1px double rgb(255, 255, 255);
     padding: 2px 0;
     background-color:#f3f3f3;
@@ -1089,11 +1132,11 @@ hr.style13 {
 
   }
 
-   .leaderboards-container::-webkit-scrollbar {
+  .leaderboards-container::-webkit-scrollbar {
     width: 10px;
   }
 
-   .leaderboards-container::-webkit-scrollbar-thumb {
+  .leaderboards-container::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgb(0, 0, 0);
     background-color: #f4f4f4;
     border: 1px solid rgb(255, 255, 255);
@@ -1102,6 +1145,7 @@ hr.style13 {
     border-bottom-left-radius:3px; 
     border-top-right-radius:3px; 
   }
+  
   .l-card{
     display:inline-block;
     border: solid 2px #b9b9b9;
@@ -1109,6 +1153,8 @@ hr.style13 {
     height:auto;
     min-width: 550px;
     min-height: 150px;
+    max-height: 161px;
+
     margin: 10px auto 0px auto;
     
     border-top-right-radius:5px;
@@ -1126,6 +1172,7 @@ hr.style13 {
     border: groove 2px #FFDA8F;
     width: 97%;
     height:auto;
+    max-height: 161px;
     min-width: 550px;
     min-height: 150px;
     margin: 10px auto 0px auto;
@@ -1143,6 +1190,7 @@ hr.style13 {
     border: groove 2px #C7D9DA;
     width: 97%;
     height:auto;
+    max-height: 161px;
     min-width: 550px;
     min-height: 150px;
     margin: 10px auto 0px auto;
@@ -1160,6 +1208,7 @@ hr.style13 {
     border: groove 2px #FFAD95;
     width: 97%;
     height:auto;
+    max-height: 161px;
     min-width: 550px;
     min-height: 150px;
     margin: 10px auto 0px auto;
@@ -1400,7 +1449,7 @@ hr.style13 {
     float:left;
     width: 90px;
     height: 120px;
-    margin: 27px 20px 10px 20px;
+    margin: 27px 0px 10px 20px;
     border-top-right-radius:5px;
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
@@ -1414,7 +1463,7 @@ hr.style13 {
     float:left;
     width: 90px;
     height: 120px;
-    margin: 27px 20px 10px 20px;
+    margin: 27px 0px 10px 20px;
     border-top-right-radius:5px;
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;

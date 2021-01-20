@@ -12,10 +12,6 @@ import equal from 'fast-deep-equal'
 
 
 class Dashboard extends Component {
-  state = {
-    unanswered : this.props.unanswered,
-    answered : this.props.answered
-  }
 
   
   handleAnswer = (e, q) => {
@@ -24,45 +20,26 @@ class Dashboard extends Component {
     if (e.target.elements.group.value|| 0 < e.target.elements.group.value.length){
       const{dispatch, authedUser, questions} = this.props;
       let option = e.target.elements.group.value;
-      // console.log('props:', '\ndispatch = ', dispatch, '\nauth = ', authedUser, '\nquestions: ', questions);
       let question='';
-       for(let i =0; i<= Object.keys(questions).length-1; i++) {
-        // console.log('check', typeof(q.id), typeof((Object.keys(questions)[i])), '\n objy: ', Object.keys(questions)[i], '\n q.id: ', q.id, '\n loop: ',i );
-
-         if (q.id === Object.keys(questions)[i]){
+      
+      for(let i =0; i<= Object.keys(questions).length-1; i++) {
+        if (q.id === Object.keys(questions)[i]){
           question = questions[Object.keys(questions)[i]];
           break;
          }
       }
-      console.log('omgquestions', questions, '\nqid' , question.id, '\noption ',  option );
       dispatch(handleAddQuestionAnswer(question.id, option));
 
 
     }
    
   }
-  
-  componentDidUpdate(prevProps){
-    // console.log(prevProps.questions , '\n ', this.props.questions, '\n ', equal(prevProps.questions ,this.props.questions), '\n ', prevProps.questions!==this.props.questions )
-    if(
-      equal(prevProps.questions ,this.props.questions) === false || 
-      equal(prevProps.users ,this.props.users) === false  ||
-      equal(prevProps.authedUser ,this.props.authedUser) === false
-      ){
-      console.log('in here: this. This.UA: ', this.props.unanswered, '\nthis.A: ', this.props.answered,'\n prevQuestions: ', prevProps.questions, '\n currentQuestions: ', this.props.questions)
-        this.setState({          
-           unanswered: this.props.unanswered,
-           answered: this.props.answered
-        });
-      console.log('after state: UA: ', this.props.unanswered, '\n A: ', this.props.answered)
 
-    }
-}
 
   render() {
   let questions = DataAPI.questions['8xf0y6ziyjabvozdd253nd'];
   let users = DataAPI.users['sarahedo'];
-  let {unanswered, answered} = this.state;
+  let {unanswered, answered, authedUser} = this.props;
 
 
   function QTabChange(e){
@@ -187,7 +164,7 @@ class Dashboard extends Component {
     showQuestion.style.display='inline-block';
   }
 
-  function viewAnswer(e, i, q){
+  function viewAnswer(e, uId, q, i){
 
     let questionHeaders = document.getElementById('show-answers-container').querySelectorAll(`.p-title`);
     let userImgs = document.getElementById('show-answers-container').querySelectorAll(`.question-card-img`);
@@ -195,8 +172,8 @@ class Dashboard extends Component {
     let questionCards = document.getElementById('show-answers-container').querySelectorAll(`.question-card`);
     let showQuestions = document.getElementById('show-answers-container').querySelectorAll(`.p-question`);
     let showViewBtns= document.getElementById('show-answers-container').querySelectorAll(`.p-question-btn`);
-    let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.your-vote`);
-    let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.others-vote`);
+    let yourVotes= document.getElementById('show-answers-container').querySelectorAll(`.vote-one`);
+    let othersVotes= document.getElementById('show-answers-container').querySelectorAll(`.vote-two`);
     let sideLineBreaks= document.getElementById('show-answers-container').querySelectorAll(`.side-line-break`);
     // let percentageBars= document.getElementById('show-answers-container').querySelectorAll(`.p-percentage`);
 
@@ -245,19 +222,20 @@ class Dashboard extends Component {
 
   });
 
-    let hidePreview= document.getElementById('show-answers-container').querySelector(`#p-answer-${i}`);
-    let hideViewBtn= document.getElementById('show-answers-container').querySelector(`#viewBtn-answer-${i}`);
-    let question = document.getElementById('show-answers-container').querySelector(`#answer-${i}`);
-    let questionHeader = document.getElementById('show-answers-container').querySelector(`#p-title-answer-${i}`);
-    let userImg = document.getElementById('show-answers-container').querySelector(`#answer-card-img-${i}`);
-    let questionCard = document.getElementById('show-answers-container').querySelector(`#answer-card-${i}`);
-    let yourVote = document.getElementById('show-answers-container').querySelector(`#your-vote-${i}`);
-    let othersVote = document.getElementById('show-answers-container').querySelector(`#others-vote-${i}`);
-    let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${i}`);
-    let percentageBarSelf = document.getElementById('show-answers-container').querySelector(`#p-percentage-self-${i}`);
-    let percentageBarOther = document.getElementById('show-answers-container').querySelector(`#p-percentage-other-${i}`);
-    let voteImg = document.getElementById('show-answers-container').querySelector(`#vote-img-${i}`);
-    
+    let hidePreview= document.getElementById('show-answers-container').querySelector(`#p-answer-${uId}`);
+    let hideViewBtn= document.getElementById('show-answers-container').querySelector(`#viewBtn-answer-${uId}`);
+    let question = document.getElementById('show-answers-container').querySelector(`#answer-${uId}`);
+    let questionHeader = document.getElementById('show-answers-container').querySelector(`#p-title-answer-${uId}`);
+    let userImg = document.getElementById('show-answers-container').querySelector(`#answer-card-img-${uId}`);
+    let questionCard = document.getElementById('show-answers-container').querySelector(`#answer-card-${uId}`);
+    let yourVote = document.getElementById('show-answers-container').querySelector(`#vote-one-${uId}`);
+    let othersVote = document.getElementById('show-answers-container').querySelector(`#vote-two-${uId}`);
+    let sideLineBreak = document.getElementById('show-answers-container').querySelector(`#side-line-break-${uId}`);
+    let percentageBarOne = document.getElementById('show-answers-container').querySelector(`#p-percentage-one-${uId}`);
+    let percentageBarTwo = document.getElementById('show-answers-container').querySelector(`#p-percentage-two-${uId}`);
+    let voteImg1 = document.getElementById('show-answers-container').querySelector(`#vote-img-${(uId+i.toString()+'1')}`);
+    let voteImg2 = document.getElementById('show-answers-container').querySelector(`#vote-img-${(uId+i.toString()+'2')}`);
+    console.log( 'here', voteImg1 , '\n', voteImg2)
 
 
 
@@ -288,10 +266,14 @@ class Dashboard extends Component {
     questionHeader.style['padding-bottom'] = '5px';
     questionHeader.style['padding-left'] = '110px';
 
-    voteImg.style['animation']='vote-img-growth 2s'
+    if (voteImg1 !==null)
+      voteImg1.style['animation']='vote-img-growth 2s'
+    else if (voteImg2 !==null)
+      voteImg2.style['animation']='vote-img-growth 2s'
 
-    percentageBarSelf.style['width']=`${findPercentage(q,'self')}%`
-    percentageBarOther.style['width']=`${findPercentage(q,'other') ==='0' ? '10' : findPercentage(q,'other') }%`
+
+    percentageBarOne.style['width']=`${findPercentage(q,'option-one') === '0' ? '10' : findPercentage(q,'option-one')}%`
+    percentageBarTwo.style['width']=`${findPercentage(q,'option-two') ==='0' ? '10' : findPercentage(q,'option-two')}%`
 
 
     yourVote.style['animation'] = 'display 1s';
@@ -301,34 +283,63 @@ class Dashboard extends Component {
 
   }
 
-  function getMax(question){
+  function getCount(question, who){
     let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
     let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+    let max = Math.max(optOneLen , optTwoLen)
+    let min = Math.min(optOneLen , optTwoLen); 
+    let winner = optOneLen > optTwoLen ? 'option-one' : optOneLen < optTwoLen ? 'option-two' : 'both';
 
-    return Math.max(optOneLen , optTwoLen); 
-  }
-
-  function getMin(question){
-    let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
-    let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
-
-    return Math.min(optOneLen , optTwoLen); 
+    return who === 'option-one' ? winner === 'option-one' ? max : min : who === 'option-two' ? winner === 'option-two' ? max : min : 0;
   }
 
   function getTotal(question){
-    return getMin(question) + getMax(question)
+    let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
+    let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+    let max = Math.max(optOneLen , optTwoLen)
+    let min = Math.min(optOneLen , optTwoLen); 
+    return max+min;
   }
 
   function findPercentage(question, who){
+    let optOneLen = question.optionOne.votes.length >0 ? question.optionOne.votes.length : 0;
+    let optTwoLen = question.optionTwo.votes.length >0 ? question.optionTwo.votes.length : 0;
+    let max = Math.max(optOneLen , optTwoLen)
+    let min = Math.min(optOneLen , optTwoLen); 
+    let winner = optOneLen > optTwoLen ? 'option-one' : optOneLen < optTwoLen ? 'option-two' : 'both';
 
-    let max=getMax(question);
-    let min=getMin(question);
+    // console.log('optOne ' , optOneLen, '\noptTwo', optTwoLen)
 
-      let result = who ==='self' 
-      ? 
-      (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
-      : 
-    (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1));  
+    
+
+      let result = 
+      who === 'option-one' 
+        ? 
+        winner === 'option-one' 
+          ?
+          (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
+          : 
+          winner === 'option-two' 
+            ?
+            (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1))
+            :
+            (((max/(max+min))*100).toFixed(1)) 
+        :
+      who ==='option-two'
+        ?
+        winner === 'option-two' 
+          ?
+          (min ===0 ? '100' : ((max/(max+min))*100).toFixed(1)) 
+          :
+          winner === 'option-one' 
+            ?
+            (min ===0 ? '0' : ((min/(max+min))*100).toFixed(1))
+            :
+            (((max/(max+min))*100).toFixed(1)) 
+      :
+      0;
+
+      console.log('findpercentage ' , winner, '\n', result)
       
       return result;
   }
@@ -363,7 +374,7 @@ class Dashboard extends Component {
               <p className='p-question' id ={`p-question-${unanswered[i].uId}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${unanswered[i].uId}`} onClick= {(event) => viewQuestion(event, unanswered[i].uId)} className='p-question-btn'> View Full </button>
               
-              <form onSubmit={(event) => this.handleAnswer(event, unanswered[i])} id ={`form-${unanswered[i].uId}`} class='answer-form'>
+              <form onSubmit={(event) => this.handleAnswer(event, unanswered[i])} id ={`form-${unanswered[i].uId}`} className='answer-form'>
 
                   <fieldset>
 
@@ -389,6 +400,8 @@ class Dashboard extends Component {
       <span id='show-answers-container'>
         {answered.map((x, i) =>(
         <div className='question-card' id = {`answer-card-${answered[i].uId}`} >
+          {console.log(`ANSWER LIST - Loop: ${i}`, '\n',  answered[i])}
+
           <div className='who'>
             <p>  {answered[i].user.name} asks:</p>
           </div>
@@ -399,33 +412,42 @@ class Dashboard extends Component {
             <div className='question' id ={`answer-${answered[i].uId}`}>
               <p className='p-title' id ={`p-title-answer-${answered[i].uId}`}> Would You Rather </p>
               <p className='p-question' id ={`p-answer-${answered[i].uId}`}> ...{answered[i].optionOne.text.substring(0,20)}...</p>
-              <button id ={`viewBtn-answer-${answered[i].uId}`} onClick= {(event) => viewAnswer(event, answered[i].uId, answered[i])} className='p-question-btn'> View Full </button>
-              <div className='your-vote' id={`your-vote-${answered[i].uId}`}>
-                <img className='vote-img' id={`vote-img-${answered[i].uId}`} src={vote} alt="vote" />
+              <button id ={`viewBtn-answer-${answered[i].uId}`} onClick= {(event) => viewAnswer(event, answered[i].uId, answered[i], i)} className='p-question-btn'> View Full </button>
+              <div className='vote-one' id={`vote-one-${answered[i].uId}`}>
+                
+                {answered[i].optionOne.votes.includes(authedUser) && (
+                  <img className='vote-img' id={`vote-img-${(answered[i].uId + i.toString()+'1') }`} src={vote} alt="vote" />
+                )}
+
                 <p className='p-wyr'>
                   {`Would you rather ${answered[i].optionOne.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`} id={`p-percentage-self-${answered[i].uId}`}>
-                    {`${findPercentage(answered[i], 'self')}%`}
+                  <p className={`p-percentage`} id={`p-percentage-one-${answered[i].uId}`}>
+                    {`${findPercentage(answered[i], 'option-one')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
-                  {`${getMax(answered[i])} out of ${getTotal(answered[i])} votes`}
+                  {`${getCount(answered[i],'option-one')} out of ${getTotal(answered[i])} votes`}
                 </p>
               </div>
 
-              <div className='others-vote' id={`others-vote-${answered[i].uId}`}>
+              <div className='vote-two' id={`vote-two-${answered[i].uId}`}>
+                
+                
+                {answered[i].optionTwo.votes.includes(authedUser) && (
+                  <img className='vote-img' id={`vote-img-${(answered[i].uId + i.toString()+'2')}`} src={vote} alt="vote" />
+                )}
                 <p className='p-wyr'>
                 {`Would you rather ${answered[i].optionTwo.text.trim()} ?`}
                 </p>
                 <div className='percentage-bar'>
-                  <p className={`p-percentage`} id={`p-percentage-other-${answered[i].uId}`}>
-                    {`${findPercentage(answered[i], 'other')}%`}
+                  <p className={`p-percentage`} id={`p-percentage-two-${answered[i].uId}`}>
+                    {`${findPercentage(answered[i], 'option-two')}%`}
                   </p>
                 </div>
                 <p className={`p-min-max`}>
-                  {`${getMin(answered[i])} out of ${getTotal(answered[i])} votes`}
+                  {`${getCount(answered[i],'option-two')} out of ${getTotal(answered[i])} votes`}
                 </p>
               </div>
          
@@ -454,7 +476,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
     }
   }
   
-  console.log('www', formattedQuestions );
+  // console.log('www', formattedQuestions );
 
   let sortedQ = formattedQuestions.sort((a,b) => a.timestamp < b.timestamp ? 1: -1);
   // console.log('\n sorted', sortedQ);
@@ -476,7 +498,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
       }
     });
   });
-  console.log('\n sortedQ sorted a third time: ', sortedQ)
+  // console.log('\n sortedQ sorted a third time: ', sortedQ)
 
 
   let unanswered = Object.keys(sortedQ).map((x,i) => {
@@ -491,7 +513,7 @@ function mapStateToProps ({ questions, users, authedUser }) {
     return unanswered[index] !== undefined;
 
   });
-  console.log('\n unanswered ', unanswered)
+  // console.log('\n unanswered ', unanswered)
 
   let answered = Object.keys(sortedQ).map((x,i) => {
     console.log('\n one ', sortedQ[i].optionOne.votes , '\nauthuser: ' , authedUser,'\ntwo: ', sortedQ[i].optionTwo.votes, '\ncheck: ',  sortedQ[i].optionTwo.votes.includes(authedUser) );
@@ -499,10 +521,11 @@ function mapStateToProps ({ questions, users, authedUser }) {
     if ( (sortedQ[i].optionOne.votes.includes(authedUser) ) || (sortedQ[i].optionTwo.votes.includes(authedUser)) )
       return sortedQ[i];
   });
+
   answered= answered.filter((value, index) => {
     return answered[index] !== undefined;
-
   });
+
   console.log('\n answered ', answered)
 
 

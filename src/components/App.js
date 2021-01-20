@@ -29,10 +29,10 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('lsda', this.props.loading != nextProps.loading, this.props.loading, nextProps.loading)
-    return this.props.loading != nextProps.loading;
-}
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log('lsda', this.props.loading != nextProps.loading, this.props.loading, nextProps.loading)
+//     return this.props.loading != nextProps.loading;
+// }
 
 // componentDidUpdate(prevProps){
 
