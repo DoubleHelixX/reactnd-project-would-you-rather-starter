@@ -374,17 +374,17 @@ class Dashboard extends Component {
               <p className='p-question' id ={`p-question-${unanswered[i].uId}`}> ...{unanswered[i].optionOne.text.substring(0,20)}...</p>
               <button id ={`viewBtn-${unanswered[i].uId}`} onClick= {(event) => viewQuestion(event, unanswered[i].uId)} className='p-question-btn'> View Full </button>
               
-              <form onSubmit={(event) => this.handleAnswer(event, unanswered[i])} id ={`form-${unanswered[i].uId}`} className='answer-form'>
+              <form onSubmit={(event) => this.handleAnswer(event, unanswered[i])} className='answer-form' id ={`form-${unanswered[i].uId}`} >
 
                   <fieldset>
 
                     <label for="optionOne">
                       <input className='radioBtn' id = "optionOne" type="radio" name="group" value="optionOne" />
-                      <span>{unanswered[i].optionOne.text.trim()}</span>
+                      <span>{unanswered[i].optionOne.text.trim()}?</span>
                     </label>
                     <label for="optionTwo">
                       <input className='radioBtn' id = "optionTwo" type="radio" name="group" value="optionTwo"/>
-                      <span> {unanswered[i].optionTwo.text.trim()}</span>
+                      <span> {unanswered[i].optionTwo.text.trim()}?</span>
                     </label>
                     <input className='submit-answer' type="submit" value="Submit"/>
                 </fieldset>
@@ -420,7 +420,7 @@ class Dashboard extends Component {
                 )}
 
                 <p className='p-wyr'>
-                  {`Would you rather ${answered[i].optionOne.text.trim()} ?`}
+                  {`Would you rather ${answered[i].optionOne.text.trim().toLowerCase()} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-one-${answered[i].uId}`}>
@@ -439,7 +439,7 @@ class Dashboard extends Component {
                   <img className='vote-img' id={`vote-img-${(answered[i].uId + i.toString()+'2')}`} src={vote} alt="vote" />
                 )}
                 <p className='p-wyr'>
-                {`Would you rather ${answered[i].optionTwo.text.trim()} ?`}
+                {`Would you rather ${answered[i].optionTwo.text.trim().toLowerCase()} ?`}
                 </p>
                 <div className='percentage-bar'>
                   <p className={`p-percentage`} id={`p-percentage-two-${answered[i].uId}`}>
