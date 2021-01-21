@@ -1768,8 +1768,255 @@ hr.style13 {
     padding-bottom: 12px;
   }
 
+  /*-----------------------------------------------------------------------------------
+                                     SIGNUP CSS 
+  -----------------------------------------------------------------------------------*/
     
+  .signup-container{
+    display: inline-block;
+    width: auto;
+    height: auto;
+    min-width: 45%;
+    max-height: 95%;
+    margin: 5% auto;
+    border: groove 3px #359FCA;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    overflow-y: none;
+    overflow-x: none;
+  }
+
+  .signup-container::-webkit-scrollbar-track {
+    border: 1px double rgb(255, 255, 255);
+    padding: 2px 0;
+    background-color:#f3f3f3;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    border-top-right-radius:5px; 
+
+  }
+
+  .signup-container::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .signup-container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    background-color: #f4f4f4;
+    border: 1px solid rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px; 
+    border-top-right-radius:3px; 
+  }
+  .signup-header{
+    /* color:rgb(0, 0, 0); */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: groove 2px #359FCA;
+    padding-bottom: 15px;
+    margin: 15px 0;
+    animation:rotate-header 1s ease;
+    color:#3cb8e9;
+    text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+    
+  }
+
+  .signup-hint{
+    text-align: left;
+    padding-left: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:#383838;
+
+
+  }
+
+  .signup-label1{
+    text-align: center;
+    padding-left: 15px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-size: 22px;
+    color:rgb(0, 0, 0);
+    /* text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000; */
+    margin: 0 0;
+  }
+
+  .signup-label2{
+    text-align: center;
+    padding-left: 15px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    color:rgb(0, 0, 0);
+    /* text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000; */
+    margin: 10px 0 0 0;
+    font-weight: lighter;
+
+  }
+
+  .signup-form{
+    padding: 0 15px; 
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  .signup-Q1{
+    width: 100%;
+    height: 35px;
+    background-color: #ffffffe8;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border: solid 2px #b9b9b9;
+    margin-bottom: 15px;
+    padding: 0;
+    text-align: center;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+    margin-top: 15px;
+
+
+  }
+
+  .signup-hr { 
+    display: flex; 
+    flex-direction: row; 
+    margin:0px;
+    color:#3cb8e9;
+    text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+    
+    
+} 
   
+  .signup-hr:before, 
+  .signup-hr:after { 
+      content: ""; 
+      flex: 1 1; 
+      border-bottom: 2px solid rgb(0, 0, 0); 
+      margin: auto; 
+      
+  } 
+
+  .signup-Q2{
+    width: 100%;
+    height: 35px;
+    background-color: #ffffffe8;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border: solid 2px #b9b9b9;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 0;
+    text-align: center;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+  }
+
+  #signin-dropdown-basic-button{
+    border: none;
+    /* border: #000000 2px; */
+    display: inline;
+    padding:0;
+    margin:0;
+    position: absolute;
+    top:57%;
+    left:59.5%;
+    width:10px;
+    background-color:transparent;
+  }
+
+  .signin-dropdown-basic-button:nth-child(-n+1) {
+    position: relative;
+    width:79.4%;
+    min-width: 10rem;
+    padding: .5rem 0;
+    margin: 0 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: rgb(223, 0, 0);
+    background-clip: padding-box;
+    border-left: 2px solid #f3f3f3;
+    border-right: 2px solid #f3f3f3;
+    border-bottom: 2px solid #f3f3f3;
+
+
+    background-color: #ffffff;
+
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+
+
+  }
+
+/* //tryting sti */
+  .signup-dropdown-menu .show{
+    border: red 2px solid!important;
+    margin:0px!important;
+    transform: translate3d(-1px, 155px, 0px)!important;
+    width:100%!important;
+  }
+
+
+  .signup-dropdown-menu .signup-dropdown-item{
+    display: inline-block;
+    width: 100%;
+    padding: 15rem auto;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: left;
+    white-space: nowrap;
+    background-color: #ffffff;
+    border: 0;
+    border: 0 2px solid #b9b9b9;
+    text-decoration: none;
+    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+
+
+
+  }
+
+  .signup-dropdown-menu .signup-:hover{
+
+    background-color: #f3f3f3;
+
+  }
+
+  .signup- img{
+    width: 50px;
+    height: 50px;
+    border: groove 2px #b9b9b9;
+    border-radius: 50%;
+    background-color:white;
+    vertical-align: middle;
+    margin:5px 8px 5px 5px;
+  }
+
+
+  .signup-submit{
+    width: 460px;
+    height: 40px;
+    background-color: #359FCA;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    border-bottom-right-radius:4px;
+    border-bottom-left-radius:4px;
+    border: outset 2px #1C6EA4;
+    color: white;
+    font-size: 18px;
+    font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
+
+  }
 /*-----------------------------------------------------------------------------------
                                     FOOTER CSS 
 -----------------------------------------------------------------------------------*/
