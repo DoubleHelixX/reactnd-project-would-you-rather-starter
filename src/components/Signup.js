@@ -20,7 +20,7 @@ class Signup extends Component {
             'burglar': burglar,
             'girl': girl,
             'student': student,
-            'bussinessman': bussinessman
+            'bussiness-man': bussinessman
         }
     }
     
@@ -69,8 +69,13 @@ class Signup extends Component {
 
     
     function selectUser(e,id){
-        console.log(e.target.id);
+        console.log(e.target.id, id);
         let dropdownBtn = document.getElementById('signup-dropdown-basic-button');
+        let placeholder = document.getElementsByClassName('signup-Q2')[0]
+        placeholder.style['border-color']= 'black'
+        placeholder.value = id + '.png';
+        
+
         let imageTextfield = document.getElementsByClassName('signup-Q2')
         imageTextfield.textContent = e.target.id;
         dropdownBtn.style.color='black';
@@ -96,7 +101,7 @@ class Signup extends Component {
                     What image would you like as your avatar?
                     </h2>
                     <input className='signup-Q2' placeholder='Paste Image Link or Click      to Choose'/> 
-                    <DropdownButton className='signin-dropdown-basic-button' id="signin-dropdown-basic-button" title="">
+                    <DropdownButton  id="signup-dropdown-basic-button" title="">
                         {Object.keys(givenUsers).map((x, i) =>(
                             <Dropdown.Item className="signup-dropdown-item" onClick={(event) => selectUser(event, (Object.keys(givenUsers)[i].toString()))} id={Object.keys(givenUsers)[i].toString()}>
                                 <img src={givenUsers[Object.keys(givenUsers)[i]]} alt={Object.keys(givenUsers)[i].toString()} />
