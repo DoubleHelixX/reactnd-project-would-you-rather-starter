@@ -7,20 +7,34 @@ import burglar from "../images/burglar.png"
 import girl from "../images/girl.png"
 import student from "../images/student.png"
 import bussinessman from "../images/bussinessman.png"
+import { handleAddUser } from '../actions/users'
+
 
 
 
 // import {handleAddQuestion} from '../actions/questions'
+function selectUser(e,id){
+    console.log(e.target.id, id);
+    let dropdownBtn = document.getElementById('signup-dropdown-basic-button');
+    let placeholder = document.getElementsByClassName('signup-Q2')[0]
+    placeholder.style['border-color']= 'black'
+    placeholder.value = id ;
+    
 
+    let imageTextfield = document.getElementsByClassName('signup-Q2')
+    imageTextfield.textContent = e.target.id;
+    dropdownBtn.style.color='black';
+    dropdownBtn.setAttribute('data-user', id);
+}
 
 class Signup extends Component {
     state = {
         givenUsers : {
-            'woman': woman,
-            'burglar': burglar,
-            'girl': girl,
-            'student': student,
-            'bussiness-man': bussinessman
+            'woman.png': woman,
+            'burglar.png': burglar,
+            'girl.png': girl,
+            'student.png': student,
+            'bussiness-man.png': bussinessman
         }
     }
     
@@ -48,14 +62,14 @@ class Signup extends Component {
         else
             optionTwoText.style.border='solid 2px #b9b9b9';
 
-        // if( !optionOneCheck && !optionTwoCheck){
-        //     console.log('option one and option two are validated',);
-        //     dispatch(handleAddQuestion(optionOneText.value.trim(), optionTwoText.value.trim()));
-        //     optionOneText.value='';
-        //     optionTwoText.value='';
-        //     // optionOneText.placeholder='Enter Option One Here';
-        //     // optionTwoText.placeholder='Enter Option One Here';
-        // }
+        if( !optionOneCheck && !optionTwoCheck){
+            console.log('option one and option two are validated',);
+            dispatch(handleAddUser(optionOneText.value.trim(), optionTwoText.value.trim()));
+            optionOneText.value='';
+            optionTwoText.value='';
+            // optionOneText.placeholder='Enter Option One Here';
+            // optionTwoText.placeholder='Enter Option One Here';
+        }
        
       }
 
@@ -67,20 +81,6 @@ class Signup extends Component {
     let {givenUsers} = this.state;    
     console.log(Object.keys(givenUsers))
 
-    
-    function selectUser(e,id){
-        console.log(e.target.id, id);
-        let dropdownBtn = document.getElementById('signup-dropdown-basic-button');
-        let placeholder = document.getElementsByClassName('signup-Q2')[0]
-        placeholder.style['border-color']= 'black'
-        placeholder.value = id + '.png';
-        
-
-        let imageTextfield = document.getElementsByClassName('signup-Q2')
-        imageTextfield.textContent = e.target.id;
-        dropdownBtn.style.color='black';
-        dropdownBtn.setAttribute('data-user', id);
-    }
         return (
             <div className='signup-container'>
                 <h1 className='signup-header'>

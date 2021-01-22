@@ -261,6 +261,35 @@ export function _saveQuestion (question) {
   })
 }
 
+function formatUser ({ id,username, img }) {
+  return id: {
+    id: id,
+    name: username,
+    avatarURL: img,
+    answers: {
+      
+    },
+    questions: []
+  }
+}
+
+export function _saveUser (user) {
+  return new Promise((res, rej) => {
+    let formattedUser = formatUser(user);
+
+    setTimeout(() => {
+      
+      users = {
+        ...users,
+        [formattedUser.id]: formattedUser
+      }
+
+      res({users})
+    }, 1000)
+  })
+}
+
+
 export function _saveQuestionAnswer ({ authedUser, qid, option }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
