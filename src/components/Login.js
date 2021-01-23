@@ -66,13 +66,13 @@ class Login extends Component {
                     <input className='login-submit' type="submit" value="Sign-In"/>
                 </form>
                 <span className='login-signup'>
-                <NavLink to='/signup'
+                <NavLink to='/#/signup'
                     isActive={(match, location) => {
                         //some additional logic to verify you are in the home URI
                         if(!location) return false;
                         const {pathname} = location;
                         console.log(pathname);
-                        return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" || pathname === "/";
+                        return pathname === "/#/home" || pathname === "/#/";
                         }
                     }
                      className='non-active-tab' style={{ textDecoration: 'none'}}>

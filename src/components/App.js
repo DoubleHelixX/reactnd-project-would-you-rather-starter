@@ -1,24 +1,24 @@
-import '../styles/App.css';
-import Nav from './Nav'
-import Dashboard from './Dashboard'
-import Footer from './Footer'
-import TitleAnimate from './TitleAnimate'
-// import Title from './Title'
-import NewQuestion from './NewQuestion'
-import Leaderboards from './Leaderboards'
-import Login from './Login'
-import Signup from './Signup'
+import "../styles/App.css";
+import Nav from "./Nav"
+import Dashboard from "./Dashboard"
+import Footer from "./Footer"
+import TitleAnimate from "./TitleAnimate"
+// import Title from "./Title"
+import NewQuestion from "./NewQuestion"
+import Leaderboards from "./Leaderboards"
+import Login from "./Login"
+import Signup from "./Signup"
 
-import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
-import LoadingBar from 'react-redux-loading'
-
-
+import { connect } from "react-redux"
+import { handleInitialData } from "../actions/shared"
+import LoadingBar from "react-redux-loading"
 
 
 
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+
+
+import React, { Component, Fragment } from "react"
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
 
 
 
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
 //   shouldComponentUpdate(nextProps, nextState) {
-//     console.log('lsda', this.props.loading != nextProps.loading, this.props.loading, nextProps.loading)
+//     console.log("lsda", this.props.loading != nextProps.loading, this.props.loading, nextProps.loading)
 //     return this.props.loading != nextProps.loading;
 // }
 
@@ -51,41 +51,41 @@ const { history } = this.props;
             
             <TitleAnimate />
             <Nav />
-            <div className='border-body'>
+            <div className="border-body">
               <LoadingBar className="loading"/>
-              <hr className='style13' />
+              <hr className="style13" />
               
                {loading === true ?
                <span>
-                 {console.log('history', history)}
-                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home' render={({history}) => (
-                    <Redirect to="/" />
+                 {console.log("history", history)}
+                 <Route exact path="/#/home" render={({history}) => (
+                    <Redirect to="/#/" />
                   )}/>
-                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' render={({history}) => (
-                    <Redirect to="/" />
+                  <Route exact path="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question" render={({history}) => (
+                    <Redirect to="/#/" />
                   )}/>
-                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards' render={({history}) => (
-                    <Redirect to="/" />
+                  <Route exact path="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards" render={({history}) => (
+                    <Redirect to="/#/" />
                   )}/>
-                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' component={Login} />
-                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/signup' component = {Signup}/>
+                 <Route exact path="/#/" component={Login} />
+                 <Route exact path="/#/signup" component = {Signup}/>
 
                </span>
                  :
                  <span>
-                   {console.log('sdss', authedUser, '\n', loading)}
+                   {console.log("sdss", authedUser, "\n", loading)}
                   {authedUser===null ? 
-                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' render={({history}) => (
+                  <Route exact path="/#/" render={({history}) => (
                     <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/" />
                     )}/>
                     :
                     <span>
-                       <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' render={({history}) => (
+                       <Route exact path="/#/" render={({history}) => (
                         <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" />
                       )}/>
-                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home' component={Dashboard} />
-                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' component = {NewQuestion}/>
-                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards' component = {Leaderboards}/>
+                      <Route exact path="/#/home" component={Dashboard} />
+                      <Route exact path="/#/question" component = {NewQuestion}/>
+                      <Route exact path="/#/leaderboards" component = {Leaderboards}/>
 
                     </span>
                   }
@@ -105,7 +105,7 @@ const { history } = this.props;
 }
 
 function mapStateToProps ({ authedUser }) {
-  console.log('l', authedUser)
+  console.log("l", authedUser)
   return {
     authedUser,
     loading: authedUser === null

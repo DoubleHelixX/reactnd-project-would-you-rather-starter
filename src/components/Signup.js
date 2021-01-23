@@ -69,7 +69,7 @@ class Signup extends Component {
             optionOneText.placeholder='Enter Option One Here';
             optionTwoText.placeholder='Enter Option One Here';
             const { history } = this.props;
-            history.push("https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/");
+            history.push("/#/");
         }
        
 
