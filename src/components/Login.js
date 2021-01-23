@@ -72,7 +72,7 @@ class Login extends Component {
                         if(!location) return false;
                         const {pathname} = location;
                         console.log(pathname);
-                        return pathname === "/home" || pathname === "/";
+                        return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" || pathname === "/";
                         }
                     }
                      className='non-active-tab' style={{ textDecoration: 'none'}}>

@@ -31,7 +31,7 @@ class Nav extends Component {
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "/home" || pathname === "/";
+                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" || pathname === "/";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
@@ -40,13 +40,13 @@ class Nav extends Component {
           </li>
 
           <li>
-            <NavLink to='/question' 
+            <NavLink to='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' 
               isActive={(match, location) => {
                 //some additional logic to verify you are in the home URI
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "/question";
+                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
@@ -55,13 +55,13 @@ class Nav extends Component {
           </li>
 
           <li>
-            <NavLink to='/leaderboards' 
+            <NavLink to='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards' 
               isActive={(match, location) => {
                 //some additional logic to verify you are in the home URI
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "/leaderboards";
+                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
@@ -82,7 +82,7 @@ class Nav extends Component {
               if(!location) return false;
               const {pathname} = location;
               console.log(pathname);
-              return pathname === "/";
+              return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/";
               }
             }
             activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >

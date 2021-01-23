@@ -58,34 +58,34 @@ const { history } = this.props;
                {loading === true ?
                <span>
                  {console.log('history', history)}
-                 <Route exact path='/home' render={({history}) => (
+                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home' render={({history}) => (
                     <Redirect to="/" />
                   )}/>
-                  <Route exact path='/question' render={({history}) => (
+                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' render={({history}) => (
                     <Redirect to="/" />
                   )}/>
-                  <Route exact path='/leaderboards' render={({history}) => (
+                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards' render={({history}) => (
                     <Redirect to="/" />
                   )}/>
-                 <Route exact path='/' component={Login} />
-                 <Route exact path='/signup' component = {Signup}/>
+                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' component={Login} />
+                 <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/signup' component = {Signup}/>
 
                </span>
                  :
                  <span>
                    {console.log('sdss', authedUser, '\n', loading)}
                   {authedUser===null ? 
-                  <Route exact path='/' render={({history}) => (
-                    <Redirect to="/" />
+                  <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' render={({history}) => (
+                    <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/" />
                     )}/>
                     :
                     <span>
-                       <Route exact path='/' render={({history}) => (
-                        <Redirect to="/home" />
+                       <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' render={({history}) => (
+                        <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" />
                       )}/>
-                      <Route exact path='/home' component={Dashboard} />
-                      <Route exact path='/question' component = {NewQuestion}/>
-                      <Route exact path='/leaderboards' component = {Leaderboards}/>
+                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home' component={Dashboard} />
+                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' component = {NewQuestion}/>
+                      <Route exact path='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards' component = {Leaderboards}/>
 
                     </span>
                   }
