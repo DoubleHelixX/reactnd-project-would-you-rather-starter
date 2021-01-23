@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/reactnd-project-would-you-rather-starter/static/css/main.6520d3a8.chunk.css",
-    "main.js": "/reactnd-project-would-you-rather-starter/static/js/main.5d4f9030.chunk.js",
-    "main.js.map": "/reactnd-project-would-you-rather-starter/static/js/main.5d4f9030.chunk.js.map",
+    "main.js": "/reactnd-project-would-you-rather-starter/static/js/main.67351fb2.chunk.js",
+    "main.js.map": "/reactnd-project-would-you-rather-starter/static/js/main.67351fb2.chunk.js.map",
     "runtime-main.js": "/reactnd-project-would-you-rather-starter/static/js/runtime-main.1779fca3.js",
     "runtime-main.js.map": "/reactnd-project-would-you-rather-starter/static/js/runtime-main.1779fca3.js.map",
-    "static/js/2.fbf61efb.chunk.js": "/reactnd-project-would-you-rather-starter/static/js/2.fbf61efb.chunk.js",
-    "static/js/2.fbf61efb.chunk.js.map": "/reactnd-project-would-you-rather-starter/static/js/2.fbf61efb.chunk.js.map",
+    "static/js/2.488ca714.chunk.js": "/reactnd-project-would-you-rather-starter/static/js/2.488ca714.chunk.js",
+    "static/js/2.488ca714.chunk.js.map": "/reactnd-project-would-you-rather-starter/static/js/2.488ca714.chunk.js.map",
     "static/js/3.62537b91.chunk.js": "/reactnd-project-would-you-rather-starter/static/js/3.62537b91.chunk.js",
     "static/js/3.62537b91.chunk.js.map": "/reactnd-project-would-you-rather-starter/static/js/3.62537b91.chunk.js.map",
     "index.html": "/reactnd-project-would-you-rather-starter/index.html",
     "static/css/main.6520d3a8.chunk.css.map": "/reactnd-project-would-you-rather-starter/static/css/main.6520d3a8.chunk.css.map",
-    "static/js/2.fbf61efb.chunk.js.LICENSE.txt": "/reactnd-project-would-you-rather-starter/static/js/2.fbf61efb.chunk.js.LICENSE.txt",
+    "static/js/2.488ca714.chunk.js.LICENSE.txt": "/reactnd-project-would-you-rather-starter/static/js/2.488ca714.chunk.js.LICENSE.txt",
     "static/media/App.css": "/reactnd-project-would-you-rather-starter/static/media/third-place.73f543e8.png",
     "static/media/burglar.f0faa3fc.png": "/reactnd-project-would-you-rather-starter/static/media/burglar.f0faa3fc.png",
     "static/media/bussinessman.5faf09a7.png": "/reactnd-project-would-you-rather-starter/static/media/bussinessman.5faf09a7.png",
@@ -25,8 +25,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1779fca3.js",
-    "static/js/2.fbf61efb.chunk.js",
+    "static/js/2.488ca714.chunk.js",
     "static/css/main.6520d3a8.chunk.css",
-    "static/js/main.5d4f9030.chunk.js"
+    "static/js/main.67351fb2.chunk.js"
   ]
 }
