@@ -61,10 +61,10 @@ const { history } = this.props;
                  <Route exact path="/#/home" render={({history}) => (
                     <Redirect to="/#/" />
                   )}/>
-                  <Route exact path="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question" render={({history}) => (
+                  <Route exact path="/#/question" render={({history}) => (
                     <Redirect to="/#/" />
                   )}/>
-                  <Route exact path="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards" render={({history}) => (
+                  <Route exact path="/#/leaderboards" render={({history}) => (
                     <Redirect to="/#/" />
                   )}/>
                  <Route exact path="/#/" component={Login} />
@@ -76,12 +76,12 @@ const { history } = this.props;
                    {console.log("sdss", authedUser, "\n", loading)}
                   {authedUser===null ? 
                   <Route exact path="/#/" render={({history}) => (
-                    <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/" />
+                    <Redirect to="/#/" />
                     )}/>
                     :
                     <span>
                        <Route exact path="/#/" render={({history}) => (
-                        <Redirect to="https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" />
+                        <Redirect to="/#/home" />
                       )}/>
                       <Route exact path="/#/home" component={Dashboard} />
                       <Route exact path="/#/question" component = {NewQuestion}/>
