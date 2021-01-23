@@ -18,7 +18,7 @@ import LoadingBar from "react-redux-loading"
 
 
 import React, { Component, Fragment } from "react"
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
+import { HashRouter as Router, Route, Redirect } from "react-router-dom"
 
 
 
@@ -45,7 +45,7 @@ const { history } = this.props;
    
  
     return (
-      <Router>
+
         <Fragment>
           <div className="App">
             
@@ -98,7 +98,7 @@ const { history } = this.props;
             <Footer/>
           </div>
         </Fragment>
-      </Router>
+
 
     );
   }
