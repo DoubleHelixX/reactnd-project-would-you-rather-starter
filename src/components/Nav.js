@@ -25,13 +25,13 @@ class Nav extends Component {
         <ul className='nav-links'>
           <li>
     
-            <NavLink to='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home'
+            <NavLink to='/home'
               isActive={(match, location) => {
                 //some additional logic to verify you are in the home URI
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/home" || pathname === "/";
+                return pathname === "/home" || pathname === "/";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}}>
@@ -40,13 +40,13 @@ class Nav extends Component {
           </li>
 
           <li>
-            <NavLink to='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question' 
+            <NavLink to='/question' 
               isActive={(match, location) => {
                 //some additional logic to verify you are in the home URI
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/question";
+                return pathname === "/question";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
@@ -61,7 +61,7 @@ class Nav extends Component {
                 if(!location) return false;
                 const {pathname} = location;
                 console.log(pathname);
-                return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/leaderboards";
+                return pathname === "/leaderboards";
                 }
               }
               activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
@@ -76,13 +76,13 @@ class Nav extends Component {
          <img className ='nav-user-img' src={authedUser_data.avatarURL } alt="account-img" />  
 
          
-          <NavLink to='https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/' onClick={(event) => this.handleLogOut(event)}
+          <NavLink to='/' onClick={(event) => this.handleLogOut(event)}
             isActive={(match, location) => {
               //some additional logic to verify you are in the home URI
               if(!location) return false;
               const {pathname} = location;
               console.log(pathname);
-              return pathname === "https://doublehelixx.github.io/reactnd-project-would-you-rather-starter/";
+              return pathname === "/";
               }
             }
             activeClassName='active-tab' className='non-active-tab' style={{ textDecoration: 'none'}} >
