@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/reactnd-project-would-you-rather-starter/static/css/main.6520d3a8.chunk.css",
-    "main.js": "/reactnd-project-would-you-rather-starter/static/js/main.929052db.chunk.js",
-    "main.js.map": "/reactnd-project-would-you-rather-starter/static/js/main.929052db.chunk.js.map",
+    "main.js": "/reactnd-project-would-you-rather-starter/static/js/main.4330b047.chunk.js",
+    "main.js.map": "/reactnd-project-would-you-rather-starter/static/js/main.4330b047.chunk.js.map",
     "runtime-main.js": "/reactnd-project-would-you-rather-starter/static/js/runtime-main.1779fca3.js",
     "runtime-main.js.map": "/reactnd-project-would-you-rather-starter/static/js/runtime-main.1779fca3.js.map",
     "static/js/2.d7190e9a.chunk.js": "/reactnd-project-would-you-rather-starter/static/js/2.d7190e9a.chunk.js",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.1779fca3.js",
     "static/js/2.d7190e9a.chunk.js",
     "static/css/main.6520d3a8.chunk.css",
-    "static/js/main.929052db.chunk.js"
+    "static/js/main.4330b047.chunk.js"
   ]
 }
