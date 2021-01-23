@@ -59,13 +59,13 @@ const { history } = this.props;
                <span>
                  {console.log("history", history)}
                  <Route exact path="/#/home" render={({history}) => (
-                    <Redirect to="/#/" />
+                    <Redirect to="/" />
                   )}/>
                   <Route exact path="/#/question" render={({history}) => (
-                    <Redirect to="/#/" />
+                    <Redirect to="/" />
                   )}/>
                   <Route exact path="/#/leaderboards" render={({history}) => (
-                    <Redirect to="/#/" />
+                    <Redirect to="/" />
                   )}/>
                  <Route exact path="/" component={Login} />
                  <Route exact path="/signup" component = {Signup}/>
@@ -75,17 +75,17 @@ const { history } = this.props;
                  <span>
                    {console.log("sdss", authedUser, "\n", loading)}
                   {authedUser===null ? 
-                  <Route exact path="/#/" render={({history}) => (
-                    <Redirect to="/#/" />
+                  <Route exact path="/" render={({history}) => (
+                    <Redirect to="/" />
                     )}/>
                     :
                     <span>
-                       <Route exact path="/#/" render={({history}) => (
-                        <Redirect to="/#/home" />
+                       <Route exact path="/" render={({history}) => (
+                        <Redirect to="/home" />
                       )}/>
-                      <Route exact path="/#/home" component={Dashboard} />
-                      <Route exact path="/#/question" component = {NewQuestion}/>
-                      <Route exact path="/#/leaderboards" component = {Leaderboards}/>
+                      <Route exact path="/home" component={Dashboard} />
+                      <Route exact path="/question" component = {NewQuestion}/>
+                      <Route exact path="/leaderboards" component = {Leaderboards}/>
 
                     </span>
                   }
