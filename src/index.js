@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import middleware from './middleware'
-import { HashRouter } from 'react-router-dom'; //BrowserRouter for local deployment
+// import { HashRouter } from 'react-router-dom'; //BrowserRouter for local deployment
 
 const store = createStore(reducer, middleware)
 
