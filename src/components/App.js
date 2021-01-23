@@ -58,13 +58,13 @@ const { history } = this.props;
                {loading === true ?
                <span>
                  {console.log("history", history)}
-                 <Route exact path="/#/home" render={({history}) => (
+                 <Route exact path="/home" render={({history}) => (
                     <Redirect to="/" />
                   )}/>
-                  <Route exact path="/#/question" render={({history}) => (
+                  <Route exact path="/question" render={({history}) => (
                     <Redirect to="/" />
                   )}/>
-                  <Route exact path="/#/leaderboards" render={({history}) => (
+                  <Route exact path="/leaderboards" render={({history}) => (
                     <Redirect to="/" />
                   )}/>
                  <Route exact path="/" component={Login} />
