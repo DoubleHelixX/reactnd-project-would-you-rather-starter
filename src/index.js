@@ -12,11 +12,10 @@ import { HashRouter } from 'react-router-dom'; //BrowserRouter for local deploym
 const store = createStore(reducer, middleware)
 
 ReactDOM.render(
-{/* <HashRouter> */}
+
   <Provider store={store}>
     <App />
   </Provider>,
-// </HashRouter>,
 document.getElementById('root')
 )
 
