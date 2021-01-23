@@ -67,8 +67,8 @@ const { history } = this.props;
                   <Route exact path="/#/leaderboards" render={({history}) => (
                     <Redirect to="/#/" />
                   )}/>
-                 <Route exact path="/#/" component={Login} />
-                 <Route exact path="/#/signup" component = {Signup}/>
+                 <Route exact path="/" component={Login} />
+                 <Route exact path="/signup" component = {Signup}/>
 
                </span>
                  :
