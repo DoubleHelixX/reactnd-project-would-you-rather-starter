@@ -1744,6 +1744,9 @@ hr.style13 {
     margin:5px 8px 5px 5px;
   }
 
+.dropdown-menu .dropdown-item{
+	border: none;
+}
 
     .login-submit{
       margin-bottom:15px;      
@@ -1926,8 +1929,8 @@ hr.style13 {
     margin:0;
     position: absolute;
     top:57%;
-    left:59.2%;
-    width:10px;
+    /* left:25.2vw; */
+    width:62px;
     background-color:transparent;
   }
 
@@ -1941,40 +1944,6 @@ hr.style13 {
 
   }
 
-  /* .signup-form .dropdown {
-    border:#b9b9b9 2px solid!important;
-    margin:0px!important;
-    padding:0px!important;
-    width:100%!important;
-    height:auto!important;
-  } */
-
-
-  /* .signup-dropdown-menu .signup-dropdown-item{
-    display: inline-block;
-    width: 100%;
-    padding: 15rem auto;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: left;
-    white-space: nowrap;
-    background-color: #ffffff;
-    border: 0;
-    border: 0 2px solid #b9b9b9;
-    text-decoration: none;
-    font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 19px;
-
-
-
-  }
-
-  .signup-dropdown-menu .signup-:hover{
-
-    background-color: #f3f3f3;
-
-  } */
 
   .signup- img{
     width: 50px;
