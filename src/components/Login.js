@@ -57,7 +57,7 @@ class Login extends Component {
                     <DropdownButton id="dropdown-basic-button" title="Select User">
                         {Object.keys(users).map((x, i) =>(
                             <Dropdown.Item className="dropdown-item" onClick={(event) => selectUser(event, (users[Object.keys(users)[i]].id).toString()) } id={(users[Object.keys(users)[i]].name).toString()}>
-                                <img src={(users[Object.keys(users)[i]].avatarURL).toString()} alt={(users[Object.keys(users)[i]].name).toString()} />
+                                <img src={(users[Object.keys(users)[i]].avatarURL)} alt={(users[Object.keys(users)[i]].name).toString()} />
                                 {(users[Object.keys(users)[i]].name).toString()}</Dropdown.Item>
                             
                         ))}

@@ -2,12 +2,11 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Dropdown, DropdownButton } from 'react-bootstrap';
-import woman from "../images/woman.png"
-import burglar from "../images/burglar.png"
-import girl from "../images/girl.png"
-import student from "../images/student.png"
-import bussinessman from "../images/bussinessman.png"
+
 import { handleAddUser } from '../actions/users'
+import * as DataAPI from '../utils/_DATA'
+import { useHistory } from "react-router-dom";
+import {givenUsers} from '../utils/Constants'
 
 
 
@@ -30,11 +29,11 @@ function selectUser(e,id){
 class Signup extends Component {
     state = {
         givenUsers : {
-            'woman.png': woman,
-            'burglar.png': burglar,
-            'girl.png': girl,
-            'student.png': student,
-            'bussiness-man.png': bussinessman
+            'woman.png': givenUsers['woman.png'],
+            'burglar.png': givenUsers['burglar.png'],
+            'girl.png': givenUsers['girl.png'],
+            'student.png': givenUsers['student.png'],
+            'bussiness-man.png': givenUsers['bussiness-man.png']
         }
     }
     
@@ -47,7 +46,7 @@ class Signup extends Component {
         let {dispatch} = this.props;
         let optionOneCheck = optionOneText.value.trim().length < 1 || optionOneText.value.trim() === '' || !optionOneText.value.trim();
         let optionTwoCheck = optionTwoText.value.trim().length < 1 || optionTwoText.value.trim() === '' || !optionTwoText.value.trim();
-
+        let id = optionOneText.value.trim() + DataAPI.generateUID().toString();
         if (optionOneCheck){
             console.log('OPTION ONE INPUT is an Empty Field');
             optionOneText.style.border='solid 2px #cc0000';
@@ -63,13 +62,17 @@ class Signup extends Component {
             optionTwoText.style.border='solid 2px #b9b9b9';
 
         if( !optionOneCheck && !optionTwoCheck){
-            console.log('option one and option two are validated',);
-            dispatch(handleAddUser(optionOneText.value.trim(), optionTwoText.value.trim()));
+            console.log('option one and option two are validated', id);
+            dispatch(handleAddUser(id,optionOneText.value.trim(), optionTwoText.value.trim()));
             optionOneText.value='';
             optionTwoText.value='';
-            // optionOneText.placeholder='Enter Option One Here';
-            // optionTwoText.placeholder='Enter Option One Here';
+            optionOneText.placeholder='Enter Option One Here';
+            optionTwoText.placeholder='Enter Option One Here';
+            const { history } = this.props;
+            history.push("/");
         }
+       
+
        
       }
 

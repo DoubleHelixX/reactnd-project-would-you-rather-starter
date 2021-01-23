@@ -40,7 +40,9 @@ class App extends Component {
 // }
 
   render() {
- const {loading} =this.props;
+ const {loading, authedUser} =this.props;
+const { history } = this.props;
+   
  
     return (
       <Router>
@@ -55,18 +57,38 @@ class App extends Component {
               
                {loading === true ?
                <span>
+                 {console.log('history', history)}
+                 <Route exact path='/home' render={({history}) => (
+                    <Redirect to="/" />
+                  )}/>
+                  <Route exact path='/question' render={({history}) => (
+                    <Redirect to="/" />
+                  )}/>
+                  <Route exact path='/leaderboards' render={({history}) => (
+                    <Redirect to="/" />
+                  )}/>
                  <Route exact path='/' component={Login} />
                  <Route exact path='/signup' component = {Signup}/>
 
                </span>
                  :
                  <span>
+                   {console.log('sdss', authedUser, '\n', loading)}
+                  {authedUser===null ? 
                   <Route exact path='/' render={({history}) => (
-                    <Redirect to="/home" />
+                    <Redirect to="/" />
                     )}/>
-                    <Route exact path='/home' component={Dashboard} />
-                    <Route exact path='/question' component = {NewQuestion}/>
-                    <Route exact path='/leaderboards' component = {Leaderboards}/>
+                    :
+                    <span>
+                       <Route exact path='/' render={({history}) => (
+                        <Redirect to="/home" />
+                      )}/>
+                      <Route exact path='/home' component={Dashboard} />
+                      <Route exact path='/question' component = {NewQuestion}/>
+                      <Route exact path='/leaderboards' component = {Leaderboards}/>
+
+                    </span>
+                  }
                 </span>
 
 
@@ -85,6 +107,7 @@ class App extends Component {
 function mapStateToProps ({ authedUser }) {
   console.log('l', authedUser)
   return {
+    authedUser,
     loading: authedUser === null
   }
 }

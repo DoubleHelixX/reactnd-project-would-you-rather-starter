@@ -1,3 +1,5 @@
+import {givenUsers} from '../utils/Constants'
+
 export let users = {
   batman: {
     id: 'batman',
@@ -11,7 +13,7 @@ export let users = {
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
-  Joker: {
+  joker: {
     id: 'joker',
     name: 'The Man Who Laughs',
     avatarURL: "https://cdn.pixabay.com/photo/2020/12/09/16/08/joker-5817831_1280.png",
@@ -205,7 +207,7 @@ export let questions = {
 // 824958pzmla4r070flu6ds
 
 console.log('ids', generateUID (), '\n', generateUID () ,'\n', generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID ()  );
-function generateUID () {
+export function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
@@ -262,10 +264,10 @@ export function _saveQuestion (question) {
 }
 
 function formatUser ({ id,username, img }) {
-  return id: {
+  return {
     id: id,
     name: username,
-    avatarURL: img,
+    avatarURL: givenUsers[img],
     answers: {
       
     },

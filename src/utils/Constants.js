@@ -7,7 +7,11 @@ import {linkedin} from 'react-icons-kit/entypo/linkedin'
 import {socialLinkedin} from 'react-icons-kit/metrize/socialLinkedin'
 import {github} from 'react-icons-kit/icomoon/github'
 import { CgWebsite } from 'react-icons/cg';
-
+import woman from "../images/woman.png"
+import burglar from "../images/burglar.png"
+import girl from "../images/girl.png"
+import student from "../images/student.png"
+import bussinessman from "../images/bussinessman.png"
 
 
 
@@ -69,3 +73,10 @@ export function getRandomColor() {
     return colors[Math.floor(Math.random() * Math.floor(280))];
 }
 
+export let givenUsers = {
+    'woman.png': woman,
+    'burglar.png': burglar,
+    'girl.png': girl,
+    'student.png': student,
+    'bussiness-man.png': bussinessman
+}

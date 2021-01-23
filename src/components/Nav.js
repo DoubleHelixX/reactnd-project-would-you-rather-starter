@@ -17,11 +17,11 @@ class Nav extends Component {
 }
   render() {
   let users = DataAPI.users['sarahedo'];
-  let {authedUser_data} = this.props;
+  let {authedUser, authedUser_data} = this.props;
 
   return (
     <nav className='nav'>
-     {authedUser_data !== undefined && (
+     {authedUser !== null && (
         <ul className='nav-links'>
           <li>
     
@@ -70,7 +70,7 @@ class Nav extends Component {
           </li>
         </ul>
          )}
-     {authedUser_data !== undefined && (
+     {authedUser !== null && (
        <span className='li-logout'>
          {` Welcome back, ${authedUser_data.name}`} 
          <img className ='nav-user-img' src={authedUser_data.avatarURL } alt="account-img" />  
@@ -98,12 +98,13 @@ class Nav extends Component {
 
 function mapStateToProps ({ users, authedUser }) {
   let authedUser_data=undefined;
-  console.log('THIS IS THE NAV',authedUser)
 
-  if (authedUser in users){
+  if (users.hasOwnProperty(authedUser)){
     authedUser_data = users[authedUser];
     console.log('THIS IS THE NAV', authedUser in users, authedUser_data)
   }
+  console.log('THIS IS THE NAV END',authedUser , '\n', authedUser_data)
+
      return {
      authedUser,
      authedUser_data: authedUser_data
