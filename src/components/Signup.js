@@ -49,14 +49,21 @@ class Signup extends Component {
     if (optionOneCheck) {
       console.log("OPTION ONE INPUT is an Empty Field");
       optionOneText.style.border = "solid 2px #cc0000";
-    } else optionOneText.style.border = "solid 2px #b9b9b9";
+    } 
+    else optionOneText.style.border = "solid 2px #b9b9b9";
 
     if (optionTwoCheck) {
       console.log("OPTION TWO INPUT is an Empty Field");
       optionTwoText.style.border = "solid 2px #cc0000";
-    } else optionTwoText.style.border = "solid 2px #b9b9b9";
+    } 
+    else optionTwoText.style.border = "solid 2px #b9b9b9";
 
-    if (!optionOneCheck && !optionTwoCheck) {
+    if (!DataAPI.isValidHttpUrl(optionTwoText.value.trim()) && givenUsers[optionTwoText.value.trim()] === undefined ){
+        optionTwoText.style.border = "solid 2px #cc0000";
+        optionTwoText.placeholder = "Invalid Url - Try again               ";
+        optionTwoText.value= "";
+    }
+    else if (!optionOneCheck && !optionTwoCheck) {
       console.log("option one and option two are validated", id);
       dispatch(
         handleAddUser(
@@ -67,8 +74,9 @@ class Signup extends Component {
       );
       optionOneText.value = "";
       optionTwoText.value = "";
-      optionOneText.placeholder = "Enter Option One Here";
-      optionTwoText.placeholder = "Enter Option One Here";
+      optionTwoText.style.border = "solid 2px #b9b9b9";
+      optionOneText.placeholder = "Enter a Username";
+      optionTwoText.placeholder = "Paste Image Link or Click      to Choose";
       const { history } = this.props;
       history.push("/");
     }

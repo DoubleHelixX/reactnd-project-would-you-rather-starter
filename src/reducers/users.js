@@ -31,15 +31,15 @@ export default function users(state = {}, action) {
     }
 
     case ADD_USER: {
-      console.log(
-        "geejuz: state\n",
-        state,
-        "\ns.quest: ",
-        state.users,
-        "\n s.users ",
-        state.users,
-        action.users
-      );
+      // console.log(
+      //   "geejuz: state\n",
+      //   state,
+      //   "\ns.quest: ",
+      //   state.users,
+      //   "\n s.users ",
+      //   state.users,
+      //   action.users
+      // );
       return {
         ...state,
         ...action.users,

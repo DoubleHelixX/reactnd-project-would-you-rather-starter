@@ -262,11 +262,24 @@ export function _saveQuestion (question) {
   })
 }
 
+export function isValidHttpUrl(string) {
+  let url;
+  
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;  
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
 function formatUser ({ id,username, img }) {
+  let avatar = isValidHttpUrl(img) === true ? img : givenUsers[img];
   return {
     id: id,
     name: username,
-    avatarURL: givenUsers[img],
+    avatarURL: avatar,
     answers: {
       
     },
