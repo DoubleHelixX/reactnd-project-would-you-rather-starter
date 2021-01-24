@@ -65,7 +65,7 @@ class Signup extends Component {
             optionTwoText.value= "";
         }
         else if (!optionOneCheck && !optionTwoCheck) {
-        console.log("option one and option two are validated", id);
+        console.log("option one and option two are validated");
         dispatch(
             handleAddUser(
             id,
