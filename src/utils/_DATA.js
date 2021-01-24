@@ -147,7 +147,7 @@ export let questions = {
     timestamp: 1493579767190,
     optionOne: {
       votes: [],
-      text: 'Make Batman kill me today',
+      text: 'Make Batman break his ONE rule',
     },
     optionTwo: {
       votes: ['joker'],
