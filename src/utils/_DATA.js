@@ -177,7 +177,7 @@ export let questions = {
     },
     optionTwo: {
       votes: ['batman'],
-      text: 'Stay determined to bring these monsters to justice no matter what'
+      text: 'Stay determined to bring these monsters to justice no matter the cost!'
     }
   },
   "tbxzn3e7roix8kexz7m74h": {
