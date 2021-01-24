@@ -58,27 +58,29 @@ class Signup extends Component {
     } 
     else optionTwoText.style.border = "solid 2px #b9b9b9";
 
-    if (!DataAPI.isValidHttpUrl(optionTwoText.value.trim()) && givenUsers[optionTwoText.value.trim()] === undefined ){
-        optionTwoText.style.border = "solid 2px #cc0000";
-        optionTwoText.placeholder = "Invalid Url - Try again               ";
-        optionTwoText.value= "";
-    }
-    else if (!optionOneCheck && !optionTwoCheck) {
-      console.log("option one and option two are validated", id);
-      dispatch(
-        handleAddUser(
-          id,
-          optionOneText.value.trim(),
-          optionTwoText.value.trim()
-        )
-      );
-      optionOneText.value = "";
-      optionTwoText.value = "";
-      optionTwoText.style.border = "solid 2px #b9b9b9";
-      optionOneText.placeholder = "Enter a Username";
-      optionTwoText.placeholder = "Paste Image Link or Click      to Choose";
-      const { history } = this.props;
-      history.push("/");
+    if(!optionOneCheck && !optionTwoCheck){
+        if (!DataAPI.isValidHttpUrl(optionTwoText.value.trim()) && givenUsers[optionTwoText.value.trim()] === undefined ){
+            optionTwoText.style.border = "solid 2px #cc0000";
+            optionTwoText.placeholder = "Invalid Url - Try again               ";
+            optionTwoText.value= "";
+        }
+        else if (!optionOneCheck && !optionTwoCheck) {
+        console.log("option one and option two are validated", id);
+        dispatch(
+            handleAddUser(
+            id,
+            optionOneText.value.trim(),
+            optionTwoText.value.trim()
+            )
+        );
+        optionOneText.value = "";
+        optionTwoText.value = "";
+        optionTwoText.style.border = "solid 2px #b9b9b9";
+        optionOneText.placeholder = "Enter a Username";
+        optionTwoText.placeholder = "Paste Image Link or Click      to Choose";
+        const { history } = this.props;
+        history.push("/");
+        }
     }
   };
 
