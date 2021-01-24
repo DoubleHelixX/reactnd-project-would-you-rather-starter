@@ -173,7 +173,7 @@ export let questions = {
     timestamp: 1493579767190,
     optionOne: {
       votes: ['johndoe','joker'],
-      text: 'Retire from being a detective at this crazy city',
+      text: 'Retire from being a detective in this crazy city',
     },
     optionTwo: {
       votes: ['batman'],
