@@ -206,7 +206,6 @@ export let questions = {
 // 9m3jtr6gafs5fmex8e0arr 
 // 824958pzmla4r070flu6ds
 
-console.log('ids', generateUID (), '\n', generateUID () ,'\n', generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID () , '\n',generateUID ()  );
 export function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }

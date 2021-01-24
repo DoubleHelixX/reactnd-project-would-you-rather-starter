@@ -1669,10 +1669,10 @@ hr.style13 {
       margin-left: .255em;
       vertical-align: .255em;
       content: "";
-      border-top: .3em solid;
-      border-right: .3em solid transparent;
+      border-top: .4em solid;
+      border-right: .4em solid transparent;
       border-bottom: 0;
-      border-left: .3em solid transparent;
+      border-left: .4em solid transparent;
       color: black;
 
     }
@@ -1930,9 +1930,14 @@ hr.style13 {
     position: absolute;
     top:57%;
     /* left:25.2vw; */
-    width:62px;
+    width:64px;
     background-color:transparent;
+    cursor: pointer;
   }
+
+  #signup-dropdown-basic-button:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+}
 
   .signup-form .show {
     border:#b9b9b9 2px solid!important;
