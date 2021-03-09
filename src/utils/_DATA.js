@@ -1,10 +1,13 @@
 import {givenUsers} from '../utils/Constants'
+import batman from "../images/deadpool.png"
+import joker from "../images/joker avatar.png"
+import john from "../images/john doe.jpg"
 
 export let users = {
   batman: {
     id: 'batman',
     name: 'The Dark Knight',
-    avatarURL: "https://cdn.pixabay.com/photo/2020/11/28/03/19/batman-5783520_1280.png",
+    avatarURL: batman,
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -16,7 +19,7 @@ export let users = {
   joker: {
     id: 'joker',
     name: 'The Man Who Laughs',
-    avatarURL: "https://cdn.pixabay.com/photo/2020/12/09/16/08/joker-5817831_1280.png",
+    avatarURL: joker,
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -26,7 +29,7 @@ export let users = {
   johndoe: {
     id: 'johndoe',
     name: 'Detective John Doe',
-    avatarURL: "https://cdn.pixabay.com/photo/2020/11/28/03/21/litle-detective-5783530_1280.jpg" ,
+    avatarURL: john ,
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

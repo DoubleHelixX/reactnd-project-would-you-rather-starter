@@ -36,6 +36,7 @@ class Login extends Component {
 
   render() {
     let { users } = this.props;
+    console.log('users', users);
     return (
       <div className="login-container" key= "login-container">
         <h2 className="login-header" key="login-header">

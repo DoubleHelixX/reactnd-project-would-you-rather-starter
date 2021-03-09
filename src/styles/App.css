@@ -1581,6 +1581,8 @@ hr.style13 {
     height: auto;
     min-width: 45%;
     min-height: 25em;
+    max-height:auto;
+
     margin: 5% auto;
     border: groove 2px #b9b9b9;
     background-color: #f3f3f3;
@@ -1610,8 +1612,9 @@ hr.style13 {
     background-color:white;
     width: 100%;
     margin:auto;
-    border-top:  groove 2px #b9b9b9;
-    overflow: hidden;
+    border-top: groove 2px #b9b9b9;
+    overflow-y: hidden;
+    overflow-x: hidden;
     
   }
 
@@ -1665,7 +1668,7 @@ hr.style13 {
     }
     .dropdown-toggle:after{
       display: inline-block;
-      float:right;
+      float: right;
       margin-top: .255em;
       margin-left: .255em;
       vertical-align: .255em;
@@ -1685,8 +1688,7 @@ hr.style13 {
 
   .dropdown-menu {
     position: relative;
-    width:79.4%;
-
+    width:79.6%;
     min-width: 10rem;
     padding: .5rem 0;
     margin: 0 0 0;
@@ -1699,15 +1701,39 @@ hr.style13 {
     border-left: 2px solid #f3f3f3;
     border-right: 2px solid #f3f3f3;
     border-bottom: 2px solid #f3f3f3;
-
-
+    /* height:100px; */
     background-color: #ffffff;
-
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
+    overflow-y: auto!important;
+    overflow-x: hidden;
+  }
 
+  .dropdown-menu::-webkit-scrollbar-track {
+    border: 1px double rgb(255, 255, 255);
+    padding: 2px 0;
+    background-color:#f3f3f3;
+    border-top-left-radius:5px;
+    border-bottom-right-radius:5px;
+    border-bottom-left-radius:5px; 
+    border-top-right-radius:5px; 
 
   }
+
+  .dropdown-menu::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .dropdown-menu::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgb(0, 0, 0);
+    background-color: #f4f4f4;
+    border: 1px solid rgb(255, 255, 255);
+    border-top-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px; 
+    border-top-right-radius:3px; 
+  }
+
 
   .dropdown-menu .dropdown-item{
     display: inline-block;
@@ -1724,9 +1750,8 @@ hr.style13 {
     text-decoration: none;
     font-family: 'Franklin Gothic medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 19px;
-
-
-
+    
+   
   }
 
   .dropdown-menu .dropdown-item:hover{
@@ -1788,11 +1813,11 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
-    overflow-y: none;
+    overflow-y: hidden;
     overflow-x: none;
   }
 
-  .signup-container::-webkit-scrollbar-track {
+  /* .signup-container::-webkit-scrollbar-track {
     border: 1px double rgb(255, 255, 255);
     padding: 2px 0;
     background-color:#f3f3f3;
@@ -1815,7 +1840,7 @@ hr.style13 {
     border-bottom-right-radius:3px;
     border-bottom-left-radius:3px; 
     border-top-right-radius:3px; 
-  }
+  } */
   .signup-header{
     /* color:rgb(0, 0, 0); */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -1920,6 +1945,8 @@ hr.style13 {
     text-align: center;
     font-family: 'Franklin Gothic light', 'Arial Narrow', Arial, sans-serif;
     font-size: 17px;
+    background-color: #ffffffe8;
+
   }
 
   #signup-dropdown-basic-button{
@@ -1934,18 +1961,30 @@ hr.style13 {
     width:64px;
     background-color:transparent;
     cursor: pointer;
+
   }
 
   #signup-dropdown-basic-button:focus {
     outline: -webkit-focus-ring-color auto 0px;
+    
 }
 
   .signup-form .show {
-    border:#b9b9b9 2px solid!important;
+    border-left: 2px solid #f3f3f3;
+    /* border-right: 2px solid #f3f3f3; */
+    border-bottom: 0px solid #f3f3f3;
+    border-top: none!important;
     margin:0px!important;
     transform: translate3d(-1px, 0px, 0px)!important;
-    width:100%!important;
+    width:100.2%!important;
     top: -30px!important;
+    height: 220px!important;
+    max-height: auto!important;
+
+    /* position: relative; */
+    /* overflow-y: auto!important ;
+    overflow-x: hidden!important; */
+
 
 
   }
