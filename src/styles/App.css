@@ -2122,5 +2122,45 @@ hr.style13 {
 
 
 
+/*-----------------------------------------------------------------------------------
+                      RESPONSIVE DESIGN - MEDIA SCREEN SIZE CSS 
+-----------------------------------------------------------------------------------*/
+
+
+/* Use a media query to add a breakpoint at 1078px: */
+@media screen and (max-width: 1078px) {
+  .li-logout {
+    margin-left: 2vw;
+ 
+  }
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 910px) {
+  .nav-links{
+    display:none;
+  }
+  .li-logout {
+    width: 60%;
+    margin: auto;
+  }
+
+  .Heading-div{
+    height: 65px;
+  }
+  .signature-animate{
+    /* - SIMILAR WIDTH 50% + MARGIN AUTO */
+    display: table;
+    width: 98.5%;
+    margin: auto;
+    
+    /* SECOND WAY TO SKIP A LINE WITH A NON BLOCK ELEMENT AND CONTROL ITS POSITION.  */
+    /*---------------------------
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    ---------------------------*/
+  }
+}
 
 
