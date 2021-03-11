@@ -2,128 +2,149 @@
 
 
 export function viewQuestion(e, i) {
-    //Reset classname associated elements
-    let questionHeaders = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.p-title`);
-    let userImgs = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.question-card-img`);
-    let questions = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.question`);
-    let questionCards = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.question-card`);
-    let showQuestions = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.p-question`);
-    let hidePreviews = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.answer-form`);
-    let showViewBtns = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.p-question-btn`);
-    let sideLineBreakQs = document
-      .getElementById("show-questions-container")
-      .querySelectorAll(`.side-line-break`);
+  let availScreenWidth  = window.screen.availWidth;
+  let mobileScreen = availScreenWidth<=910;
 
-    Object.keys(questionCards).forEach((i) => {
-      userImgs[i].style["animation"] = "img-shrink 1.5s ease";
-      userImgs[i].style["width"] = "115px";
-      userImgs[i].style["height"] = "115px";
-      userImgs[i].style["border"] = "groove 2px #b9b9b9";
+  //Reset classname associated elements
+  let questionHeaders = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.p-title`);
+  let userImgs = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.question-card-img`);
+  let questions = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.question`);
+  let questionCards = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.question-card`);
+  let showQuestions = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.p-question`);
+  let hidePreviews = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.answer-form`);
+  let showViewBtns = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.p-question-btn`);
+  let sideLineBreakQs = document
+    .getElementById("show-questions-container")
+    .querySelectorAll(`.side-line-break`);
+
+  Object.keys(questionCards).forEach((i) => {
+    userImgs[i].style["animation"] = "img-shrink 1.5s ease";
+    userImgs[i].style["width"] = "115px";
+    userImgs[i].style["height"] = "115px";
+    userImgs[i].style["border"] = "groove 2px #b9b9b9";
+
+    questionCards[i].style["border"] = "solid 2px #f3f3f3";
+    sideLineBreakQs[i].style["border"] = "1.5px solid #f3f3f3";
+    sideLineBreakQs[i].style["background-color"] = "#f3f3f3";
+
+    hidePreviews[i].style["animation"] = hidePreviews[i].style[
+      "animation"
+    ].includes("fadein")
+      ? "fadeout 1s ease"
+      : "";
+
+    hidePreviews[i].style["display"] = "none";
+
+    questionHeaders[i].style["animation"] = questionHeaders[i].style[
+      "animation"
+    ].includes("q-text-growth")
+      ? "q-text-shrink 1s"
+      : "";
+
+    if (mobileScreen){
+      questionHeaders[i].style["width"]="105%";
+      questionHeaders[i].style["padding-left"]= 0;
+
+    }
+    else{
+      questionHeaders[i].style["font-size"] = "16px";
       questions[i].style["width"] = "calc(532px - 168px)";
 
-      questionCards[i].style["border"] = "solid 2px #f3f3f3";
-      sideLineBreakQs[i].style["border"] = "1.5px solid #f3f3f3";
-      sideLineBreakQs[i].style["background-color"] = "#f3f3f3";
+      // questionHeaders[i].style["padding-bottom"] = "1%";
+      // questionHeaders[i].style["padding-left"] = "0px";
+    }
 
-      hidePreviews[i].style["animation"] = hidePreviews[i].style[
-        "animation"
-      ].includes("fadein")
-        ? "fadeout 1s ease"
-        : "";
 
-      hidePreviews[i].style["display"] = "none";
+    showQuestions[i].style["animation"] = showQuestions[i].style[
+      "animation"
+    ].includes("fadeOut")
+      ? "fadein 1s"
+      : "";
 
-      questionHeaders[i].style["animation"] = questionHeaders[i].style[
-        "animation"
-      ].includes("q-text-growth")
-        ? "q-text-shrink 1s"
-        : "";
+    showViewBtns[i].style["animation"] = showQuestions[i].style[
+      "animation"
+    ].includes("fadeOut")
+      ? "fadein 2s"
+      : "";
 
-      questionHeaders[i].style["font-size"] = "16px";
-      questionHeaders[i].style["padding-bottom"] = "1%";
-      questionHeaders[i].style["padding-left"] = "0px";
+    showViewBtns[i].style["display"] = "block";
+    showQuestions[i].style["display"] = "block";
+  });
 
-      showQuestions[i].style["animation"] = showQuestions[i].style[
-        "animation"
-      ].includes("fadeOut")
-        ? "fadein 1s"
-        : "";
+  //Reset #id associated elements
 
-      showViewBtns[i].style["animation"] = showQuestions[i].style[
-        "animation"
-      ].includes("fadeOut")
-        ? "fadein 2s"
-        : "";
+  let hidePreview = document
+    .getElementById("show-questions-container")
+    .querySelector(`#p-question-${i}`);
+  let showQuestion = document
+    .getElementById("show-questions-container")
+    .querySelector(`#form-${i}`);
+  let hideViewBtn = document
+    .getElementById("show-questions-container")
+    .querySelector(`#viewBtn-${i}`);
+  let question = document
+    .getElementById("show-questions-container")
+    .querySelector(`#question-${i}`);
+  let questionHeader = document
+    .getElementById("show-questions-container")
+    .querySelector(`#p-title-${i}`);
+  let userImg = document
+    .getElementById("show-questions-container")
+    .querySelector(`#question-card-img-${i}`);
+  let questionCard = document
+    .getElementById("show-questions-container")
+    .querySelector(`#question-card-${i}`);
+  let sideLineBreakQ = document
+    .getElementById("show-questions-container")
+    .querySelector(`#side-line-break-q-${i}`);
 
-      showViewBtns[i].style["display"] = "block";
-      showQuestions[i].style["display"] = "block";
-    });
+  // question.style["width"] = "calc(532px - 188px)";
 
-    //Reset #id associated elements
+  questionCard.style["border"] = "inset 2px #1C6EA4";
 
-    let hidePreview = document
-      .getElementById("show-questions-container")
-      .querySelector(`#p-question-${i}`);
-    let showQuestion = document
-      .getElementById("show-questions-container")
-      .querySelector(`#form-${i}`);
-    let hideViewBtn = document
-      .getElementById("show-questions-container")
-      .querySelector(`#viewBtn-${i}`);
-    let question = document
-      .getElementById("show-questions-container")
-      .querySelector(`#question-${i}`);
-    let questionHeader = document
-      .getElementById("show-questions-container")
-      .querySelector(`#p-title-${i}`);
-    let userImg = document
-      .getElementById("show-questions-container")
-      .querySelector(`#question-card-img-${i}`);
-    let questionCard = document
-      .getElementById("show-questions-container")
-      .querySelector(`#question-card-${i}`);
-    let sideLineBreakQ = document
-      .getElementById("show-questions-container")
-      .querySelector(`#side-line-break-q-${i}`);
+  userImg.style["animation"] = "img-growth 1.5s ease";
+  userImg.style["width"] = "130px";
+  userImg.style["height"] = "130px";
+  userImg.style["border"] = "inset 3px #1C6EA4";
 
-    question.style["width"] = "calc(532px - 188px)";
+  sideLineBreakQ.style["border"] = "1.2px inset #000000";
+  sideLineBreakQ.style["background-color"] = "#0D3550";
 
-    questionCard.style["border"] = "inset 2px #1C6EA4";
+  hidePreview.style["animation"] = "fadeOut 1s";
+  hideViewBtn.style["animation"] = "fadeOut 1s";
+  hidePreview.style.display = "none";
+  hideViewBtn.style.display = "none";
 
-    userImg.style["animation"] = "img-growth 1.5s ease";
-    userImg.style["width"] = "130px";
-    userImg.style["height"] = "130px";
-    userImg.style["border"] = "inset 3px #1C6EA4";
+  questionHeader.style["animation"] = "q-textgrowth 1s";
+  questionHeader.style["font-size"] = "24px";
+  if(mobileScreen==false){
+  questionHeader.style["padding-bottom"] = "5px";
+  questionHeader.style["padding-left"] = "55px";
+  showQuestion.style["margin-left"]="0";
+  }
+  else{
+    questionHeader.style["width"] = "65%";
+    userImg.style["margin-left"] = "175px";
 
-    sideLineBreakQ.style["border"] = "1.2px inset #000000";
-    sideLineBreakQ.style["background-color"] = "#0D3550";
 
-    hidePreview.style["animation"] = "fadeOut 1s";
-    hideViewBtn.style["animation"] = "fadeOut 1s";
-    hidePreview.style.display = "none";
-    hideViewBtn.style.display = "none";
+  }
 
-    questionHeader.style["animation"] = "q-textgrowth 1s";
-    questionHeader.style["font-size"] = "24px";
-    questionHeader.style["padding-bottom"] = "5px";
-    questionHeader.style["padding-left"] = "55px";
-
-    showQuestion.style["animation"] = "fadein 1s";
-    showQuestion.style.display = "inline-block";
+  showQuestion.style["animation"] = "fadein 1s";
+  showQuestion.style.display = "inline-block";
   }
 
 export function viewAnswer(e, uId, q, i) {

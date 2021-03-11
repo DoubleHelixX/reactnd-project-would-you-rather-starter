@@ -2161,6 +2161,82 @@ hr.style13 {
     align-items: center;
     ---------------------------*/
   }
+
+  .question-table{
+    width: 50%;
+    margin: 5% auto 2% auto;
+  }
+  .question-card{
+    width: 80%;
+    min-width: 480px
+  }
+
+  .who p {
+    /* text-align: center; */
+  }
+  .question-card-img{
+    display:block;
+    margin-bottom: 10px;
+    margin-left:180px;
+    float:none;
+  }
+
+  .side-line-break{
+    display: table;
+    float: none;
+    margin:auto;
+    width: 30%;
+    height:0.5px;
+
+    /* border-top: 1.5px solid #f3f3f3;
+    border-right: 0px;
+    border-right: 0px;
+    border-right: 0px; */
+
+
+  }
+  .question{
+    display:block;
+    float:none;
+    width:100%;
+  }
+
+  .question .p-title{
+    display:inline-block;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    float: none;
+  }
+
+  .question .p-question {
+    display:inline-block;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    float: none;
+
+  }
+  .question .p-question-btn{
+    display:inline-block;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    float: none;
+
+  }
+
+  .question-card-body .answer-form{
+    /* display:inline-block; */
+    text-align: center;
+    width: 100%;
+    margin-left: 20px;
+    float: none;
+
+  }
+
+  
+
 }
 
 
