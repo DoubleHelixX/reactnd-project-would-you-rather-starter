@@ -2138,21 +2138,21 @@ hr.style13 {
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 910px) {
   .nav-links{
-    display:none;
+    display:none!important;
   }
   .li-logout {
-    width: 60%;
-    margin: auto;
+    width: 60%!important;
+    margin: auto!important;
   }
 
   .Heading-div{
-    height: 65px;
+    height: 65px!important;
   }
   .signature-animate{
     /* - SIMILAR WIDTH 50% + MARGIN AUTO */
-    display: table;
-    width: 98.5%;
-    margin: auto;
+    display: table!important;
+    width: 98.5%!important;
+    margin: auto!important;
     
     /* SECOND WAY TO SKIP A LINE WITH A NON BLOCK ELEMENT AND CONTROL ITS POSITION.  */
     /*---------------------------
@@ -2163,30 +2163,30 @@ hr.style13 {
   }
 
   .question-table{
-    width: 50%;
-    margin: 5% auto 2% auto;
+    width: 50%!important;
+    margin: 5% auto 2% auto!important;
   }
   .question-card{
-    width: 80%;
-    min-width: 480px
+    width: 80%!important;
+    min-width: 480px!important;
   }
 
   .who p {
     /* text-align: center; */
   }
   .question-card-img{
-    display:block;
-    margin-bottom: 10px;
-    margin-left:180px;
-    float:none;
+    display:block!important;
+    margin-bottom: 10px!important;
+    margin-left:180px!important;
+    float:none!important;
   }
 
   .side-line-break{
-    display: table;
-    float: none;
-    margin:auto;
-    width: 30%;
-    height:0.5px;
+    display: table!important;
+    float: none!important;
+    margin:auto!important;
+    width: 30%!important;
+    height:0.5px!important;
 
     /* border-top: 1.5px solid #f3f3f3;
     border-right: 0px;
@@ -2197,41 +2197,41 @@ hr.style13 {
   }
   .question{
     display:block;
-    float:none;
-    width:100%;
+    float:none!important;
+    width:100%!important;
   }
 
   .question .p-title{
     display:inline-block;
-    text-align: center;
-    width: 50%;
-    margin: auto;
-    float: none;
+    text-align: center!important;
+    width: 50%!important;
+    margin: auto!important;
+    float: none!important;
   }
 
   .question .p-question {
     display:inline-block;
-    text-align: center;
-    width: 50%;
-    margin: auto;
-    float: none;
+    text-align: center!important;
+    width: 50%!important;
+    margin: auto!important;
+    float: none!important;
 
   }
   .question .p-question-btn{
     display:inline-block;
-    text-align: center;
-    width: 50%;
-    margin: auto;
-    float: none;
+    text-align: center!important;
+    width: 50%!important;
+    margin: auto!important;
+    float: none!important;
 
   }
 
   .question-card-body .answer-form{
     /* display:inline-block; */
-    text-align: center;
-    width: 100%;
-    margin-left: 20px;
-    float: none;
+    text-align: center!important;
+    width: 100%!important;
+    margin-left: 20px!important;
+    float: none!important;
 
   }
 
