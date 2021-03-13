@@ -37,6 +37,7 @@ class Dashboard extends Component {
 
   render() {
     let { unanswered, answered, authedUser } = this.props;
+    console.log('hello', this.props);
 
     return (
       <div className="question-table">
@@ -224,6 +225,7 @@ class Dashboard extends Component {
                       id={`vote-one-${answered[i].uId}`}
                       key={`vote-one-${i}`}
                     >
+                      {/* {console.log('sdd', answered[i].optionOne.votes, authedUser,  answered[i].optionOne.votes.includes(authedUser))} */}
                       {answered[i].optionOne.votes.includes(authedUser) && (
                         <img
                           className="vote-img"
@@ -239,7 +241,7 @@ class Dashboard extends Component {
                       <p className="p-wyr" key={`p-wyr-${i}`}>
                         {`Would you rather ${answered[i].optionOne.text
                           .trim()
-                          .toLowerCase()} ?`}
+                          .toLowerCase()}?`}
                       </p>
                       <div
                         className="percentage-bar"
@@ -280,7 +282,7 @@ class Dashboard extends Component {
                       <p className="p-wyr" key={`p-wyr-${i}`}>
                         {`Would you rather ${answered[i].optionTwo.text
                           .trim()
-                          .toLowerCase()} ?`}
+                          .toLowerCase()}?`}
                       </p>
                       <div
                         className="percentage-bar"
@@ -394,6 +396,7 @@ function mapStateToProps({ questions, users, authedUser }) {
   // console.log("answered ", answered, '\n unanaswered', unanswered);
 
   return {
+    authedUser,
     questions,
     users,
     sortedQ: sortedQ,

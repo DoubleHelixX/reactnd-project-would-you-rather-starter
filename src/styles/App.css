@@ -765,9 +765,8 @@ hr.style13 {
     float: left;
     display: inline-block;
     /* border: solid #ff0000 2px; */
-
-
   }
+
   .question .p-title {
     margin-left: 10px;
     margin-top: 0px; 
@@ -907,7 +906,7 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
-    width: 100%;
+    width: 95%;
     height: auto;
     margin:auto 10px;
     padding:auto;
@@ -923,6 +922,9 @@ hr.style13 {
     top: -30px;
     right: -28px;
     display: inline;
+
+    /* top: 50px;
+    right: -3px; */
   }
   .p-wyr{
     color: #0D3550;
@@ -944,7 +946,7 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
-    width: 100%;
+    width: 95%;
     height: auto;
     margin:10px 10px 15px 10px;
     padding:auto;
@@ -952,6 +954,7 @@ hr.style13 {
   }
 
   .vote-two .vote-img{
+    display: inline;
     height: 50px;
     width:55px;
     padding:0;
@@ -959,7 +962,10 @@ hr.style13 {
     position: absolute;
     top: -30px;
     right: -28px;
-    display: inline;
+
+
+    /* top: 50px;
+    right: -3px; */
   }
 
   .percentage-bar{
@@ -1591,6 +1597,8 @@ hr.style13 {
     border-top-left-radius:5px;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
+    overflow-y: hidden;
+    overflow-x: none;
 
   }
 
@@ -1609,6 +1617,7 @@ hr.style13 {
   }
 
   .login-form{
+    position: relative;
     background-color:white;
     width: 100%;
     margin:auto;
@@ -1617,6 +1626,14 @@ hr.style13 {
     overflow-x: hidden;
     
   }
+
+  /* .dropdown-menu .show{
+    overflow-x: scroll;
+    display: block;
+  } */
+  /* .login-form .show{
+    overflow-y: scroll;
+  } */
 
     .login-header-img{
       content:url("../images/atom.png");
@@ -1705,7 +1722,7 @@ hr.style13 {
     background-color: #ffffff;
     border-bottom-right-radius:5px;
     border-bottom-left-radius:5px; 
-    overflow-y: auto!important;
+    overflow-y: scroll!important;
     overflow-x: hidden;
   }
 
@@ -1802,6 +1819,7 @@ hr.style13 {
   -----------------------------------------------------------------------------------*/
     
   .signup-container{
+    position: relative;
     display: inline-block;
     width: auto;
     height: auto;
@@ -1816,6 +1834,7 @@ hr.style13 {
     overflow-y: hidden;
     overflow-x: none;
   }
+  
 
   /* .signup-container::-webkit-scrollbar-track {
     border: 1px double rgb(255, 255, 255);
@@ -1978,7 +1997,7 @@ hr.style13 {
     transform: translate3d(-1px, 0px, 0px)!important;
     width:100.2%!important;
     top: -30px!important;
-    height: 220px!important;
+    height: 190px!important;
     max-height: auto!important;
 
     /* position: relative; */
@@ -2135,8 +2154,22 @@ hr.style13 {
   }
 }
 
+
+
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 910px) {
+
+  .App {
+    width: 50%;
+    min-width: 544px;
+  }
+    
+  .login-container{
+    display: inline-block;
+    width: 490px
+
+  }
+  
   .nav-links{
     display:none!important;
   }
@@ -2163,12 +2196,13 @@ hr.style13 {
   }
 
   .question-table{
+    min-width: 452px!important;
     width: 50%!important;
     margin: 5% auto 2% auto!important;
   }
   .question-card{
     width: 80%!important;
-    min-width: 480px!important;
+    min-width: 380px!important;
   }
 
   .who p {
@@ -2177,7 +2211,7 @@ hr.style13 {
   .question-card-img{
     display:block!important;
     margin-bottom: 10px!important;
-    margin-left:180px!important;
+    margin-left:125px!important;
     float:none!important;
   }
 
@@ -2186,7 +2220,7 @@ hr.style13 {
     float: none!important;
     margin:auto!important;
     width: 30%!important;
-    height:0.5px!important;
+    height:0.5px;
 
     /* border-top: 1.5px solid #f3f3f3;
     border-right: 0px;
@@ -2204,9 +2238,10 @@ hr.style13 {
   .question .p-title{
     display:inline-block;
     text-align: center!important;
-    width: 50%!important;
+    /* width: 50%!important; */
     margin: auto!important;
     float: none!important;
+    padding-left: 0px!important;
   }
 
   .question .p-question {
@@ -2221,7 +2256,8 @@ hr.style13 {
     display:inline-block;
     text-align: center!important;
     width: 50%!important;
-    margin: auto!important;
+    margin: 10px auto!important;
+  
     float: none!important;
 
   }
@@ -2230,8 +2266,12 @@ hr.style13 {
     /* display:inline-block; */
     text-align: center!important;
     width: 100%!important;
-    margin-left: 20px!important;
+    margin-left: 0px!important;
     float: none!important;
+
+  }
+
+  .submit-answer{
 
   }
 
@@ -2240,3 +2280,79 @@ hr.style13 {
 }
 
 
+/*-----------------------------------------------------------------------------------
+                      RESPONSIVE DESIGN - MEDIA SCREEN SIZE CSS DESKTOP
+-----------------------------------------------------------------------------------*/
+@media screen and (min-width: 911px) {
+  
+  .question-table{
+    margin: auto!important;
+    margin-top: 5%!important;
+    margin-bottom: 2%!important;
+    width:602px!important;
+    min-width: 502px!important;
+    
+  }
+  .question-card-img{
+    margin: 20px 20px 20px 20px!important;
+    display: inline!important;
+    float:left!important;
+  }
+
+ .side-line-break{
+    margin-top: 5%!important;
+    height:115px;
+    float: left!important;
+    display: inline-block!important;
+
+  }
+  .question{
+    width: calc(532px - 168px)!important;
+    float: left!important;
+    display: inline-block!important;
+
+  }
+
+  .question .p-title{
+
+    margin-left: 10px!important;
+    margin-top: 0px!important; 
+    margin-bottom: 5px!important;
+ 
+    display:block!important;
+    text-align: left!important;
+   
+  }
+
+  .question .p-question {
+
+
+    margin-left: 10px!important;
+    margin-top: 20px!important; 
+    margin-bottom: 0!important;
+    /* display: block!important; */
+    text-align: left!important;
+    width:auto!important;
+
+  }
+   
+  .question .p-question-btn{
+
+
+    text-align: center!important;
+    width: 98%!important;
+    margin:30px 10px auto 10px!important;
+    /* display: block!important; */
+
+  }
+
+  .question-card-body .answer-form{
+   
+
+    width:100%;
+    vertical-align: middle;
+
+  } 
+
+  
+}

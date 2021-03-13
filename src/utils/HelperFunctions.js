@@ -56,8 +56,8 @@ export function viewQuestion(e, i) {
       : "";
 
     if (mobileScreen){
-      questionHeaders[i].style["width"]="105%";
-      questionHeaders[i].style["padding-left"]= 0;
+      questionHeaders[i].style["width"]="100%";
+      questionHeaders[i].style["padding-left"]= '0px';
 
     }
     else{
@@ -135,6 +135,9 @@ export function viewQuestion(e, i) {
   questionHeader.style["padding-bottom"] = "5px";
   questionHeader.style["padding-left"] = "55px";
   showQuestion.style["margin-left"]="0";
+  showQuestion.style["text-align"]="center";
+
+
   }
   else{
     questionHeader.style["width"] = "65%";
@@ -148,7 +151,9 @@ export function viewQuestion(e, i) {
   }
 
 export function viewAnswer(e, uId, q, i) {
-      
+  let availScreenWidth  = window.screen.availWidth;
+  let mobileScreen = availScreenWidth<=910;
+
     //Reset classname associated elements
 
     let questionHeaders = document
@@ -189,14 +194,22 @@ export function viewAnswer(e, uId, q, i) {
      
       yourVotes[i].style["display"] = "none";
       othersVotes[i].style["display"] = "none";
+      if (!mobileScreen){
+        sideLineBreaks[i].style["height"] = "115px";
 
-      sideLineBreaks[i].style["height"] = "115px";
+      }
+      else
+        sideLineBreaks[i].style["height"] = "0.5px";
+
+      sideLineBreaks[i].style["border"] ="1.5px solid #f3f3f3";
+      sideLineBreaks[i].style["background-color"] ="#f3f3f3";
+
       sideLineBreaks[i].style["animation"] = sideLineBreaks[i].style[
         "animation"
       ].includes("side-line-break-growth")
         ? "side-line-break-shrink 1.5s ease"
         : "";
-
+    
       questions[i].style["width"] = "calc(532px - 168px)";
 
       questionCards[i].style["border"] = "solid 2px #f3f3f3";
@@ -254,9 +267,18 @@ export function viewAnswer(e, uId, q, i) {
     let voteImg2 = document
       .getElementById("show-answers-container")
       .querySelector(`#vote-img-${uId + i.toString() + "2"}`);
+    if (mobileScreen==true){
+      sideLineBreak.style["height"] = "0.5px";
+    }
+    else {
+      sideLineBreak.style["height"] = "310px";
+      sideLineBreak.style["animation"] = "side-line-break-growth 1.5s ease";
+      userImg.style["margin-top"] = "110px!important";
+    }
+    sideLineBreaks[i].style["border"] = "1.2px inset #000000";
+    sideLineBreaks[i].style["background-color"] = "#0D3550";
 
-    sideLineBreak.style["height"] = "310px";
-    sideLineBreak.style["animation"] = "side-line-break-growth 1.5s ease";
+
 
     question.style["width"] = "calc(532px - 188px)";
 
@@ -265,7 +287,7 @@ export function viewAnswer(e, uId, q, i) {
     userImg.style["animation"] = "img-growth 1.5s ease";
     userImg.style["width"] = "130px";
     userImg.style["height"] = "130px";
-    userImg.style["margin-top"] = "110px";
+    
     userImg.style["border"] = "inset 3px #1C6EA4";
 
     hidePreview.style["animation"] = "fadeOut 1s";
