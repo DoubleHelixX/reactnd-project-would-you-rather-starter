@@ -1726,6 +1726,8 @@ hr.style13 {
     overflow-x: hidden;
   }
 
+  /* FIGURE OUT HOW TO CHANGE THE LENGTH OF THE SCROLL BAR FOR THE FIRST FORM - LOGIN FORM */
+
   .dropdown-menu::-webkit-scrollbar-track {
     border: 1px double rgb(255, 255, 255);
     padding: 2px 0;
