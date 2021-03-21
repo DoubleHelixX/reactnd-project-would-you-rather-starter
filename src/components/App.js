@@ -41,6 +41,9 @@ class App extends Component {
           <div className="border-body">
             <LoadingBar className="loading" />
             <hr className="style13" />
+            {/* <div className='ham'>
+
+            </div> */}
 
             {loading === true ? (
               <span>

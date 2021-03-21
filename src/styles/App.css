@@ -278,6 +278,36 @@
 
 }
 
+@keyframes nav-links-left{
+  0% { 
+    left: 18px;
+    }
+  100% {
+    left: -880px;
+  }
+}
+
+@keyframes nav-links-right{
+  0% { 
+    left:-880px;
+    opacity: 0; 
+}
+  50% { left: 18px }
+  100% {
+    left:15px;
+    opacity: 1; 
+  }
+}
+
+@keyframes nav-up{
+  0% { height: 114px; }
+  100% {height: 64px;}
+}
+
+@keyframes nav-down{
+  0% { height: 64px; }
+  100% {height: 114px;}
+}
 
 
 
@@ -291,7 +321,7 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
   /* border-top: 7px outset #1C6EA4;
-  border-right: 2px solid #1C6EA4;
+  border-left: 2px solid #1C6EA4;
   border-left: 2px solid #1C6EA4; */
   overflow: hidden;
   border: 5px groove #1C6EA4;
@@ -2184,13 +2214,18 @@ hr.style13 {
     overflow: hidden;
 
   }
-  
-  .nav-links{
+
+  .nav
+{
+  overflow: initial;
+}  
+  /* .nav-links{
     display:none!important;
-  }
+  } */
   .li-logout {
     /* width: 60%!important; */
     margin: auto!important;
+    margin-left: 15px!important;
   }
 
   .Heading-div{
@@ -2230,7 +2265,7 @@ hr.style13 {
     float:none!important;
   }
 
-  ..side-line-break{
+  .side-line-break{
     display: table!important;
     float: none!important;
     margin:auto!important;
@@ -2381,6 +2416,56 @@ hr.style13 {
   padding-right: 70px;
 }
 
+.hamburger-react{
+  /* border: 2px grey solid; */
+  margin-left: 40px;
+  margin-right: 0px;
+  margin-top: 10px;
+
+}
+
+.ham{
+  /* border: 1.5px white double; */
+  border-top-left-radius:3px;
+  border-bottom-right-radius:3px;
+  border-bottom-left-radius:3px; 
+  border-top-right-radius:3px; 
+  margin: 0 10px 10px 10px;
+  width: 91%;
+  height: 120px;
+  position: absolute;
+  top: 55px;
+  left: -880px;
+  /* background-color: #ffffffe7 ; */
+
+}
+.ham .nav-links{
+  width: auto;
+}
+
+.ham .nav-links li:first-child {
+  padding-left: 0;
+}
+
+.nav-down{
+  animation: nav-down 1s ease-in-out;
+  height: 114px;
+}
+.nav-up{
+  animation: nav-up 1s ease-in-out;
+  height: 64px;
+}
+.nav-links-left{
+  animation: nav-links-left 1s ease-in-out;
+  left: -880px;
+
+}
+.nav-links-right{
+  animation: nav-links-right 1s ease-in-out;
+  display: flex;
+  left: 15px;
+
+}
 
 
 }
@@ -2459,6 +2544,7 @@ hr.style13 {
     vertical-align: middle;
 
   } 
+
 
   
 }
