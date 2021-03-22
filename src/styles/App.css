@@ -2345,7 +2345,8 @@ hr.style13 {
 }
 
 .l-card {
-  min-width: 450px;
+  width: 70%;
+  min-width: 400px;
   height: max-content;
   max-height: max-content;
 
