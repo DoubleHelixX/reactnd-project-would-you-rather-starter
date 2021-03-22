@@ -26,10 +26,12 @@ class Nav extends Component {
             if (toggled) {
                // open a menu
                nav[0].classList.add("nav-down");
+               nav[0].classList.remove("nav-up");
                navLinks.classList.remove("nav-links-left");
                navLinks.classList.add("nav-links-right");
             } else {
                // close a menu
+               nav[0].classList.add("nav-up");
                nav[0].classList.remove("nav-down");
                navLinks.classList.remove("nav-links-right");
                navLinks.classList.add("nav-links-left");

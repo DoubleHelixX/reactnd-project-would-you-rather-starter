@@ -2449,15 +2449,16 @@ hr.style13 {
 
 .nav-down{
   animation: nav-down 1s ease-in-out;
-  height: 114px;
+  height: 114px!important;
 }
 .nav-up{
   animation: nav-up 1s ease-in-out;
-  height: 64px;
+  height: 64px!important;
 }
 .nav-links-left{
-  animation: nav-links-left 1s ease-in-out;
-  left: -880px;
+  /* animation: nav-links-left .1s ease-in-out;
+  left: -880px; */
+  display: none;
 
 }
 .nav-links-right{
