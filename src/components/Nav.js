@@ -17,7 +17,7 @@ class Nav extends Component {
 
     return (
       <nav className="nav">
-         {authedUser !== null && mobileScreen && (
+         {authedUser !== null && (
           <Hamburger direction="right"  size={20} color="#4FD1C5" onToggle={toggled => {
             let nav = document.getElementsByClassName('nav');
             let navLinks = document.getElementById('mobile-links');
@@ -27,7 +27,9 @@ class Nav extends Component {
                // open a menu
                nav[0].classList.add("nav-down");
                nav[0].classList.remove("nav-up");
-               navLinks.classList.remove("nav-links-left");
+                if (navLinks.classList.contains("nav-links-left")){
+                  navLinks.classList.remove("nav-links-left");
+                }
                navLinks.classList.add("nav-links-right");
             } else {
                // close a menu
@@ -42,7 +44,7 @@ class Nav extends Component {
          )
         }
 
-        {authedUser !== null && !mobileScreen && (
+        {authedUser !== null && (
           <ul className="nav-links">
             <li>
               <NavLink
@@ -122,7 +124,7 @@ class Nav extends Component {
             </NavLink>
           </span>
         )}
-
+        {authedUser !== null && mobileScreen && (
         <div className='ham' id ='mobile-links'>
         <ul className="nav-links" >
             <li>
@@ -178,6 +180,8 @@ class Nav extends Component {
           </ul>
         
         </div>
+        )}
+
       </nav>
     );
   }

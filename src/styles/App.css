@@ -2439,7 +2439,12 @@ hr.style13 {
   /* background-color: #ffffffe7 ; */
 
 }
+.nav-links{
+  display:none;
+}
+
 .ham .nav-links{
+  display: flex;
   width: auto;
 }
 
@@ -2449,11 +2454,11 @@ hr.style13 {
 
 .nav-down{
   animation: nav-down 1s ease-in-out;
-  height: 114px!important;
+  height: 114px;
 }
 .nav-up{
   animation: nav-up 1s ease-in-out;
-  height: 64px!important;
+  height: 64px;
 }
 .nav-links-left{
   /* animation: nav-links-left .1s ease-in-out;
@@ -2462,7 +2467,7 @@ hr.style13 {
 
 }
 .nav-links-right{
-  animation: nav-links-right 1s ease-in-out;
+  animation: nav-links-right 2s ease-in-out;
   display: flex;
   left: 15px;
 
@@ -2546,6 +2551,15 @@ hr.style13 {
 
   } 
 
-
+  .ham{
+    display:none;
+  }
+  
+  .hamburger-react{
+    display: none;
+  }
+  .nav-links{
+    display: flexbox;
+  }
   
 }
