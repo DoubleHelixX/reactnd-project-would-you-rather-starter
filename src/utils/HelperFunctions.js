@@ -96,9 +96,9 @@ export function viewQuestion(e, i) {
   let hideViewBtn = document
     .getElementById("show-questions-container")
     .querySelector(`#viewBtn-${i}`);
-  let question = document
-    .getElementById("show-questions-container")
-    .querySelector(`#question-${i}`);
+  // let question = document
+  //   .getElementById("show-questions-container")
+  //   .querySelector(`#question-${i}`);
   let questionHeader = document
     .getElementById("show-questions-container")
     .querySelector(`#p-title-${i}`);
@@ -131,7 +131,7 @@ export function viewQuestion(e, i) {
 
   questionHeader.style["animation"] = "q-textgrowth 1s";
   questionHeader.style["font-size"] = "24px";
-  if(mobileScreen==false){
+  if(mobileScreen===false){
   questionHeader.style["padding-bottom"] = "5px";
   questionHeader.style["padding-left"] = "55px";
   showQuestion.style["margin-left"]="0";
@@ -267,7 +267,7 @@ export function viewAnswer(e, uId, q, i) {
     let voteImg2 = document
       .getElementById("show-answers-container")
       .querySelector(`#vote-img-${uId + i.toString() + "2"}`);
-    if (mobileScreen==true){
+    if (mobileScreen===true){
       sideLineBreak.style["height"] = "0.5px";
     }
     else {

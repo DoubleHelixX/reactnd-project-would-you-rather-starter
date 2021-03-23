@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
 import { HashRouter } from "react-router-dom"; //BrowserRouter for local deployment
+import MetaTags from 'react-meta-tags';
 
 const store = createStore(reducer, middleware);
 
@@ -16,6 +17,9 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
+    <MetaTags>
+      <meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1, user-scalable=yes" />
+    </MetaTags>
   </HashRouter>,
   document.getElementById("root")
 );
