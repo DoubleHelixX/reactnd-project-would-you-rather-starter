@@ -16,6 +16,8 @@ import LoadingBar from "react-redux-loading";
 import React, { Component, Fragment } from "react";
 import { Route, Redirect } from "react-router-dom";
 
+
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
