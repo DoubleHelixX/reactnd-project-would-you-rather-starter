@@ -1,14 +1,73 @@
 # Would You Rather Project
+-----
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+### Introduction
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+Would You Rather is a game-themed React/Redux web app that serves as the final assessment project for Udacity's React & Redux course. The design itself was inspired by a previous project design for the same course that was shown as an example however, much of the design and Javascript functionaly was created based on my vision for the app.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+### Functionality
+
+* Users can log-in or sign-up to access the site and play the game. 
+* View, answer, or create questions as that user. 
+* View overall rankings in the leaderboards section.
+
+### Tech Stack
+
+The tech stack will include:
+
+* **ReactJS** 
+* **Redux** 
+* **Redux-Thunk** 
+* **HTML5**, **CSS**, and **Javascript** 
+
+### Main Files: Project Structure
+
+  ```sh
+  ├── README.md
+  ├── src
+    ├── actions 
+        ├── authedUser.js
+        ├── questions.js
+        ├── shared.js
+        ├── users.js
+    ├── components
+        ├── App.js
+        ├── Dashboard.js
+        ├── Footer.js
+        ├── Leaderboards.js
+        ├── Login.js
+        ├── Nav.js
+        ├── NewQuestion.js
+        ├── Signup.js
+        ├── Title.js
+        ├── TitleAnimate.js
+     ├── images
+         ├── multiple images (PNG format)
+     ├── middleware
+        ├── index.js
+        ├── logger.js
+    ├── reducers
+        ├── authedUser.js
+        ├── index.js
+        ├── questions.js
+        ├── users.js
+    ├── styles
+        ├── App.css
+        ├── index.css
+        ├── font styles (TIFF format)
+    ├── utils
+        ├── _DATA.js
+        ├── Constants.js
+        ├── HelperFunctions.js
+    ├── App.test.js
+    ├── index.js
+```
+
+The `_DATA.js` file represents a fake database and methods that let you access the data. Alternatly there is a firebase connection as well to access data (depreciated).
 
 ## Data
 
-There are two types of objects stored in our database:
+There are two types of objects stored in the database:
 
 * Users
 * Questions
