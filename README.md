@@ -3,7 +3,7 @@
 
 ### Introduction
 
-Would You Rather is a game-themed React/Redux web app that serves as the final assessment project for Udacity's React & Redux course. The design itself was inspired by a previous project design for the same course that was shown as an example however, much of the design and Javascript functionaly was created based on my vision for the app.
+Would You Rather is a game-themed React/Redux web app that serves as the final assessment project for Udacity's React & Redux course. The design itself was inspired by a previous project design for the same course that was shown as an example however, much of the design and Javascript functionaly was created based on my vision for the capstone app.
 
 ### Functionality
 
